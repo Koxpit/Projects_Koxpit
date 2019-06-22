@@ -1,0 +1,10 @@
+C:\Koxpit\Project\Project\bin\Debug\Project.exe.config
+C:\Koxpit\Project\Project\bin\Debug\Project.exe
+C:\Koxpit\Project\Project\bin\Debug\Project.pdb
+C:\Koxpit\Project\Project\obj\Debug\Project.csprojAssemblyReference.cache
+C:\Koxpit\Project\Project\obj\Debug\Project.Form1.resources
+C:\Koxpit\Project\Project\obj\Debug\Project.Properties.Resources.resources
+C:\Koxpit\Project\Project\obj\Debug\Project.csproj.GenerateResource.cache
+C:\Koxpit\Project\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
+C:\Koxpit\Project\Project\obj\Debug\Project.exe
+C:\Koxpit\Project\Project\obj\Debug\Project.pdb
