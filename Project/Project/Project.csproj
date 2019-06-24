@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="C:\Program Files %28x86%29\Microsoft Visual Studio\2017\Community\Common7\IDE\в.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C:\Program Files %28x86%29\Microsoft Visual Studio\2017\Community\Common7\IDE\в.Designer.cs">
+      <DependentUpon>в.cs</DependentUpon>
+    </Compile>
     <Compile Include="Connect.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -54,6 +60,63 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Авторизация.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Авторизация.Designer.cs">
+      <DependentUpon>Авторизация.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Директор.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Директор.Designer.cs">
+      <DependentUpon>Директор.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Заказчик.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Заказчик.Designer.cs">
+      <DependentUpon>Заказчик.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Изделия.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Изделия.Designer.cs">
+      <DependentUpon>Изделия.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Кладовщик.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Кладовщик.Designer.cs">
+      <DependentUpon>Кладовщик.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Менеджер.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Менеджер.Designer.cs">
+      <DependentUpon>Менеджер.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Регистрация.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Регистрация.Designer.cs">
+      <DependentUpon>Регистрация.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ткани.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ткани.Designer.cs">
+      <DependentUpon>Ткани.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Фурнитуры.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Фурнитуры.Designer.cs">
+      <DependentUpon>Фурнитуры.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="C:\Program Files %28x86%29\Microsoft Visual Studio\2017\Community\Common7\IDE\в.resx">
+      <DependentUpon>в.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -66,6 +129,33 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Авторизация.resx">
+      <DependentUpon>Авторизация.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Директор.resx">
+      <DependentUpon>Директор.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Заказчик.resx">
+      <DependentUpon>Заказчик.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Изделия.resx">
+      <DependentUpon>Изделия.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Кладовщик.resx">
+      <DependentUpon>Кладовщик.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Менеджер.resx">
+      <DependentUpon>Менеджер.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Регистрация.resx">
+      <DependentUpon>Регистрация.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ткани.resx">
+      <DependentUpon>Ткани.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Фурнитуры.resx">
+      <DependentUpon>Фурнитуры.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

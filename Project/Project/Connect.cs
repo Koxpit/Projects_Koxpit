@@ -17,7 +17,6 @@ namespace Project
             try
             {
                 connection.Open();
-             //   MessageBox.Show("Успешное подключение");
             } catch
             {
                 MessageBox.Show("Не удалось установить соединение.");
@@ -25,6 +24,5 @@ namespace Project
             }
             return connection;
         }
-     //   Data Source = USER - ПК\SQLEXPRESS;Integrated Security = SSPI; Initial Catalog = Алиев
     }
 }

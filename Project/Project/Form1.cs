@@ -17,6 +17,7 @@ namespace Project
         {
             InitializeComponent();
         }
+
         public void OutputText()
         {
             string sql = $"select * from Ткань where Артикул='16314397'";
@@ -29,10 +30,9 @@ namespace Project
             } else MessageBox.Show("Нет данных");
             con.Close();
         }
+
         public void Output()
         {
-           // string sql = "select * from Ткань";
-            //SqlConnection con = Connect.CreateConnection();
             SqlCommand command = new SqlCommand("select * from Ткань", Connect.CreateConnection());
             SqlDataReader reader = command.ExecuteReader();
             DataTable dt = new DataTable();
@@ -44,6 +44,22 @@ namespace Project
             else MessageBox.Show("Нет данных");
             Connect.CreateConnection().Close();
         }
+
+        public void Output_Image()
+        {
+
+        }
+
+        public void AddNote()
+        {
+
+        }
+
+        public void DelNote()
+        {
+
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             Output();
