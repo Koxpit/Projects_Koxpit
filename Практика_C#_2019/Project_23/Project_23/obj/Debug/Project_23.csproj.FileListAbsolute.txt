@@ -1,0 +1,10 @@
+C:\Koxpit\Практика\Project_23\Project_23\bin\Debug\Project_23.exe.config
+C:\Koxpit\Практика\Project_23\Project_23\bin\Debug\Project_23.exe
+C:\Koxpit\Практика\Project_23\Project_23\bin\Debug\Project_23.pdb
+C:\Koxpit\Практика\Project_23\Project_23\obj\Debug\Project_23.csprojAssemblyReference.cache
+C:\Koxpit\Практика\Project_23\Project_23\obj\Debug\Project_23.Form1.resources
+C:\Koxpit\Практика\Project_23\Project_23\obj\Debug\Project_23.Properties.Resources.resources
+C:\Koxpit\Практика\Project_23\Project_23\obj\Debug\Project_23.csproj.GenerateResource.cache
+C:\Koxpit\Практика\Project_23\Project_23\obj\Debug\Project_23.csproj.CoreCompileInputs.cache
+C:\Koxpit\Практика\Project_23\Project_23\obj\Debug\Project_23.exe
+C:\Koxpit\Практика\Project_23\Project_23\obj\Debug\Project_23.pdb

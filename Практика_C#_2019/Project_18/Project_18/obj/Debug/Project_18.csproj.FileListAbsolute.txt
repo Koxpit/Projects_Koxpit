@@ -1,0 +1,19 @@
+C:\Git\Koxpit\src\Project_18\Project_18\bin\Debug\Project_18.exe.config
+C:\Git\Koxpit\src\Project_18\Project_18\bin\Debug\Project_18.exe
+C:\Git\Koxpit\src\Project_18\Project_18\bin\Debug\Project_18.pdb
+C:\Git\Koxpit\src\Project_18\Project_18\obj\Debug\Project_18.csprojResolveAssemblyReference.cache
+C:\Git\Koxpit\src\Project_18\Project_18\obj\Debug\Project_18.Form1.resources
+C:\Git\Koxpit\src\Project_18\Project_18\obj\Debug\Project_18.Properties.Resources.resources
+C:\Git\Koxpit\src\Project_18\Project_18\obj\Debug\Project_18.csproj.GenerateResource.Cache
+C:\Git\Koxpit\src\Project_18\Project_18\obj\Debug\Project_18.exe
+C:\Git\Koxpit\src\Project_18\Project_18\obj\Debug\Project_18.pdb
+E:\Новая папка\Учеба\РПМ\Практика\Project_18\Project_18\bin\Debug\Project_18.exe.config
+E:\Новая папка\Учеба\РПМ\Практика\Project_18\Project_18\bin\Debug\Project_18.exe
+E:\Новая папка\Учеба\РПМ\Практика\Project_18\Project_18\bin\Debug\Project_18.pdb
+E:\Новая папка\Учеба\РПМ\Практика\Project_18\Project_18\obj\Debug\Project_18.csprojAssemblyReference.cache
+E:\Новая папка\Учеба\РПМ\Практика\Project_18\Project_18\obj\Debug\Project_18.Form1.resources
+E:\Новая папка\Учеба\РПМ\Практика\Project_18\Project_18\obj\Debug\Project_18.Properties.Resources.resources
+E:\Новая папка\Учеба\РПМ\Практика\Project_18\Project_18\obj\Debug\Project_18.csproj.GenerateResource.cache
+E:\Новая папка\Учеба\РПМ\Практика\Project_18\Project_18\obj\Debug\Project_18.csproj.CoreCompileInputs.cache
+E:\Новая папка\Учеба\РПМ\Практика\Project_18\Project_18\obj\Debug\Project_18.exe
+E:\Новая папка\Учеба\РПМ\Практика\Project_18\Project_18\obj\Debug\Project_18.pdb

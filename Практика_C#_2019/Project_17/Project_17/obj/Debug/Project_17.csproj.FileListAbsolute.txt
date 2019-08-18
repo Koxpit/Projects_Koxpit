@@ -1,0 +1,10 @@
+E:\Новая папка\Учеба\РПМ\Практика\Project_17\Project_17\bin\Debug\Project_17.exe.config
+E:\Новая папка\Учеба\РПМ\Практика\Project_17\Project_17\bin\Debug\Project_17.exe
+E:\Новая папка\Учеба\РПМ\Практика\Project_17\Project_17\bin\Debug\Project_17.pdb
+E:\Новая папка\Учеба\РПМ\Практика\Project_17\Project_17\obj\Debug\Project_17.csprojAssemblyReference.cache
+E:\Новая папка\Учеба\РПМ\Практика\Project_17\Project_17\obj\Debug\Project_17.Form1.resources
+E:\Новая папка\Учеба\РПМ\Практика\Project_17\Project_17\obj\Debug\Project_17.Properties.Resources.resources
+E:\Новая папка\Учеба\РПМ\Практика\Project_17\Project_17\obj\Debug\Project_17.csproj.GenerateResource.cache
+E:\Новая папка\Учеба\РПМ\Практика\Project_17\Project_17\obj\Debug\Project_17.csproj.CoreCompileInputs.cache
+E:\Новая папка\Учеба\РПМ\Практика\Project_17\Project_17\obj\Debug\Project_17.exe
+E:\Новая папка\Учеба\РПМ\Практика\Project_17\Project_17\obj\Debug\Project_17.pdb

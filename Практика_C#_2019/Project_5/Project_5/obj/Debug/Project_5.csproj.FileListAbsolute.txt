@@ -1,0 +1,19 @@
+c:\users\1\source\repos\Project_5\Project_5\bin\Debug\Project_5.exe.config
+c:\users\1\source\repos\Project_5\Project_5\bin\Debug\Project_5.exe
+c:\users\1\source\repos\Project_5\Project_5\bin\Debug\Project_5.pdb
+c:\users\1\source\repos\Project_5\Project_5\obj\Debug\Project_5.csprojAssemblyReference.cache
+c:\users\1\source\repos\Project_5\Project_5\obj\Debug\Project_5.Form1.resources
+c:\users\1\source\repos\Project_5\Project_5\obj\Debug\Project_5.Properties.Resources.resources
+c:\users\1\source\repos\Project_5\Project_5\obj\Debug\Project_5.csproj.GenerateResource.cache
+c:\users\1\source\repos\Project_5\Project_5\obj\Debug\Project_5.csproj.CoreCompileInputs.cache
+c:\users\1\source\repos\Project_5\Project_5\obj\Debug\Project_5.exe
+c:\users\1\source\repos\Project_5\Project_5\obj\Debug\Project_5.pdb
+F:\Новая папка\Учеба\РПМ\Практика\Project_5\Project_5\bin\Debug\Project_5.exe.config
+F:\Новая папка\Учеба\РПМ\Практика\Project_5\Project_5\bin\Debug\Project_5.exe
+F:\Новая папка\Учеба\РПМ\Практика\Project_5\Project_5\bin\Debug\Project_5.pdb
+F:\Новая папка\Учеба\РПМ\Практика\Project_5\Project_5\obj\Debug\Project_5.csprojResolveAssemblyReference.cache
+F:\Новая папка\Учеба\РПМ\Практика\Project_5\Project_5\obj\Debug\Project_5.Form1.resources
+F:\Новая папка\Учеба\РПМ\Практика\Project_5\Project_5\obj\Debug\Project_5.Properties.Resources.resources
+F:\Новая папка\Учеба\РПМ\Практика\Project_5\Project_5\obj\Debug\Project_5.csproj.GenerateResource.Cache
+F:\Новая папка\Учеба\РПМ\Практика\Project_5\Project_5\obj\Debug\Project_5.exe
+F:\Новая папка\Учеба\РПМ\Практика\Project_5\Project_5\obj\Debug\Project_5.pdb

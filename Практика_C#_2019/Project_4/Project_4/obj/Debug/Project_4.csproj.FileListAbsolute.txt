@@ -1,0 +1,19 @@
+C:\Koxpit\Практика\Project_4\Project_4\bin\Debug\Project_4.exe.config
+C:\Koxpit\Практика\Project_4\Project_4\bin\Debug\Project_4.exe
+C:\Koxpit\Практика\Project_4\Project_4\bin\Debug\Project_4.pdb
+C:\Koxpit\Практика\Project_4\Project_4\obj\Debug\Project_4.csprojAssemblyReference.cache
+C:\Koxpit\Практика\Project_4\Project_4\obj\Debug\Project_4.Form1.resources
+C:\Koxpit\Практика\Project_4\Project_4\obj\Debug\Project_4.Properties.Resources.resources
+C:\Koxpit\Практика\Project_4\Project_4\obj\Debug\Project_4.csproj.GenerateResource.cache
+C:\Koxpit\Практика\Project_4\Project_4\obj\Debug\Project_4.csproj.CoreCompileInputs.cache
+C:\Koxpit\Практика\Project_4\Project_4\obj\Debug\Project_4.exe
+C:\Koxpit\Практика\Project_4\Project_4\obj\Debug\Project_4.pdb
+F:\Новая папка\Учеба\РПМ\Практика\Project_4\Project_4\bin\Debug\Project_4.exe.config
+F:\Новая папка\Учеба\РПМ\Практика\Project_4\Project_4\bin\Debug\Project_4.exe
+F:\Новая папка\Учеба\РПМ\Практика\Project_4\Project_4\bin\Debug\Project_4.pdb
+F:\Новая папка\Учеба\РПМ\Практика\Project_4\Project_4\obj\Debug\Project_4.csprojResolveAssemblyReference.cache
+F:\Новая папка\Учеба\РПМ\Практика\Project_4\Project_4\obj\Debug\Project_4.Form1.resources
+F:\Новая папка\Учеба\РПМ\Практика\Project_4\Project_4\obj\Debug\Project_4.Properties.Resources.resources
+F:\Новая папка\Учеба\РПМ\Практика\Project_4\Project_4\obj\Debug\Project_4.csproj.GenerateResource.Cache
+F:\Новая папка\Учеба\РПМ\Практика\Project_4\Project_4\obj\Debug\Project_4.exe
+F:\Новая папка\Учеба\РПМ\Практика\Project_4\Project_4\obj\Debug\Project_4.pdb

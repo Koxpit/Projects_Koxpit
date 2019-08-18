@@ -1,0 +1,28 @@
+C:\Koxpit\Практика\Project_11\Project_11\bin\Debug\Project_11.exe.config
+C:\Koxpit\Практика\Project_11\Project_11\bin\Debug\Project_11.exe
+C:\Koxpit\Практика\Project_11\Project_11\bin\Debug\Project_11.pdb
+C:\Koxpit\Практика\Project_11\Project_11\obj\Debug\Project_11.csprojAssemblyReference.cache
+C:\Koxpit\Практика\Project_11\Project_11\obj\Debug\Project_11.Form1.resources
+C:\Koxpit\Практика\Project_11\Project_11\obj\Debug\Project_11.Properties.Resources.resources
+C:\Koxpit\Практика\Project_11\Project_11\obj\Debug\Project_11.csproj.GenerateResource.cache
+C:\Koxpit\Практика\Project_11\Project_11\obj\Debug\Project_11.csproj.CoreCompileInputs.cache
+C:\Koxpit\Практика\Project_11\Project_11\obj\Debug\Project_11.exe
+C:\Koxpit\Практика\Project_11\Project_11\obj\Debug\Project_11.pdb
+F:\Новая папка\Учеба\РПМ\Практика\Project_11\Project_11\obj\Debug\Project_11.csprojResolveAssemblyReference.cache
+F:\Новая папка\Учеба\РПМ\Практика\Project_11\Project_11\obj\Debug\Project_11.Form1.resources
+F:\Новая папка\Учеба\РПМ\Практика\Project_11\Project_11\obj\Debug\Project_11.Properties.Resources.resources
+F:\Новая папка\Учеба\РПМ\Практика\Project_11\Project_11\obj\Debug\Project_11.csproj.GenerateResource.Cache
+F:\Новая папка\Учеба\РПМ\Практика\Project_11\Project_11\obj\Debug\Project_11.exe
+F:\Новая папка\Учеба\РПМ\Практика\Project_11\Project_11\obj\Debug\Project_11.pdb
+F:\Новая папка\Учеба\РПМ\Практика\Project_11\Project_11\bin\Debug\Project_11.exe.config
+F:\Новая папка\Учеба\РПМ\Практика\Project_11\Project_11\bin\Debug\Project_11.exe
+F:\Новая папка\Учеба\РПМ\Практика\Project_11\Project_11\bin\Debug\Project_11.pdb
+C:\Git\Koxpit\src\Project_11\Project_11\bin\Debug\Project_11.exe.config
+C:\Git\Koxpit\src\Project_11\Project_11\bin\Debug\Project_11.exe
+C:\Git\Koxpit\src\Project_11\Project_11\bin\Debug\Project_11.pdb
+C:\Git\Koxpit\src\Project_11\Project_11\obj\Debug\Project_11.csprojResolveAssemblyReference.cache
+C:\Git\Koxpit\src\Project_11\Project_11\obj\Debug\Project_11.Form1.resources
+C:\Git\Koxpit\src\Project_11\Project_11\obj\Debug\Project_11.Properties.Resources.resources
+C:\Git\Koxpit\src\Project_11\Project_11\obj\Debug\Project_11.csproj.GenerateResource.Cache
+C:\Git\Koxpit\src\Project_11\Project_11\obj\Debug\Project_11.exe
+C:\Git\Koxpit\src\Project_11\Project_11\obj\Debug\Project_11.pdb

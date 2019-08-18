@@ -1,0 +1,18 @@
+C:\Git\Koxpit\src\Project_21\Project_21\bin\Debug\Project_21.exe.config
+C:\Git\Koxpit\src\Project_21\Project_21\bin\Debug\Project_21.exe
+C:\Git\Koxpit\src\Project_21\Project_21\bin\Debug\Project_21.pdb
+C:\Git\Koxpit\src\Project_21\Project_21\obj\Debug\Project_21.csprojResolveAssemblyReference.cache
+C:\Git\Koxpit\src\Project_21\Project_21\obj\Debug\Project_21.Form1.resources
+C:\Git\Koxpit\src\Project_21\Project_21\obj\Debug\Project_21.Properties.Resources.resources
+C:\Git\Koxpit\src\Project_21\Project_21\obj\Debug\Project_21.csproj.GenerateResource.Cache
+C:\Git\Koxpit\src\Project_21\Project_21\obj\Debug\Project_21.exe
+C:\Git\Koxpit\src\Project_21\Project_21\obj\Debug\Project_21.pdb
+F:\Новая папка\Учеба\РПМ\Практика\Project_21\Project_21\bin\Debug\Project_21.exe.config
+F:\Новая папка\Учеба\РПМ\Практика\Project_21\Project_21\bin\Debug\Project_21.exe
+F:\Новая папка\Учеба\РПМ\Практика\Project_21\Project_21\bin\Debug\Project_21.pdb
+F:\Новая папка\Учеба\РПМ\Практика\Project_21\Project_21\obj\Debug\Project_21.csprojResolveAssemblyReference.cache
+F:\Новая папка\Учеба\РПМ\Практика\Project_21\Project_21\obj\Debug\Project_21.Form1.resources
+F:\Новая папка\Учеба\РПМ\Практика\Project_21\Project_21\obj\Debug\Project_21.Properties.Resources.resources
+F:\Новая папка\Учеба\РПМ\Практика\Project_21\Project_21\obj\Debug\Project_21.csproj.GenerateResource.Cache
+F:\Новая папка\Учеба\РПМ\Практика\Project_21\Project_21\obj\Debug\Project_21.exe
+F:\Новая папка\Учеба\РПМ\Практика\Project_21\Project_21\obj\Debug\Project_21.pdb

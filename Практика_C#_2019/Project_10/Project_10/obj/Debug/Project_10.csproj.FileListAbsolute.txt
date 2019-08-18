@@ -1,0 +1,9 @@
+C:\Git\Koxpit\src\Project_10\Project_10\obj\Debug\Project_10.csprojResolveAssemblyReference.cache
+C:\Git\Koxpit\src\Project_10\Project_10\obj\Debug\Project_10.A.resources
+C:\Git\Koxpit\src\Project_10\Project_10\obj\Debug\Project_10.Properties.Resources.resources
+C:\Git\Koxpit\src\Project_10\Project_10\obj\Debug\Project_10.csproj.GenerateResource.Cache
+C:\Git\Koxpit\src\Project_10\Project_10\bin\Debug\Project_10.exe.config
+C:\Git\Koxpit\src\Project_10\Project_10\bin\Debug\Project_10.exe
+C:\Git\Koxpit\src\Project_10\Project_10\bin\Debug\Project_10.pdb
+C:\Git\Koxpit\src\Project_10\Project_10\obj\Debug\Project_10.exe
+C:\Git\Koxpit\src\Project_10\Project_10\obj\Debug\Project_10.pdb

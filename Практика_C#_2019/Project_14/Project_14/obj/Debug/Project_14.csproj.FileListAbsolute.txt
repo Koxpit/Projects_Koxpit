@@ -1,0 +1,10 @@
+C:\Koxpit\Практика\Project_14\Project_14\bin\Debug\Project_14.exe.config
+C:\Koxpit\Практика\Project_14\Project_14\bin\Debug\Project_14.exe
+C:\Koxpit\Практика\Project_14\Project_14\bin\Debug\Project_14.pdb
+C:\Koxpit\Практика\Project_14\Project_14\obj\Debug\Project_14.csprojAssemblyReference.cache
+C:\Koxpit\Практика\Project_14\Project_14\obj\Debug\Project_14.Form1.resources
+C:\Koxpit\Практика\Project_14\Project_14\obj\Debug\Project_14.Properties.Resources.resources
+C:\Koxpit\Практика\Project_14\Project_14\obj\Debug\Project_14.csproj.GenerateResource.cache
+C:\Koxpit\Практика\Project_14\Project_14\obj\Debug\Project_14.csproj.CoreCompileInputs.cache
+C:\Koxpit\Практика\Project_14\Project_14\obj\Debug\Project_14.exe
+C:\Koxpit\Практика\Project_14\Project_14\obj\Debug\Project_14.pdb

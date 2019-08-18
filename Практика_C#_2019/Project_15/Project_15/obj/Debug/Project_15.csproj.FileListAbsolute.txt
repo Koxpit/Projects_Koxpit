@@ -1,0 +1,19 @@
+C:\Git\Koxpit\src\Project_15\Project_15\bin\Debug\Project_15.exe.config
+C:\Git\Koxpit\src\Project_15\Project_15\bin\Debug\Project_15.exe
+C:\Git\Koxpit\src\Project_15\Project_15\bin\Debug\Project_15.pdb
+C:\Git\Koxpit\src\Project_15\Project_15\obj\Debug\Project_15.csprojResolveAssemblyReference.cache
+C:\Git\Koxpit\src\Project_15\Project_15\obj\Debug\Project_15.Form1.resources
+C:\Git\Koxpit\src\Project_15\Project_15\obj\Debug\Project_15.Properties.Resources.resources
+C:\Git\Koxpit\src\Project_15\Project_15\obj\Debug\Project_15.csproj.GenerateResource.Cache
+C:\Git\Koxpit\src\Project_15\Project_15\obj\Debug\Project_15.exe
+C:\Git\Koxpit\src\Project_15\Project_15\obj\Debug\Project_15.pdb
+E:\Новая папка\Учеба\РПМ\Практика\Project_15\Project_15\bin\Debug\Project_15.exe.config
+E:\Новая папка\Учеба\РПМ\Практика\Project_15\Project_15\bin\Debug\Project_15.exe
+E:\Новая папка\Учеба\РПМ\Практика\Project_15\Project_15\bin\Debug\Project_15.pdb
+E:\Новая папка\Учеба\РПМ\Практика\Project_15\Project_15\obj\Debug\Project_15.csprojAssemblyReference.cache
+E:\Новая папка\Учеба\РПМ\Практика\Project_15\Project_15\obj\Debug\Project_15.Form1.resources
+E:\Новая папка\Учеба\РПМ\Практика\Project_15\Project_15\obj\Debug\Project_15.Properties.Resources.resources
+E:\Новая папка\Учеба\РПМ\Практика\Project_15\Project_15\obj\Debug\Project_15.csproj.GenerateResource.cache
+E:\Новая папка\Учеба\РПМ\Практика\Project_15\Project_15\obj\Debug\Project_15.csproj.CoreCompileInputs.cache
+E:\Новая папка\Учеба\РПМ\Практика\Project_15\Project_15\obj\Debug\Project_15.exe
+E:\Новая папка\Учеба\РПМ\Практика\Project_15\Project_15\obj\Debug\Project_15.pdb

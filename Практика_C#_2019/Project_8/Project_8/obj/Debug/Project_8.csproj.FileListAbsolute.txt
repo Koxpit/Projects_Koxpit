@@ -1,0 +1,38 @@
+C:\Koxpit\Практика\Project_8\Project_8\bin\Debug\Project_8.exe.config
+C:\Koxpit\Практика\Project_8\Project_8\bin\Debug\Project_8.exe
+C:\Koxpit\Практика\Project_8\Project_8\bin\Debug\Project_8.pdb
+C:\Koxpit\Практика\Project_8\Project_8\obj\Debug\Project_8.csprojAssemblyReference.cache
+C:\Koxpit\Практика\Project_8\Project_8\obj\Debug\Project_8.Form1.resources
+C:\Koxpit\Практика\Project_8\Project_8\obj\Debug\Project_8.Properties.Resources.resources
+C:\Koxpit\Практика\Project_8\Project_8\obj\Debug\Project_8.csproj.GenerateResource.cache
+C:\Koxpit\Практика\Project_8\Project_8\obj\Debug\Project_8.csproj.CoreCompileInputs.cache
+C:\Koxpit\Практика\Project_8\Project_8\obj\Debug\Project_8.exe
+C:\Koxpit\Практика\Project_8\Project_8\obj\Debug\Project_8.pdb
+F:\Новая папка\Учеба\РПМ\Практика\Project_8\Project_8\bin\Debug\Project_8.exe.config
+F:\Новая папка\Учеба\РПМ\Практика\Project_8\Project_8\bin\Debug\Project_8.exe
+F:\Новая папка\Учеба\РПМ\Практика\Project_8\Project_8\bin\Debug\Project_8.pdb
+F:\Новая папка\Учеба\РПМ\Практика\Project_8\Project_8\obj\Debug\Project_8.csprojResolveAssemblyReference.cache
+F:\Новая папка\Учеба\РПМ\Практика\Project_8\Project_8\obj\Debug\Project_8.Form1.resources
+F:\Новая папка\Учеба\РПМ\Практика\Project_8\Project_8\obj\Debug\Project_8.Properties.Resources.resources
+F:\Новая папка\Учеба\РПМ\Практика\Project_8\Project_8\obj\Debug\Project_8.csproj.GenerateResource.Cache
+F:\Новая папка\Учеба\РПМ\Практика\Project_8\Project_8\obj\Debug\Project_8.exe
+F:\Новая папка\Учеба\РПМ\Практика\Project_8\Project_8\obj\Debug\Project_8.pdb
+C:\Git\Koxpit\src\Project_8\Project_8\bin\Debug\Project_8.exe.config
+C:\Git\Koxpit\src\Project_8\Project_8\bin\Debug\Project_8.exe
+C:\Git\Koxpit\src\Project_8\Project_8\bin\Debug\Project_8.pdb
+C:\Git\Koxpit\src\Project_8\Project_8\obj\Debug\Project_8.csprojResolveAssemblyReference.cache
+C:\Git\Koxpit\src\Project_8\Project_8\obj\Debug\Project_8.Form1.resources
+C:\Git\Koxpit\src\Project_8\Project_8\obj\Debug\Project_8.Properties.Resources.resources
+C:\Git\Koxpit\src\Project_8\Project_8\obj\Debug\Project_8.csproj.GenerateResource.Cache
+C:\Git\Koxpit\src\Project_8\Project_8\obj\Debug\Project_8.exe
+C:\Git\Koxpit\src\Project_8\Project_8\obj\Debug\Project_8.pdb
+F:\src\Project_8\Project_8\bin\Debug\Project_8.exe.config
+F:\src\Project_8\Project_8\bin\Debug\Project_8.exe
+F:\src\Project_8\Project_8\bin\Debug\Project_8.pdb
+F:\src\Project_8\Project_8\obj\Debug\Project_8.csprojAssemblyReference.cache
+F:\src\Project_8\Project_8\obj\Debug\Project_8.Form1.resources
+F:\src\Project_8\Project_8\obj\Debug\Project_8.Properties.Resources.resources
+F:\src\Project_8\Project_8\obj\Debug\Project_8.csproj.GenerateResource.cache
+F:\src\Project_8\Project_8\obj\Debug\Project_8.csproj.CoreCompileInputs.cache
+F:\src\Project_8\Project_8\obj\Debug\Project_8.exe
+F:\src\Project_8\Project_8\obj\Debug\Project_8.pdb

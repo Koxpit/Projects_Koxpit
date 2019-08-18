@@ -1,0 +1,9 @@
+C:\Git\Koxpit\src\Project_13\Project_13\bin\Debug\Project_13.exe.config
+C:\Git\Koxpit\src\Project_13\Project_13\bin\Debug\Project_13.exe
+C:\Git\Koxpit\src\Project_13\Project_13\bin\Debug\Project_13.pdb
+C:\Git\Koxpit\src\Project_13\Project_13\obj\Debug\Project_13.csprojResolveAssemblyReference.cache
+C:\Git\Koxpit\src\Project_13\Project_13\obj\Debug\Project_13.Form1.resources
+C:\Git\Koxpit\src\Project_13\Project_13\obj\Debug\Project_13.Properties.Resources.resources
+C:\Git\Koxpit\src\Project_13\Project_13\obj\Debug\Project_13.csproj.GenerateResource.Cache
+C:\Git\Koxpit\src\Project_13\Project_13\obj\Debug\Project_13.exe
+C:\Git\Koxpit\src\Project_13\Project_13\obj\Debug\Project_13.pdb
