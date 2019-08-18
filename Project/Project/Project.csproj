@@ -45,9 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="C:\Program Files %28x86%29\Microsoft Visual Studio\2017\Community\Common7\IDE\в.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="C:\Program Files %28x86%29\Microsoft Visual Studio\2017\Community\Common7\IDE\в.cs" />
     <Compile Include="C:\Program Files %28x86%29\Microsoft Visual Studio\2017\Community\Common7\IDE\в.Designer.cs">
       <DependentUpon>в.cs</DependentUpon>
     </Compile>

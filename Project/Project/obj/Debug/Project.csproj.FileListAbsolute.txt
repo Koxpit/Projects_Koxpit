@@ -49,3 +49,6 @@ E:\Project\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
 E:\Project\Project\obj\Debug\Project.exe
 E:\Project\Project\obj\Debug\Project.pdb
 E:\Project\Project\obj\Debug\Project.Добавить_ткань.resources
+C:\GitHub_Koxpit\Projects_Koxpit\Project\Project\obj\Debug\Project.csprojResolveAssemblyReference.cache
+C:\GitHub_Koxpit\Projects_Koxpit\Project\Project\obj\Debug\Project.exe
+C:\GitHub_Koxpit\Projects_Koxpit\Project\Project\obj\Debug\Project.pdb
