@@ -69,7 +69,7 @@ namespace Note
             DelRecord();
         }
 
-        public void SaveToXML()
+        public void SaveToExcel()
         {
             Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
             Microsoft.Office.Interop.Excel.Workbook ExcelWorkBook;
@@ -93,7 +93,7 @@ namespace Note
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveToXML();
+            SaveToExcel();
         }
 
         void PrintPageHandler(object sender, PrintPageEventArgs e)

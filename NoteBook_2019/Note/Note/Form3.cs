@@ -53,11 +53,6 @@ namespace Note
             } else { MessageBox.Show("Cart is empty!"); }
         }
 
-        public void Output(DataGridView dg)
-        {
-            dataGridView1.DataSource=bas.ToList();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (dataGridView1.CurrentRow!=null)

@@ -63,7 +63,7 @@ namespace Note
             toolTip1.SetToolTip(button3, "*all parameters.");
         }
 
-        public void SaveToXML()
+        public void SaveToExcel()
         {
             Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
             Microsoft.Office.Interop.Excel.Workbook ExcelWorkBook;
@@ -311,7 +311,7 @@ namespace Note
 
         private void xMLFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveToXML();
+            SaveToExcel();
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
