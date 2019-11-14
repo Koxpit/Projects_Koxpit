@@ -1,0 +1,26 @@
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Note\Note\obj\Debug\Note.csprojResolveAssemblyReference.cache
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Note\Note\obj\Debug\Note.Form1.resources
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Note\Note\obj\Debug\Note.Form2.resources
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Note\Note\obj\Debug\Note.Properties.Resources.resources
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Note\Note\obj\Debug\Note.csproj.GenerateResource.Cache
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Note\Note\obj\Debug\Note.Form3.resources
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Note\Note\obj\Debug\Note.Form4.resources
+C:\Users\lenovo\Desktop\Note\Note\obj\Debug\Note.csprojResolveAssemblyReference.cache
+C:\Users\lenovo\Desktop\Note\Note\obj\Debug\Note.Form1.resources
+C:\Users\lenovo\Desktop\Note\Note\obj\Debug\Note.Form2.resources
+C:\Users\lenovo\Desktop\Note\Note\obj\Debug\Note.Form3.resources
+C:\Users\lenovo\Desktop\Note\Note\obj\Debug\Note.Form4.resources
+C:\Users\lenovo\Desktop\Note\Note\obj\Debug\Note.csproj.GenerateResource.Cache
+C:\Users\lenovo\Desktop\Note\Note\obj\Debug\Note.AboutBox1.resources
+C:\Users\lenovo\Desktop\Note\Note\bin\Debug\NoteBook.exe.config
+C:\Users\lenovo\Desktop\Note\Note\bin\Debug\NoteBook.exe
+C:\Users\lenovo\Desktop\Note\Note\bin\Debug\NoteBook.pdb
+C:\Users\lenovo\Desktop\Note\Note\obj\Debug\NoteBook.exe
+C:\Users\lenovo\Desktop\Note\Note\obj\Debug\NoteBook.pdb
+C:\Users\lenovo\Desktop\Note\Note\obj\Debug\Note.Properties.Resources.resources
+C:\Users\lenovo\documents\visual studio 2017\Projects\Note\Note\bin\Debug\NoteBook.exe.config
+C:\Users\lenovo\documents\visual studio 2017\Projects\Note\Note\bin\Debug\NoteBook.exe
+C:\Users\lenovo\documents\visual studio 2017\Projects\Note\Note\bin\Debug\NoteBook.pdb
+C:\Users\lenovo\documents\visual studio 2017\Projects\Note\Note\obj\Debug\Note.AboutBox1.resources
+C:\Users\lenovo\documents\visual studio 2017\Projects\Note\Note\obj\Debug\NoteBook.exe
+C:\Users\lenovo\documents\visual studio 2017\Projects\Note\Note\obj\Debug\NoteBook.pdb
