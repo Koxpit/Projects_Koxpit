@@ -20,6 +20,7 @@ namespace Note
             LoadUsers();
         }
 
+        // Загрузка данных пользователей из файла в список
         private void LoadUsers()
         {
             try
@@ -35,6 +36,7 @@ namespace Note
             catch { return; }
         }
 
+        // Вход в систему
         private void EnterToForm()
         {
             for (int i = 0; i < user.logins.Count; i++)
@@ -43,9 +45,10 @@ namespace Note
                 {
                     login=user.logins[i];
                     password=user.passwords[i];
-                    id=user.id[i];
+                    id=i+1;
 
                     Form1 f1 = new Form1();
+                    f1.ID=id;
                     MessageBox.Show("You are logged in!");
                     Hide();
                     f1.label6.Text=login+"/id: "+id.ToString();
@@ -57,32 +60,36 @@ namespace Note
 
                     MessageBox.Show("Invalid password!");
                 }
-                if (login=="") { MessageBox.Show("Пользователь "+textBox1.Text+" не найден!"); }
             }
         }
 
+        // Регистрация
         private void AddUser()
         {
-            if (textBox1.Text==""||textBox2.Text=="") { MessageBox.Show("No login or password entered!"); }
-            else
-            {
-                user.logins.Add(textBox1.Text);
-                user.passwords.Add(textBox2.Text);
-                user.id.Add(id);
+            if (textBox1.Text==""||textBox2.Text=="") { MessageBox.Show("No login or password entered!"); return; }
+                for(int i = 0; i < user.logins.Count; i++)
+                    if(user.logins[i]==textBox1.Text)
+                    {
+                        MessageBox.Show("This login already exists!");
+                        return;
+                    }
+            user.logins.Add(textBox1.Text);
+            user.passwords.Add(textBox2.Text);
+            user.id.Add(id);
 
-                FileStream fs = new FileStream("Users.dat", FileMode.OpenOrCreate);
+            FileStream fs = new FileStream("Users.dat", FileMode.OpenOrCreate);
 
-                BinaryFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(fs, user);
+            BinaryFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(fs, user);
 
-                fs.Close();
+            fs.Close();
 
-                login=textBox1.Text;
+            login=textBox1.Text;
 
-                MessageBox.Show("You have successfully registered!");
-            }
+            MessageBox.Show("You have successfully registered!");
         }
 
+        // Обработка кнопки входа в систему
         private void button1_Click(object sender, EventArgs e)
         {
             EnterToForm();
@@ -94,6 +101,7 @@ namespace Note
                 textBox2.UseSystemPasswordChar=true;
         }
 
+        // Обработка кнопки добавления нового пользователя(регистрция)
         private void button2_Click(object sender, EventArgs e)
         {
             AddUser();
@@ -104,16 +112,20 @@ namespace Note
             
         }
 
+        // Проверка, виден ли пароль или нет
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if(checkBox1.Checked==true)
+            {
                 textBox2.UseSystemPasswordChar=false;
-            else
+            } else
+            {
                 textBox2.UseSystemPasswordChar=true;
+            }
         }
     }
 
-    [Serializable]
+    [Serializable] // -  для работы с файлами
     public class Users
     {
         public List<string> logins = new List<string>();

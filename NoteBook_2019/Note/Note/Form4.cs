@@ -26,11 +26,13 @@ namespace Note
             record=new List<Calendar>();
         }
 
+        // Вывод данных из списка в таблицу
         private void Output()
         {
             dataGridView1.DataSource=record.ToList();
         }
 
+        // Удаление записи
         private void DelRecord()
         {
             if (dataGridView1.CurrentRow!=null)
@@ -52,6 +54,7 @@ namespace Note
             else { MessageBox.Show("Book is empty!"); }
         }
 
+        // Добавление записи
         private void AddRecord()
         {
             Calendar note = new Calendar(monthCalendar1.SelectionStart.ToLongDateString(), textBox1.Text);
@@ -59,16 +62,19 @@ namespace Note
             Output();
         }
 
+        // Обработка кнопки добавления записи
         private void button1_Click(object sender, EventArgs e)
         {
             AddRecord();
         }
 
+        // Обработка кнопки удаления записи
         private void button2_Click(object sender, EventArgs e)
         {
             DelRecord();
         }
 
+        // Сохранение данных из таблицы в Excel файл
         public void SaveToExcel()
         {
             Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
@@ -91,16 +97,19 @@ namespace Note
             ExcelApp.UserControl=true;
         }
 
+        // Обработка кнопки меню
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveToExcel();
         }
 
+        // Печать
         void PrintPageHandler(object sender, PrintPageEventArgs e)
         {
             e.Graphics.DrawString(print, new Font("Arial", 14), Brushes.Black, 0, 0);
         }
 
+        // Печать
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -123,6 +132,7 @@ namespace Note
             }
         }
 
+        // Сортировка данных по дате
         private void sortToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource=record.OrderBy(x => x.Date).ToList();
@@ -133,6 +143,7 @@ namespace Note
            
         }
 
+        // Вывод окна "О программе"
         private void aboutProgramToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutBox1 about = new AboutBox1();
@@ -145,11 +156,13 @@ namespace Note
 
         }
 
+        // Закрытие текущего окна
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Обработка двойного клика по ячейке для изменения записи
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DateTime d = DateTime.Parse(dataGridView1[0, e.RowIndex].Value.ToString());
@@ -157,6 +170,7 @@ namespace Note
             monthCalendar1.SelectionStart=d;
         }
 
+        // Удаление старой и загрузка измененной записи в таблицу
         private void button3_Click(object sender, EventArgs e)
         {
             record.RemoveAt(dataGridView1.CurrentRow.Index);
@@ -165,7 +179,7 @@ namespace Note
         }
     }
 
-    [Serializable]
+    [Serializable] // - для работы с файлами(загрузка, получение данных)
     public struct Calendar
     {
         public string Date { get; set; }

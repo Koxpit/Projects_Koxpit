@@ -9,6 +9,7 @@ namespace Note
     {
         Form1 f1;
 
+        // Хранить записи корзины
         private List<Record> bas = new List<Record>();
         public List<Record> Bas
         {
@@ -16,6 +17,7 @@ namespace Note
             set { bas=value; }
         }
 
+        // Хранит восстановленные записи
         private List<Record> recover = new List<Record>();
         public List<Record> Recover
         {
@@ -29,12 +31,7 @@ namespace Note
             f1 = (Form1)this.Owner;
         }
 
-        private void DelRecord(int n)
-        {
-            bas.RemoveAt(n);
-            dataGridView1.DataSource=bas.ToList();
-        }
-
+        // Удаление всех записей из корзины
         private void DelAllRec()
         {
             if (dataGridView1.Rows.Count!=0)
@@ -53,6 +50,7 @@ namespace Note
             } else { MessageBox.Show("Cart is empty!"); }
         }
 
+        // Удалить выбранные записи из корзины
         private void button1_Click(object sender, EventArgs e)
         {
             if (dataGridView1.CurrentRow!=null)
@@ -80,11 +78,13 @@ namespace Note
             }
         }
 
+        // Обработка кнопки удаления всех записей из корзины
         private void button2_Click(object sender, EventArgs e)
         {
             DelAllRec();
         }
 
+        // Восстановить выбранные записи
         private void button3_Click(object sender, EventArgs e)
         {
             if(dataGridView1.CurrentRow!=null)
@@ -112,6 +112,7 @@ namespace Note
             }
         }
 
+        // Восстановить все записи
         private void button4_Click(object sender, EventArgs e)
         {
             if (dataGridView1.Rows.Count!=0)
@@ -131,6 +132,7 @@ namespace Note
             else { MessageBox.Show("Cart is empty!"); }
         }
 
+        // Подсказки
         private void Form3_Load(object sender, EventArgs e)
         {
             toolTip1.SetToolTip(button1, "Delete one/few records");
