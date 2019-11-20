@@ -25,7 +25,12 @@ namespace Note
             set { list=value; }
         }
 
-        public int ID { get; set; }
+        private int id;
+        public int ID
+        {
+            get { return id; }
+            set { id = value; }
+        }
 
         private List<Record> basket;
         public List<Record> Basket
