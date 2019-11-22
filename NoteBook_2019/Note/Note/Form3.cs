@@ -34,48 +34,55 @@ namespace Note
         // Удаление всех записей из корзины
         private void DelAllRec()
         {
-            if (dataGridView1.Rows.Count!=0)
+            try
             {
-                DialogResult result;
-                result=MessageBox.Show("Are you sure you want to delete all records?",
-                    "Removing", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result==DialogResult.Yes)
+                if (dataGridView1.Rows.Count!=0)
                 {
-                    bas.Clear();
-                    dataGridView1.DataSource=bas.ToList();
+                    DialogResult result;
+                    result=MessageBox.Show("Are you sure you want to delete all records?",
+                        "Removing", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                    MessageBox.Show("Cart cleared successfully!");
+                    if (result==DialogResult.Yes)
+                    {
+                        bas.Clear();
+                        dataGridView1.DataSource=bas.ToList();
+
+                        MessageBox.Show("Cart cleared successfully!");
+                    }
                 }
-            } else { MessageBox.Show("Cart is empty!"); }
+                else { MessageBox.Show("Cart is empty!"); }
+            } catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         // Удалить выбранные записи из корзины
         private void button1_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow!=null)
+            try
             {
-                DialogResult result;
-                result=MessageBox.Show("Are you sure you want to delete the selected entries?",
-                    "Removing", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result==DialogResult.Yes)
+                if (dataGridView1.CurrentRow!=null)
                 {
-                    if (dataGridView1.SelectedRows.Count==0)
-                    {
-                        MessageBox.Show("No records selected!");
-                    }
-                    else
-                    {
-                        foreach (DataGridViewRow row in dataGridView1.SelectedRows)
-                            bas.RemoveAt(row.Index);
+                    DialogResult result;
+                    result=MessageBox.Show("Are you sure you want to delete the selected entries?",
+                        "Removing", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                        MessageBox.Show("Delete complete!");
-                    }
+                    if (result==DialogResult.Yes)
+                    {
+                        if (dataGridView1.SelectedRows.Count==0)
+                        {
+                            MessageBox.Show("No records selected!");
+                        }
+                        else
+                        {
+                            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                                bas.RemoveAt(row.Index);
 
-                    dataGridView1.DataSource=bas.ToList();
+                            MessageBox.Show("Delete complete!");
+                        }
+
+                        dataGridView1.DataSource=bas.ToList();
+                    }
                 }
-            }
+            } catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         // Обработка кнопки удаления всех записей из корзины
@@ -87,49 +94,55 @@ namespace Note
         // Восстановить выбранные записи
         private void button3_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.CurrentRow!=null)
+            try
             {
-                DialogResult result;
-                result=MessageBox.Show("Do you want to restore the selected records?",
-                    "Recovery", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if(result==DialogResult.Yes)
+                if (dataGridView1.CurrentRow!=null)
                 {
-                    if (dataGridView1.SelectedRows.Count==0)
+                    DialogResult result;
+                    result=MessageBox.Show("Do you want to restore the selected records?",
+                        "Recovery", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result==DialogResult.Yes)
                     {
-                        MessageBox.Show("No records selected!");
-                    }
-                    else
-                    {
-                        foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                        if (dataGridView1.SelectedRows.Count==0)
                         {
-                            recover.Add(bas.ElementAt(row.Index));
-                            bas.RemoveAt(row.Index);
+                            MessageBox.Show("No records selected!");
                         }
+                        else
+                        {
+                            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                            {
+                                recover.Add(bas.ElementAt(row.Index));
+                                bas.RemoveAt(row.Index);
+                            }
+                        }
+                        dataGridView1.DataSource=bas.ToList();
                     }
-                    dataGridView1.DataSource=bas.ToList();
                 }
-            }
+            } catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         // Восстановить все записи
         private void button4_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count!=0)
+            try
             {
-                DialogResult result;
-                result=MessageBox.Show("Do you want to restore all records?",
-                    "Recovery", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result==DialogResult.Yes)
+                if (dataGridView1.Rows.Count!=0)
                 {
-                    recover.AddRange(bas);
-                    bas.Clear();
-                    dataGridView1.DataSource=bas.ToList();
-                    MessageBox.Show("Cart cleared successfully!");
+                    DialogResult result;
+                    result=MessageBox.Show("Do you want to restore all records?",
+                        "Recovery", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result==DialogResult.Yes)
+                    {
+                        recover.AddRange(bas);
+                        bas.Clear();
+                        dataGridView1.DataSource=bas.ToList();
+                        MessageBox.Show("Cart cleared successfully!");
+                    }
                 }
-            }
-            else { MessageBox.Show("Cart is empty!"); }
+                else { MessageBox.Show("Cart is empty!"); }
+            } catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         // Подсказки

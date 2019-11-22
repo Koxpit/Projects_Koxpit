@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -39,6 +40,8 @@ namespace Note
             set { basket=value; }
         }
 
+        private string print = "";
+
         public Form1()
         {
             InitializeComponent();
@@ -50,15 +53,18 @@ namespace Note
         // Загрузка записей пользователя
         private void LoadData()
         {
-            FileStream fs = new FileStream(ID.ToString()+".dat", FileMode.OpenOrCreate);
-            BinaryFormatter formatter = new BinaryFormatter();
-            if (fs.Length==0)
-                list=new List<Record>();
-            else
-                list=(List<Record>)formatter.Deserialize(fs);
-            dataGridView1.DataSource=list.ToList();
+            try
+            {
+                FileStream fs = new FileStream(ID.ToString()+".dat", FileMode.OpenOrCreate);
+                BinaryFormatter formatter = new BinaryFormatter();
+                if (fs.Length==0)
+                    list=new List<Record>();
+                else
+                    list=(List<Record>)formatter.Deserialize(fs);
+                dataGridView1.DataSource=list.ToList();
 
-            fs.Close();
+                fs.Close();
+            } catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
         
         // Подсказки
@@ -74,30 +80,36 @@ namespace Note
         // Сохранение данных из таблицы в Excel
         public void SaveToExcel()
         {
-            Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
-            Microsoft.Office.Interop.Excel.Workbook ExcelWorkBook;
-            Microsoft.Office.Interop.Excel.Worksheet ExcelWorkSheet;
-            
-            ExcelWorkBook=ExcelApp.Workbooks.Add(System.Reflection.Missing.Value);
-            
-            ExcelWorkSheet=(Microsoft.Office.Interop.Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
-
-            for (int i = 0; i<dataGridView1.Rows.Count; i++)
+            try
             {
-                for (int j = 0; j<dataGridView1.ColumnCount; j++)
+                Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel.Workbook ExcelWorkBook;
+                Microsoft.Office.Interop.Excel.Worksheet ExcelWorkSheet;
+
+                ExcelWorkBook=ExcelApp.Workbooks.Add(System.Reflection.Missing.Value);
+
+                ExcelWorkSheet=(Microsoft.Office.Interop.Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
+
+                for (int i = 0; i<dataGridView1.Rows.Count; i++)
                 {
-                    ExcelApp.Cells[i+1, j+1]=dataGridView1.Rows[i].Cells[j].Value;
+                    for (int j = 0; j<dataGridView1.ColumnCount; j++)
+                    {
+                        ExcelApp.Cells[i+1, j+1]=dataGridView1.Rows[i].Cells[j].Value;
+                    }
                 }
-            }
-            
-            ExcelApp.Visible=true;
-            ExcelApp.UserControl=true;
+
+                ExcelApp.Visible=true;
+                ExcelApp.UserControl=true;
+            } catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         // Вывод данных из списка в таблицу
         public void Output()
         {
-            dataGridView1.DataSource=list.ToList();
+            try
+            {
+                dataGridView1.DataSource=list.ToList();
+            } catch { MessageBox.Show("Error adding/updating table!"); }
         }
 
         // Поиск по имени
@@ -252,13 +264,11 @@ namespace Note
         {
             string data = dateTimePicker1.Value.ToLongDateString();
             dataGridView1.DataSource=SearchBirthday(data).ToList();
-            dataGridView1.ReadOnly=true;
         }
 
         private void numberTelephoneToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource=SearchPhoneNumber(textBox5.Text).ToList();
-            dataGridView1.ReadOnly=true;
         }
         // Конец обработок кнопок поиска по параметрам
 
@@ -309,15 +319,14 @@ namespace Note
         // Обновление записей таблицы: загрузка измененных и восстановленных записей в таблицу
         private void button5_Click(object sender, EventArgs e)
         {
-            string date = dateTimePicker1.Value.ToLongDateString();
-            list.RemoveAt(dataGridView1.CurrentRow.Index);
-            AddRecord(textBox1.Text, textBox2.Text, textBox3.Text, date, textBox5.Text);
-
-            if (f3.Recover!=null)
+            try
             {
-                list.AddRange(f3.Recover);
-                f3.Recover.Clear();
-            }
+                if (f3.Recover!=null)
+                {
+                    list.AddRange(f3.Recover);
+                    f3.Recover.Clear();
+                }
+            } catch(Exception ex) { MessageBox.Show(ex.Message); }
             Output();
         }
 
@@ -349,12 +358,15 @@ namespace Note
         // Режим редактирования записей по нажатию на ячейку
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DateTime d = DateTime.Parse(dataGridView1[3, e.RowIndex].Value.ToString());
-            textBox1.Text=dataGridView1[0, e.RowIndex].Value.ToString();
-            textBox2.Text=dataGridView1[1, e.RowIndex].Value.ToString();
-            textBox3.Text=dataGridView1[2, e.RowIndex].Value.ToString();
-            textBox5.Text=dataGridView1[4, e.RowIndex].Value.ToString();
-            dateTimePicker1.Value=d;
+            try
+            {
+                DateTime d = DateTime.Parse(dataGridView1[3, e.RowIndex].Value.ToString());
+                textBox1.Text=dataGridView1[0, e.RowIndex].Value.ToString();
+                textBox2.Text=dataGridView1[1, e.RowIndex].Value.ToString();
+                textBox3.Text=dataGridView1[2, e.RowIndex].Value.ToString();
+                textBox5.Text=dataGridView1[4, e.RowIndex].Value.ToString();
+                dateTimePicker1.Value=d;
+            } catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         // Темная тема
@@ -449,9 +461,52 @@ namespace Note
 
         }
 
+        private void PrintPageHandler(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString(print, new Font("Arial", 14), Brushes.Black, 0, 0);
+        }
+
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            try
+            {
+                print = "";
+                if (dataGridView1.RowCount!=0)
+                {
+                    for (int i = 0; i<dataGridView1.Rows.Count; i++)
+                    {
+                        for (int j = 0; j<dataGridView1.ColumnCount; j++)
+                        {
+                            print+=dataGridView1[j, i].Value.ToString();
+                        }
+                        print+="\n";
+                    }
 
+                    PrintDocument pD = new PrintDocument();
+                    pD.PrintPage+=PrintPageHandler;
+
+                    PrintDialog pDg = new PrintDialog();
+                    pDg.Document=pD;
+
+                    if (pDg.ShowDialog()==DialogResult.OK)
+                        pDg.Document.Print();
+                } else { MessageBox.Show("Table is empty!"); }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                list.RemoveAt(dataGridView1.CurrentRow.Index);
+                string date = dateTimePicker1.Value.ToLongDateString();
+                AddRecord(textBox1.Text, textBox2.Text, textBox3.Text, date, textBox5.Text);
+                Output();
+            } catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 

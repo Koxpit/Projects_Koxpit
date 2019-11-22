@@ -39,54 +39,61 @@ namespace Note
         // Вход в систему
         private void EnterToForm()
         {
-            for (int i = 0; i < user.logins.Count; i++)
+            try
             {
-                if(user.logins[i]==textBox1.Text && user.passwords[i]==textBox2.Text)
+                for (int i = 0; i < user.logins.Count; i++)
                 {
-                    login=user.logins[i];
-                    password=user.passwords[i];
-                    id=i+1;
+                    if (user.logins[i]==textBox1.Text && user.passwords[i]==textBox2.Text)
+                    {
+                        login=user.logins[i];
+                        password=user.passwords[i];
+                        id=i+1;
 
-                    Form1 f1 = new Form1();
-                    f1.ID=id;
-                    MessageBox.Show("You are logged in!");
-                    Hide();
-                    f1.label6.Text=login+"/id: "+id.ToString();
-                    f1.ShowDialog();
-                    this.Close();
-                } else if(user.logins[i]==textBox1.Text && user.passwords[i]!=textBox2.Text)
-                {
-                    login=user.logins[i];
+                        Form1 f1 = new Form1();
+                        f1.ID=id;
+                        MessageBox.Show("You are logged in!");
+                        Hide();
+                        f1.label6.Text=login+"/id: "+id.ToString();
+                        f1.ShowDialog();
+                        this.Close();
+                    }
+                    else if (user.logins[i]==textBox1.Text && user.passwords[i]!=textBox2.Text)
+                    {
+                        login=user.logins[i];
 
-                    MessageBox.Show("Invalid password!");
+                        MessageBox.Show("Invalid password!");
+                    }
                 }
-            }
+            } catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         // Регистрация
         private void AddUser()
         {
-            if (textBox1.Text==""||textBox2.Text=="") { MessageBox.Show("No login or password entered!"); return; }
-                for(int i = 0; i < user.logins.Count; i++)
-                    if(user.logins[i]==textBox1.Text)
+            try
+            {
+                if (textBox1.Text==""||textBox2.Text=="") { MessageBox.Show("No login or password entered!"); return; }
+                for (int i = 0; i < user.logins.Count; i++)
+                    if (user.logins[i]==textBox1.Text)
                     {
                         MessageBox.Show("This login already exists!");
                         return;
                     }
-            user.logins.Add(textBox1.Text);
-            user.passwords.Add(textBox2.Text);
-            user.id.Add(id);
+                user.logins.Add(textBox1.Text);
+                user.passwords.Add(textBox2.Text);
+                user.id.Add(id);
 
-            FileStream fs = new FileStream("Users.dat", FileMode.OpenOrCreate);
+                FileStream fs = new FileStream("Users.dat", FileMode.OpenOrCreate);
 
-            BinaryFormatter formatter = new BinaryFormatter();
-            formatter.Serialize(fs, user);
+                BinaryFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(fs, user);
 
-            fs.Close();
+                fs.Close();
 
-            login=textBox1.Text;
+                login=textBox1.Text;
 
-            MessageBox.Show("You have successfully registered!");
+                MessageBox.Show("You have successfully registered!");
+            } catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         // Обработка кнопки входа в систему

@@ -29,36 +29,45 @@ namespace Note
         // Вывод данных из списка в таблицу
         private void Output()
         {
-            dataGridView1.DataSource=record.ToList();
+            try
+            {
+                dataGridView1.DataSource=record.ToList();
+            } catch { MessageBox.Show("Error adding/updating table!"); }
         }
 
         // Удаление записи
         private void DelRecord()
         {
-            if (dataGridView1.CurrentRow!=null)
+            try
             {
-                if (dataGridView1.SelectedRows.Count==0)
+                if (dataGridView1.CurrentRow!=null)
                 {
-                    MessageBox.Show("No records selected!");
-                }
-                else
-                {
-                    foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                    if (dataGridView1.SelectedRows.Count==0)
                     {
-                        record.RemoveAt(row.Index);
+                        MessageBox.Show("No records selected!");
                     }
-                }
+                    else
+                    {
+                        foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                        {
+                            record.RemoveAt(row.Index);
+                        }
+                    }
 
-                dataGridView1.DataSource=record.ToList();
-            }
-            else { MessageBox.Show("Book is empty!"); }
+                    dataGridView1.DataSource=record.ToList();
+                }
+                else { MessageBox.Show("Book is empty!"); }
+            } catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         // Добавление записи
         private void AddRecord()
         {
-            Calendar note = new Calendar(monthCalendar1.SelectionStart.ToLongDateString(), textBox1.Text);
-            record.Add(note);
+            try
+            {
+                Calendar note = new Calendar(monthCalendar1.SelectionStart.ToLongDateString(), textBox1.Text);
+                record.Add(note);
+            } catch(Exception ex) { MessageBox.Show(ex.Message); }
             Output();
         }
 
@@ -77,24 +86,27 @@ namespace Note
         // Сохранение данных из таблицы в Excel файл
         public void SaveToExcel()
         {
-            Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
-            Microsoft.Office.Interop.Excel.Workbook ExcelWorkBook;
-            Microsoft.Office.Interop.Excel.Worksheet ExcelWorkSheet;
-
-            ExcelWorkBook=ExcelApp.Workbooks.Add(System.Reflection.Missing.Value);
-
-            ExcelWorkSheet=(Microsoft.Office.Interop.Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
-
-            for (int i = 0; i<dataGridView1.Rows.Count; i++)
+            try
             {
-                for (int j = 0; j<dataGridView1.ColumnCount; j++)
-                {
-                    ExcelApp.Cells[i+1, j+1]=dataGridView1.Rows[i].Cells[j].Value;
-                }
-            }
+                Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel.Workbook ExcelWorkBook;
+                Microsoft.Office.Interop.Excel.Worksheet ExcelWorkSheet;
 
-            ExcelApp.Visible=true;
-            ExcelApp.UserControl=true;
+                ExcelWorkBook=ExcelApp.Workbooks.Add(System.Reflection.Missing.Value);
+
+                ExcelWorkSheet=(Microsoft.Office.Interop.Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
+
+                for (int i = 0; i<dataGridView1.Rows.Count; i++)
+                {
+                    for (int j = 0; j<dataGridView1.ColumnCount; j++)
+                    {
+                        ExcelApp.Cells[i+1, j+1]=dataGridView1.Rows[i].Cells[j].Value;
+                    }
+                }
+
+                ExcelApp.Visible=true;
+                ExcelApp.UserControl=true;
+            } catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         // Обработка кнопки меню

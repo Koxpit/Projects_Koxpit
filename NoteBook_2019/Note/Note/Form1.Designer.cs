@@ -75,6 +75,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -443,7 +444,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(372, 138);
+            this.button5.Location = new System.Drawing.Point(427, 138);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(105, 32);
             this.button5.TabIndex = 18;
@@ -451,11 +452,22 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(317, 138);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(104, 32);
+            this.button6.TabIndex = 19;
+            this.button6.Text = "Change";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 391);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button4);
@@ -538,6 +550,7 @@
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xMLFileToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button button6;
     }
 }
 
