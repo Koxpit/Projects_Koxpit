@@ -1,0 +1,10 @@
+c:\users\lenovo\documents\visual studio 2017\Projects\DESEncryption\DESEncryption\bin\Debug\DESEncryption.exe.config
+c:\users\lenovo\documents\visual studio 2017\Projects\DESEncryption\DESEncryption\bin\Debug\DESEncryption.exe
+c:\users\lenovo\documents\visual studio 2017\Projects\DESEncryption\DESEncryption\bin\Debug\DESEncryption.pdb
+c:\users\lenovo\documents\visual studio 2017\Projects\DESEncryption\DESEncryption\obj\Debug\DESEncryption.csprojResolveAssemblyReference.cache
+c:\users\lenovo\documents\visual studio 2017\Projects\DESEncryption\DESEncryption\obj\Debug\DESEncryption.DES.resources
+c:\users\lenovo\documents\visual studio 2017\Projects\DESEncryption\DESEncryption\obj\Debug\DESEncryption.Properties.Resources.resources
+c:\users\lenovo\documents\visual studio 2017\Projects\DESEncryption\DESEncryption\obj\Debug\DESEncryption.csproj.GenerateResource.Cache
+c:\users\lenovo\documents\visual studio 2017\Projects\DESEncryption\DESEncryption\obj\Debug\DESEncryption.exe
+c:\users\lenovo\documents\visual studio 2017\Projects\DESEncryption\DESEncryption\obj\Debug\DESEncryption.pdb
+c:\users\lenovo\documents\visual studio 2017\Projects\DESEncryption\DESEncryption\obj\Debug\DESEncryption.AboutDESEncryption.resources

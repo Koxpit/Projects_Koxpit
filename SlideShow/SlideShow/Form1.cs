@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Office.Core;
 using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 using Microsoft.Office.Interop.PowerPoint;
+using System.Threading;
 
 namespace SlideShow
 {
@@ -333,7 +333,8 @@ namespace SlideShow
 
         private void печатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Print();
+            Thread printThread = new Thread(Print);
+            printThread.Start();
         }
 
         private void закрытьToolStripMenuItem_Click(object sender, EventArgs e)
