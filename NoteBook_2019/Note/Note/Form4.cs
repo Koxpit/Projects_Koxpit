@@ -4,6 +4,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Note
@@ -12,7 +13,8 @@ namespace Note
     {
         private string print = "";
 
-        private List<Calendar> record;
+        private List<Calendar> record { get; set; }
+
         public List<Calendar> Record
         {
             get { return record; }
@@ -110,9 +112,9 @@ namespace Note
         }
 
         // Обработка кнопки меню
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveToExcel();
+            await Task.Run(() => SaveToExcel());
         }
 
         // Печать
@@ -121,27 +123,32 @@ namespace Note
             e.Graphics.DrawString(print, new Font("Arial", 14), Brushes.Black, 0, 0);
         }
 
-        // Печать
-        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Print()
         {
             try
             {
                 foreach (DataGridViewRow row in dataGridView1.Rows)
-                    print+=row.Cells[0].Value.ToString()+": "+row.Cells[1].Value.ToString() + "\n";
+                    print += row.Cells[0].Value.ToString() + ": " + row.Cells[1].Value.ToString() + "\n";
 
                 PrintDocument pD = new PrintDocument();
-                pD.PrintPage+=PrintPageHandler;
+                pD.PrintPage += PrintPageHandler;
 
                 PrintDialog pDg = new PrintDialog();
-                pDg.Document=pD;
+                pDg.Document = pD;
 
-                if (pDg.ShowDialog()==DialogResult.OK)
+                if (pDg.ShowDialog() == DialogResult.OK)
                     pDg.Document.Print();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        // Печать
+        private async void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            await Task.Run(() => Print());
         }
 
         // Сортировка данных по дате

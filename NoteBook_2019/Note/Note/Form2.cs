@@ -25,13 +25,12 @@ namespace Note
         {
             try
             {
-                FileStream fs = new FileStream("Users.dat", FileMode.Open);
-
-                BinaryFormatter formatter = new BinaryFormatter();
-
-                user=(Users)formatter.Deserialize(fs);
-
-                fs.Close();
+                using (FileStream fs = new FileStream("Users.dat", FileMode.Open))
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    user = (Users)formatter.Deserialize(fs);
+                    fs.Close();
+                }
             }
             catch { return; }
         }
@@ -83,12 +82,12 @@ namespace Note
                 user.passwords.Add(textBox2.Text);
                 user.id.Add(id);
 
-                FileStream fs = new FileStream("Users.dat", FileMode.OpenOrCreate);
-
-                BinaryFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(fs, user);
-
-                fs.Close();
+                using (FileStream fs = new FileStream("Users.dat", FileMode.OpenOrCreate))
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(fs, user);
+                    fs.Close();
+                }
 
                 login=textBox1.Text;
 

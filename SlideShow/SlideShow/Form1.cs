@@ -242,7 +242,8 @@ namespace SlideShow
                     form.Show();
                 }
                 else { MessageBox.Show("Добавьте изображениия!"); }
-            } catch(Exception ex) { MessageBox.Show(ex.Message); }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void labelNext_MouseMove(object sender, MouseEventArgs e)
@@ -333,8 +334,7 @@ namespace SlideShow
 
         private void печатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Thread printThread = new Thread(Print);
-            printThread.Start();
+            Print();
         }
 
         private void закрытьToolStripMenuItem_Click(object sender, EventArgs e)

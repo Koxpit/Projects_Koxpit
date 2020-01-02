@@ -36,3 +36,16 @@ C:\Users\lenovo\Desktop\Курсовая_Глувковский\Note\Note\obj\De
 C:\Users\lenovo\Desktop\Курсовая_Глувковский\Note\Note\obj\Debug\Note.csproj.GenerateResource.Cache
 C:\Users\lenovo\Desktop\Курсовая_Глувковский\Note\Note\obj\Debug\NoteBook.exe
 C:\Users\lenovo\Desktop\Курсовая_Глувковский\Note\Note\obj\Debug\NoteBook.pdb
+C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\bin\Debug\NoteBook.exe.config
+C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\bin\Debug\NoteBook.exe
+C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\bin\Debug\NoteBook.pdb
+C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\Note.csprojAssemblyReference.cache
+C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\Note.AboutBox1.resources
+C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\Note.Form1.resources
+C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\Note.Form2.resources
+C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\Note.Form3.resources
+C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\Note.Form4.resources
+C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\Note.Properties.Resources.resources
+C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\Note.csproj.GenerateResource.cache
+C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\NoteBook.exe
+C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\NoteBook.pdb

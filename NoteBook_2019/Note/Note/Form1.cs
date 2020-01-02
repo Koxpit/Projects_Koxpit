@@ -6,6 +6,7 @@ using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Note
@@ -19,7 +20,8 @@ namespace Note
         Color whited = Color.WhiteSmoke;
         Color light = Color.AliceBlue;
 
-        private List<Record> list;
+        private List<Record> list { get; set; }
+
         public List<Record> List
         {
             get { return list; }
@@ -33,7 +35,8 @@ namespace Note
             set { id = value; }
         }
 
-        private List<Record> basket;
+        private List<Record> basket { get; set; }
+
         public List<Record> Basket
         {
             get { return basket; }
@@ -55,15 +58,17 @@ namespace Note
         {
             try
             {
-                FileStream fs = new FileStream(ID.ToString()+".dat", FileMode.OpenOrCreate);
-                BinaryFormatter formatter = new BinaryFormatter();
-                if (fs.Length==0)
-                    list=new List<Record>();
-                else
-                    list=(List<Record>)formatter.Deserialize(fs);
-                dataGridView1.DataSource=list.ToList();
+                using (FileStream fs = new FileStream(ID.ToString() + ".dat", FileMode.OpenOrCreate))
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    if (fs.Length == 0)
+                        list = new List<Record>();
+                    else
+                        list = (List<Record>)formatter.Deserialize(fs);
+                    dataGridView1.DataSource = list.ToList();
 
-                fs.Close();
+                    fs.Close();
+                }
             } catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
         
@@ -221,10 +226,12 @@ namespace Note
             {
                 Form2 f2 = new Form2();
                 int id = f2.id;
-                FileStream fs = new FileStream(id.ToString()+".dat", FileMode.OpenOrCreate);
-                BinaryFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(fs, list);
-                fs.Close();
+                using (FileStream fs = new FileStream(id.ToString() + ".dat", FileMode.OpenOrCreate))
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(fs, list);
+                    fs.Close();
+                }
                 MessageBox.Show("Save complete!");
             }
             catch { return; }
@@ -345,9 +352,9 @@ namespace Note
         }
 
         // Кнопка сохранения данных в Excel
-        private void xMLFileToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void xMLFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveToExcel();
+            await Task.Run(() => SaveToExcel());
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
@@ -466,36 +473,42 @@ namespace Note
             e.Graphics.DrawString(print, new Font("Arial", 14), Brushes.Black, 0, 0);
         }
 
-        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Print()
         {
             try
             {
                 print = "";
-                if (dataGridView1.RowCount!=0)
+                if (dataGridView1.RowCount != 0)
                 {
-                    for (int i = 0; i<dataGridView1.Rows.Count; i++)
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
                     {
-                        for (int j = 0; j<dataGridView1.ColumnCount; j++)
+                        for (int j = 0; j < dataGridView1.ColumnCount; j++)
                         {
-                            print+=dataGridView1[j, i].Value.ToString();
+                            print += dataGridView1[j, i].Value.ToString();
                         }
-                        print+="\n";
+                        print += "\n";
                     }
 
                     PrintDocument pD = new PrintDocument();
-                    pD.PrintPage+=PrintPageHandler;
+                    pD.PrintPage += PrintPageHandler;
 
                     PrintDialog pDg = new PrintDialog();
-                    pDg.Document=pD;
+                    pDg.Document = pD;
 
-                    if (pDg.ShowDialog()==DialogResult.OK)
+                    if (pDg.ShowDialog() == DialogResult.OK)
                         pDg.Document.Print();
-                } else { MessageBox.Show("Table is empty!"); }
+                }
+                else { MessageBox.Show("Table is empty!"); }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private async void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            await Task.Run(() => Print());
         }
 
         private void button6_Click(object sender, EventArgs e)

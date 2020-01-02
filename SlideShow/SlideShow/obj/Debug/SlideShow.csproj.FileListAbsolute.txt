@@ -13,3 +13,19 @@ c:\users\lenovo\documents\visual studio 2017\Projects\SlideShow\SlideShow\obj\De
 c:\users\lenovo\documents\visual studio 2017\Projects\SlideShow\SlideShow\obj\Debug\SlideShow.pdb
 C:\Users\lenovo\documents\visual studio 2017\Projects\SlideShow\SlideShow\obj\Debug\SlideShow.Галерея.resources
 C:\Users\lenovo\documents\visual studio 2017\Projects\SlideShow\SlideShow\obj\Debug\SlideShow.Показ_слайдов.resources
+C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\bin\Debug\SlideShow.exe.config
+C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\bin\Debug\SlideShow.exe
+C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\bin\Debug\SlideShow.pdb
+C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\bin\Debug\Interop.WMPLib.dll
+C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\bin\Debug\AxInterop.WMPLib.dll
+C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\obj\Debug\SlideShow.csprojResolveAssemblyReference.cache
+C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\obj\Debug\Interop.WMPLib.dll
+C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\obj\Debug\AxInterop.WMPLib.dll
+C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\obj\Debug\SlideShow.csproj.ResolveComReference.cache
+C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\obj\Debug\SlideShow.Form1.resources
+C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\obj\Debug\SlideShow.Properties.Resources.resources
+C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\obj\Debug\SlideShow.Галерея.resources
+C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\obj\Debug\SlideShow.Показ_слайдов.resources
+C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\obj\Debug\SlideShow.csproj.GenerateResource.Cache
+C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\obj\Debug\SlideShow.exe
+C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\obj\Debug\SlideShow.pdb
