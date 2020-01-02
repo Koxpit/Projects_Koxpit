@@ -1,0 +1,15 @@
+c:\users\lenovo\documents\visual studio 2017\Projects\Players-Teams_ManyToMany\Players-Teams_ManyToMany\obj\Debug\Players-Teams_ManyToMany.csprojResolveAssemblyReference.cache
+c:\users\lenovo\documents\visual studio 2017\Projects\Players-Teams_ManyToMany\Players-Teams_ManyToMany\obj\Debug\Players_Teams_ManyToMany.Form1.resources
+c:\users\lenovo\documents\visual studio 2017\Projects\Players-Teams_ManyToMany\Players-Teams_ManyToMany\obj\Debug\Players_Teams_ManyToMany.Properties.Resources.resources
+c:\users\lenovo\documents\visual studio 2017\Projects\Players-Teams_ManyToMany\Players-Teams_ManyToMany\obj\Debug\Players-Teams_ManyToMany.csproj.GenerateResource.Cache
+c:\users\lenovo\documents\visual studio 2017\Projects\Players-Teams_ManyToMany\Players-Teams_ManyToMany\bin\Debug\Players-Teams_ManyToMany.exe.config
+c:\users\lenovo\documents\visual studio 2017\Projects\Players-Teams_ManyToMany\Players-Teams_ManyToMany\bin\Debug\Players-Teams_ManyToMany.exe
+c:\users\lenovo\documents\visual studio 2017\Projects\Players-Teams_ManyToMany\Players-Teams_ManyToMany\bin\Debug\Players-Teams_ManyToMany.pdb
+c:\users\lenovo\documents\visual studio 2017\Projects\Players-Teams_ManyToMany\Players-Teams_ManyToMany\bin\Debug\EntityFramework.dll
+c:\users\lenovo\documents\visual studio 2017\Projects\Players-Teams_ManyToMany\Players-Teams_ManyToMany\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\lenovo\documents\visual studio 2017\Projects\Players-Teams_ManyToMany\Players-Teams_ManyToMany\bin\Debug\EntityFramework.xml
+c:\users\lenovo\documents\visual studio 2017\Projects\Players-Teams_ManyToMany\Players-Teams_ManyToMany\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\lenovo\documents\visual studio 2017\Projects\Players-Teams_ManyToMany\Players-Teams_ManyToMany\obj\Debug\Players-Teams_ManyToMany.exe
+c:\users\lenovo\documents\visual studio 2017\Projects\Players-Teams_ManyToMany\Players-Teams_ManyToMany\obj\Debug\Players-Teams_ManyToMany.pdb
+c:\users\lenovo\documents\visual studio 2017\Projects\Players-Teams_ManyToMany\Players-Teams_ManyToMany\obj\Debug\Players_Teams_ManyToMany.PlayerForm.resources
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Players-Teams_ManyToMany\Players-Teams_ManyToMany\obj\Debug\Players_Teams_ManyToMany.TeamForm.resources
