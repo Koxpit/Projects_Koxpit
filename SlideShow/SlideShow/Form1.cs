@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Microsoft.Office.Core;
 using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 using Microsoft.Office.Interop.PowerPoint;
+using System.Threading.Tasks;
 using System.Threading;
 
 namespace SlideShow
@@ -167,7 +168,8 @@ namespace SlideShow
                 };
                 if (dr.ShowDialog() == DialogResult.OK)
                     fMusPath=dr.FileName;
-            } catch(Exception ex) { MessageBox.Show(ex.Message); }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void labelNext_Click(object sender, EventArgs e)
@@ -332,9 +334,9 @@ namespace SlideShow
             } catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        private void печатьToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void печатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Print();
+            await Task.Run(() => Print());
         }
 
         private void закрытьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -415,14 +417,14 @@ namespace SlideShow
             e.Graphics.DrawImage(new Bitmap(images[current]), e.PageBounds); //Картинка на печать
         }
 
-        private void сохранитьВJPGToolStripMenuItem1_Click(object sender, EventArgs e)
+        private async void сохранитьВJPGToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            PPTXtoImg();
+            await Task.Run(() => PPTXtoImg());
         }
 
-        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoadPPTX();
+            await Task.Run(() => LoadPPTX());
         }
 
         private void BottomPanel_Paint(object sender, PaintEventArgs e)

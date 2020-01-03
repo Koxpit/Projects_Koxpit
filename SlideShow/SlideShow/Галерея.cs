@@ -72,9 +72,9 @@ namespace SlideShow
             
         }
 
-        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Print();
+            await System.Threading.Tasks.Task.Run(() => Print());
         }
 
         // Печать текущей картинки
@@ -109,6 +109,11 @@ namespace SlideShow
         private void Галерея_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void печатьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
