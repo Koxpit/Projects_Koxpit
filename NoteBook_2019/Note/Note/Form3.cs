@@ -5,61 +5,39 @@ using System.Windows.Forms;
 
 namespace Note
 {
-    public partial class Form3 : Form
+    public partial class CartForm : Form
     {
-        Form1 f1;
+        NoteBookForm f1;
 
-        // Хранить записи корзины
-        private List<Record> bas = new List<Record>();
-        public List<Record> Bas
+        // Хранит записи корзины
+        private List<Record> cart = new List<Record>();
+        public List<Record> Cart
         {
-            get { return bas; }
-            set { bas=value; }
+            get { return cart; }
+            set { cart=value; }
         }
 
         // Хранит восстановленные записи
-        private List<Record> recover = new List<Record>();
-        public List<Record> Recover
+        private List<Record> recoverList = new List<Record>();
+        public List<Record> RecoverList
         {
-            get { return recover; }
-            set { recover=value; }
+            get { return recoverList; }
+            set { recoverList=value; }
         }
 
-        public Form3()
+        public CartForm()
         {
             InitializeComponent();
-            f1 = (Form1)this.Owner;
-        }
 
-        // Удаление всех записей из корзины
-        private void DelAllRec()
-        {
-            try
-            {
-                if (dataGridView1.Rows.Count!=0)
-                {
-                    DialogResult result;
-                    result=MessageBox.Show("Are you sure you want to delete all records?",
-                        "Removing", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (result==DialogResult.Yes)
-                    {
-                        bas.Clear();
-                        dataGridView1.DataSource=bas.ToList();
-
-                        MessageBox.Show("Cart cleared successfully!");
-                    }
-                }
-                else { MessageBox.Show("Cart is empty!"); }
-            } catch(Exception ex) { MessageBox.Show(ex.Message); }
+            f1 = (NoteBookForm)Owner;
         }
 
         // Удалить выбранные записи из корзины
-        private void button1_Click(object sender, EventArgs e)
+        private void DeleteButton_Click(object sender, EventArgs e)
         {
             try
             {
-                if (dataGridView1.CurrentRow!=null)
+                if (dataGridView.CurrentRow!=null)
                 {
                     DialogResult result;
                     result=MessageBox.Show("Are you sure you want to delete the selected entries?",
@@ -67,36 +45,61 @@ namespace Note
 
                     if (result==DialogResult.Yes)
                     {
-                        if (dataGridView1.SelectedRows.Count==0)
+                        if (dataGridView.SelectedRows.Count==0)
                         {
                             MessageBox.Show("No records selected!");
                         }
                         else
                         {
-                            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
-                                bas.RemoveAt(row.Index);
+                            foreach (DataGridViewRow row in dataGridView.SelectedRows)
+                                cart.RemoveAt(row.Index);
 
                             MessageBox.Show("Delete complete!");
                         }
 
-                        dataGridView1.DataSource=bas.ToList();
+                        OutputCartListToDataGrid();
                     }
                 }
-            } catch(Exception ex) { MessageBox.Show(ex.Message); }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        // Обработка кнопки удаления всех записей из корзины
-        private void button2_Click(object sender, EventArgs e)
+        private void OutputCartListToDataGrid()
         {
-            DelAllRec();
+            dataGridView.DataSource=cart.ToList();
         }
 
-        // Восстановить выбранные записи
-        private void button3_Click(object sender, EventArgs e)
+        // Удаление всех записей из корзины
+        private void DeleteAllButton_Click(object sender, EventArgs e)
         {
             try
             {
-                if (dataGridView1.CurrentRow!=null)
+                if (dataGridView.Rows.Count!=0)
+                {
+                    DialogResult result;
+                    result=MessageBox.Show("Are you sure you want to delete all records?",
+                        "Removing", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result==DialogResult.Yes)
+                    {
+                        cart.Clear();
+                        OutputCartListToDataGrid();
+
+                        MessageBox.Show("Cart cleared successfully!");
+                    }
+                }
+                else { MessageBox.Show("Cart is empty!"); }
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        // Восстановление выбранных записей
+        private void RecoverButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView.CurrentRow!=null)
                 {
                     DialogResult result;
                     result=MessageBox.Show("Do you want to restore the selected records?",
@@ -104,54 +107,55 @@ namespace Note
 
                     if (result==DialogResult.Yes)
                     {
-                        if (dataGridView1.SelectedRows.Count==0)
+                        if (dataGridView.SelectedRows.Count==0)
                         {
                             MessageBox.Show("No records selected!");
                         }
                         else
                         {
-                            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                            foreach (DataGridViewRow row in dataGridView.SelectedRows)
                             {
-                                recover.Add(bas.ElementAt(row.Index));
-                                bas.RemoveAt(row.Index);
+                                recoverList.Add(cart.ElementAt(row.Index));
+                                cart.RemoveAt(row.Index);
                             }
                         }
-                        dataGridView1.DataSource=bas.ToList();
+                        OutputCartListToDataGrid();
                     }
                 }
             } catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         // Восстановить все записи
-        private void button4_Click(object sender, EventArgs e)
+        private void RecoverAllButton_Click(object sender, EventArgs e)
         {
             try
             {
-                if (dataGridView1.Rows.Count!=0)
+                if (dataGridView.Rows.Count!=0)
                 {
-                    DialogResult result;
-                    result=MessageBox.Show("Do you want to restore all records?",
+                    DialogResult result = MessageBox.Show("Do you want to restore all records?",
                         "Recovery", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (result==DialogResult.Yes)
                     {
-                        recover.AddRange(bas);
-                        bas.Clear();
-                        dataGridView1.DataSource=bas.ToList();
+                        recoverList.AddRange(cart);
+                        cart.Clear();
+                        OutputCartListToDataGrid();
                         MessageBox.Show("Cart cleared successfully!");
                     }
                 }
                 else { MessageBox.Show("Cart is empty!"); }
-            } catch(Exception ex) { MessageBox.Show(ex.Message); }
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         // Подсказки
         private void Form3_Load(object sender, EventArgs e)
         {
-            toolTip1.SetToolTip(button1, "Delete one/few records");
-            toolTip1.SetToolTip(button2, "Delete all records");
-            toolTip1.SetToolTip(button3, "Recover one/few records");
-            toolTip1.SetToolTip(button4, "Recover all records");
+            toolTip.SetToolTip(DeleteButton, "Delete one/few records");
+            toolTip.SetToolTip(DeleteAllButton, "Delete all records");
+            toolTip.SetToolTip(RecoverButton, "Recover one/few records");
+            toolTip.SetToolTip(RecoverAllButton, "Recover all records");
         }
     }
 }

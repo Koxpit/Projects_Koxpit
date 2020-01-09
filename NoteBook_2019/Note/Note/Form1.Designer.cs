@@ -1,6 +1,6 @@
 ﻿namespace Note
 {
-    partial class Form1
+    partial class NoteBookForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteBookForm));
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.FirstNameTextBox = new System.Windows.Forms.TextBox();
+            this.LastNameTextBox = new System.Windows.Forms.TextBox();
+            this.PatronymicTextBox = new System.Windows.Forms.TextBox();
+            this.NumberTelephoneTextBox = new System.Windows.Forms.TextBox();
+            this.FirstNameLabel = new System.Windows.Forms.Label();
+            this.LastNameLabel = new System.Windows.Forms.Label();
+            this.PatronymicLabel = new System.Windows.Forms.Label();
+            this.BirthdayLabel = new System.Windows.Forms.Label();
+            this.NumberTelephoneLabel = new System.Windows.Forms.Label();
+            this.AddRecordButton = new System.Windows.Forms.Button();
+            this.DeleteRecordButton = new System.Windows.Forms.Button();
+            this.BirthdayDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,141 +70,140 @@
             this.xMLFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button6 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            this.SearchRecordButton = new System.Windows.Forms.Button();
+            this.ShowAllRecordsButton = new System.Windows.Forms.Button();
+            this.LoginUserDataLabel = new System.Windows.Forms.Label();
+            this.UpdateRecordButton = new System.Windows.Forms.Button();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.ChangeRecordButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(1, 183);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(543, 208);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(1, 183);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
+            this.dataGridView.Size = new System.Drawing.Size(543, 208);
+            this.dataGridView.TabIndex = 0;
+            this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
             // 
-            // textBox1
+            // FirstNameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(111, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.FirstNameTextBox.Location = new System.Drawing.Point(111, 34);
+            this.FirstNameTextBox.Name = "FirstNameTextBox";
+            this.FirstNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.FirstNameTextBox.TabIndex = 1;
+            this.FirstNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FirstNameTextBox_KeyPress);
             // 
-            // textBox2
+            // LastNameTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(111, 60);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
+            this.LastNameTextBox.Location = new System.Drawing.Point(111, 60);
+            this.LastNameTextBox.Name = "LastNameTextBox";
+            this.LastNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.LastNameTextBox.TabIndex = 2;
+            this.LastNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LastNameTextBox_KeyPress);
             // 
-            // textBox3
+            // PatronymicTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(111, 86);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 3;
-            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
+            this.PatronymicTextBox.Location = new System.Drawing.Point(111, 86);
+            this.PatronymicTextBox.Name = "PatronymicTextBox";
+            this.PatronymicTextBox.Size = new System.Drawing.Size(100, 20);
+            this.PatronymicTextBox.TabIndex = 3;
+            this.PatronymicTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PatronymicTextBox_KeyPress);
             // 
-            // textBox5
+            // NumberTelephoneTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(111, 138);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 5;
-            this.textBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox5_KeyPress);
+            this.NumberTelephoneTextBox.Location = new System.Drawing.Point(111, 138);
+            this.NumberTelephoneTextBox.Name = "NumberTelephoneTextBox";
+            this.NumberTelephoneTextBox.Size = new System.Drawing.Size(100, 20);
+            this.NumberTelephoneTextBox.TabIndex = 5;
+            this.NumberTelephoneTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberTelephoneTextBox_KeyPress);
             // 
-            // label1
+            // FirstNameLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "First Name:";
+            this.FirstNameLabel.AutoSize = true;
+            this.FirstNameLabel.Location = new System.Drawing.Point(14, 37);
+            this.FirstNameLabel.Name = "FirstNameLabel";
+            this.FirstNameLabel.Size = new System.Drawing.Size(60, 13);
+            this.FirstNameLabel.TabIndex = 6;
+            this.FirstNameLabel.Text = "First Name:";
             // 
-            // label2
+            // LastNameLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Last Name:";
+            this.LastNameLabel.AutoSize = true;
+            this.LastNameLabel.Location = new System.Drawing.Point(14, 60);
+            this.LastNameLabel.Name = "LastNameLabel";
+            this.LastNameLabel.Size = new System.Drawing.Size(61, 13);
+            this.LastNameLabel.TabIndex = 7;
+            this.LastNameLabel.Text = "Last Name:";
             // 
-            // label3
+            // PatronymicLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 86);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Patronymic:";
+            this.PatronymicLabel.AutoSize = true;
+            this.PatronymicLabel.Location = new System.Drawing.Point(14, 86);
+            this.PatronymicLabel.Name = "PatronymicLabel";
+            this.PatronymicLabel.Size = new System.Drawing.Size(62, 13);
+            this.PatronymicLabel.TabIndex = 8;
+            this.PatronymicLabel.Text = "Patronymic:";
             // 
-            // label4
+            // BirthdayLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 112);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Birthday:";
+            this.BirthdayLabel.AutoSize = true;
+            this.BirthdayLabel.Location = new System.Drawing.Point(14, 112);
+            this.BirthdayLabel.Name = "BirthdayLabel";
+            this.BirthdayLabel.Size = new System.Drawing.Size(48, 13);
+            this.BirthdayLabel.TabIndex = 9;
+            this.BirthdayLabel.Text = "Birthday:";
             // 
-            // label5
+            // NumberTelephoneLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 141);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Number telephone:";
+            this.NumberTelephoneLabel.AutoSize = true;
+            this.NumberTelephoneLabel.Location = new System.Drawing.Point(12, 141);
+            this.NumberTelephoneLabel.Name = "NumberTelephoneLabel";
+            this.NumberTelephoneLabel.Size = new System.Drawing.Size(97, 13);
+            this.NumberTelephoneLabel.TabIndex = 10;
+            this.NumberTelephoneLabel.Text = "Number telephone:";
             // 
-            // button1
+            // AddRecordButton
             // 
-            this.button1.Location = new System.Drawing.Point(317, 34);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 33);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Add record";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.AddRecordButton.Location = new System.Drawing.Point(317, 34);
+            this.AddRecordButton.Name = "AddRecordButton";
+            this.AddRecordButton.Size = new System.Drawing.Size(105, 33);
+            this.AddRecordButton.TabIndex = 11;
+            this.AddRecordButton.Text = "Add record";
+            this.AddRecordButton.UseVisualStyleBackColor = true;
+            this.AddRecordButton.Click += new System.EventHandler(this.AddRecordButton_Click);
             // 
-            // button2
+            // DeleteRecordButton
             // 
-            this.button2.Location = new System.Drawing.Point(427, 34);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 33);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Delete record";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.DeleteRecordButton.Location = new System.Drawing.Point(427, 34);
+            this.DeleteRecordButton.Name = "DeleteRecordButton";
+            this.DeleteRecordButton.Size = new System.Drawing.Size(105, 33);
+            this.DeleteRecordButton.TabIndex = 12;
+            this.DeleteRecordButton.Text = "Delete record";
+            this.DeleteRecordButton.UseVisualStyleBackColor = true;
+            this.DeleteRecordButton.Click += new System.EventHandler(this.DeleteRecordButton_Click);
             // 
-            // dateTimePicker1
+            // BirthdayDateTimePicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(111, 112);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 13;
+            this.BirthdayDateTimePicker.Location = new System.Drawing.Point(111, 112);
+            this.BirthdayDateTimePicker.Name = "BirthdayDateTimePicker";
+            this.BirthdayDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.BirthdayDateTimePicker.TabIndex = 13;
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
             this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(544, 24);
-            this.menuStrip1.TabIndex = 14;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(544, 24);
+            this.menuStrip.TabIndex = 14;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // файлToolStripMenuItem
             // 
@@ -225,7 +224,7 @@
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.сохранитьToolStripMenuItem.Text = "Save";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
@@ -238,7 +237,7 @@
             this.birthdayToolStripMenuItem,
             this.numberTelephoneToolStripMenuItem});
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.searchToolStripMenuItem.Text = "Search";
             // 
             // firstNameToolStripMenuItem
@@ -285,7 +284,7 @@
             this.birthdayToolStripMenuItem1,
             this.phoneNumberToolStripMenuItem});
             this.sortToolStripMenuItem.Name = "sortToolStripMenuItem";
-            this.sortToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.sortToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sortToolStripMenuItem.Text = "Sort";
             // 
             // firstNameToolStripMenuItem1
@@ -326,14 +325,14 @@
             // calendarToolStripMenuItem
             // 
             this.calendarToolStripMenuItem.Name = "calendarToolStripMenuItem";
-            this.calendarToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.calendarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.calendarToolStripMenuItem.Text = "Calendar";
             this.calendarToolStripMenuItem.Click += new System.EventHandler(this.calendarToolStripMenuItem_Click);
             // 
             // basketToolStripMenuItem
             // 
             this.basketToolStripMenuItem.Name = "basketToolStripMenuItem";
-            this.basketToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.basketToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.basketToolStripMenuItem.Text = "Cart";
             this.basketToolStripMenuItem.Click += new System.EventHandler(this.basketToolStripMenuItem_Click);
             // 
@@ -344,42 +343,41 @@
             this.lightToolStripMenuItem,
             this.defaultToolStripMenuItem});
             this.topicToolStripMenuItem.Name = "topicToolStripMenuItem";
-            this.topicToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.topicToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.topicToolStripMenuItem.Text = "Topic";
-            this.topicToolStripMenuItem.Click += new System.EventHandler(this.topicToolStripMenuItem_Click);
             // 
             // darkToolStripMenuItem
             // 
             this.darkToolStripMenuItem.Name = "darkToolStripMenuItem";
-            this.darkToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.darkToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.darkToolStripMenuItem.Text = "Dark";
             this.darkToolStripMenuItem.Click += new System.EventHandler(this.darkToolStripMenuItem_Click);
             // 
             // lightToolStripMenuItem
             // 
             this.lightToolStripMenuItem.Name = "lightToolStripMenuItem";
-            this.lightToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.lightToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.lightToolStripMenuItem.Text = "Light";
             this.lightToolStripMenuItem.Click += new System.EventHandler(this.lightToolStripMenuItem_Click);
             // 
             // defaultToolStripMenuItem
             // 
             this.defaultToolStripMenuItem.Name = "defaultToolStripMenuItem";
-            this.defaultToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.defaultToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.defaultToolStripMenuItem.Text = "Default";
             this.defaultToolStripMenuItem.Click += new System.EventHandler(this.defaultToolStripMenuItem_Click);
             // 
             // printToolStripMenuItem
             // 
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.printToolStripMenuItem.Text = "Print";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -388,15 +386,15 @@
             this.saveAsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xMLFileToolStripMenuItem});
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveAsToolStripMenuItem.Text = "Save as...";
             // 
             // xMLFileToolStripMenuItem
             // 
             this.xMLFileToolStripMenuItem.Name = "xMLFileToolStripMenuItem";
-            this.xMLFileToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.xMLFileToolStripMenuItem.Text = "XML file";
-            this.xMLFileToolStripMenuItem.Click += new System.EventHandler(this.xMLFileToolStripMenuItem_Click);
+            this.xMLFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.xMLFileToolStripMenuItem.Text = "Excel file";
+            this.xMLFileToolStripMenuItem.Click += new System.EventHandler(this.exelFileToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -413,91 +411,91 @@
             this.aboutProgramToolStripMenuItem.Text = "About Program";
             this.aboutProgramToolStripMenuItem.Click += new System.EventHandler(this.aboutProgramToolStripMenuItem_Click);
             // 
-            // button3
+            // SearchRecordButton
             // 
-            this.button3.Location = new System.Drawing.Point(316, 86);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(105, 32);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "Search";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.SearchRecordButton.Location = new System.Drawing.Point(316, 86);
+            this.SearchRecordButton.Name = "SearchRecordButton";
+            this.SearchRecordButton.Size = new System.Drawing.Size(105, 32);
+            this.SearchRecordButton.TabIndex = 15;
+            this.SearchRecordButton.Text = "Search";
+            this.SearchRecordButton.UseVisualStyleBackColor = true;
+            this.SearchRecordButton.Click += new System.EventHandler(this.SearchRecordButton_Click);
             // 
-            // button4
+            // ShowAllRecordsButton
             // 
-            this.button4.Location = new System.Drawing.Point(427, 86);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(105, 32);
-            this.button4.TabIndex = 16;
-            this.button4.Text = "Show all records";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.ShowAllRecordsButton.Location = new System.Drawing.Point(427, 86);
+            this.ShowAllRecordsButton.Name = "ShowAllRecordsButton";
+            this.ShowAllRecordsButton.Size = new System.Drawing.Size(105, 32);
+            this.ShowAllRecordsButton.TabIndex = 16;
+            this.ShowAllRecordsButton.Text = "Show all records";
+            this.ShowAllRecordsButton.UseVisualStyleBackColor = true;
+            this.ShowAllRecordsButton.Click += new System.EventHandler(this.ShowAllRecordsButton_Click);
             // 
-            // label6
+            // LoginUserDataLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(462, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "label6";
+            this.LoginUserDataLabel.AutoSize = true;
+            this.LoginUserDataLabel.Location = new System.Drawing.Point(462, 0);
+            this.LoginUserDataLabel.Name = "LoginUserDataLabel";
+            this.LoginUserDataLabel.Size = new System.Drawing.Size(49, 13);
+            this.LoginUserDataLabel.TabIndex = 17;
+            this.LoginUserDataLabel.Text = "Login/ID";
             // 
-            // button5
+            // UpdateRecordButton
             // 
-            this.button5.Location = new System.Drawing.Point(427, 138);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(105, 32);
-            this.button5.TabIndex = 18;
-            this.button5.Text = "Update";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.UpdateRecordButton.Location = new System.Drawing.Point(427, 138);
+            this.UpdateRecordButton.Name = "UpdateRecordButton";
+            this.UpdateRecordButton.Size = new System.Drawing.Size(105, 32);
+            this.UpdateRecordButton.TabIndex = 18;
+            this.UpdateRecordButton.Text = "Update";
+            this.UpdateRecordButton.UseVisualStyleBackColor = true;
+            this.UpdateRecordButton.Click += new System.EventHandler(this.UpdateRecordButton_Click);
             // 
-            // button6
+            // ChangeRecordButton
             // 
-            this.button6.Location = new System.Drawing.Point(317, 138);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(104, 32);
-            this.button6.TabIndex = 19;
-            this.button6.Text = "Change";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.ChangeRecordButton.Location = new System.Drawing.Point(317, 138);
+            this.ChangeRecordButton.Name = "ChangeRecordButton";
+            this.ChangeRecordButton.Size = new System.Drawing.Size(104, 32);
+            this.ChangeRecordButton.TabIndex = 19;
+            this.ChangeRecordButton.Text = "Change";
+            this.ChangeRecordButton.UseVisualStyleBackColor = true;
+            this.ChangeRecordButton.Click += new System.EventHandler(this.ChangeRecordButton_Click);
             // 
-            // Form1
+            // NoteBookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 391);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.ChangeRecordButton);
+            this.Controls.Add(this.UpdateRecordButton);
+            this.Controls.Add(this.LoginUserDataLabel);
+            this.Controls.Add(this.ShowAllRecordsButton);
+            this.Controls.Add(this.SearchRecordButton);
+            this.Controls.Add(this.BirthdayDateTimePicker);
+            this.Controls.Add(this.DeleteRecordButton);
+            this.Controls.Add(this.AddRecordButton);
+            this.Controls.Add(this.NumberTelephoneLabel);
+            this.Controls.Add(this.BirthdayLabel);
+            this.Controls.Add(this.PatronymicLabel);
+            this.Controls.Add(this.LastNameLabel);
+            this.Controls.Add(this.FirstNameLabel);
+            this.Controls.Add(this.NumberTelephoneTextBox);
+            this.Controls.Add(this.PatronymicTextBox);
+            this.Controls.Add(this.LastNameTextBox);
+            this.Controls.Add(this.FirstNameTextBox);
+            this.Controls.Add(this.dataGridView);
+            this.Controls.Add(this.menuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menuStrip;
             this.MaximumSize = new System.Drawing.Size(560, 430);
             this.MinimumSize = new System.Drawing.Size(560, 430);
-            this.Name = "Form1";
+            this.Name = "NoteBookForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NoteBook";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.Load += new System.EventHandler(this.NoteBookForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -505,24 +503,24 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.TextBox FirstNameTextBox;
+        private System.Windows.Forms.TextBox LastNameTextBox;
+        private System.Windows.Forms.TextBox PatronymicTextBox;
+        private System.Windows.Forms.TextBox NumberTelephoneTextBox;
+        private System.Windows.Forms.Label FirstNameLabel;
+        private System.Windows.Forms.Label LastNameLabel;
+        private System.Windows.Forms.Label PatronymicLabel;
+        private System.Windows.Forms.Label BirthdayLabel;
+        private System.Windows.Forms.Label NumberTelephoneLabel;
+        private System.Windows.Forms.Button AddRecordButton;
+        private System.Windows.Forms.Button DeleteRecordButton;
+        private System.Windows.Forms.DateTimePicker BirthdayDateTimePicker;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button SearchRecordButton;
+        private System.Windows.Forms.Button ShowAllRecordsButton;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem firstNameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lastNameToolStripMenuItem;
@@ -538,7 +536,7 @@
         private System.Windows.Forms.ToolStripMenuItem calendarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem basketToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem topicToolStripMenuItem;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button UpdateRecordButton;
         private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutProgramToolStripMenuItem;
@@ -546,11 +544,11 @@
         private System.Windows.Forms.ToolStripMenuItem darkToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lightToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem defaultToolStripMenuItem;
-        protected internal System.Windows.Forms.Label label6;
+        protected internal System.Windows.Forms.Label LoginUserDataLabel;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xMLFileToolStripMenuItem;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.Button ChangeRecordButton;
     }
 }
 
