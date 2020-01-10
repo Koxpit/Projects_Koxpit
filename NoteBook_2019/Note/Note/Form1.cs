@@ -25,7 +25,7 @@ namespace Note
         public List<Record> List
         {
             get { return ListRecords; }
-            set { ListRecords=value; }
+            set { ListRecords = value; }
         }
 
         private int id;
@@ -39,22 +39,22 @@ namespace Note
         public List<Record> Basket
         {
             get { return ListBasket; }
-            set { ListBasket=value; }
+            set { ListBasket = value; }
         }
 
         public NoteBookForm()
         {
             InitializeComponent();
 
-            ListBasket=new List<Record>();
-            f3=new CartForm();
+            ListBasket = new List<Record>();
+            f3 = new CartForm();
         }
 
         private void NoteBookForm_Load(object sender, EventArgs e)
         {
             LoadData();
-
-            LoginUserDataLabel.BackColor=Color.FromArgb(245, 245, 245);
+            
+            LoginUserDataLabel.BackColor = Color.FromArgb(245, 245, 245);
             toolTip.SetToolTip(UpdateRecordButton, "Load recovered recordings.");
             toolTip.SetToolTip(SearchRecordButton, "*all parameters.");
         }
@@ -95,26 +95,31 @@ namespace Note
             AddRecord();
         }
 
-        // Добавление новой записи
         private void AddRecord()
         {
-            ListRecords.Add(new Record
+            Record newRecord = CreateNewRecord();
+            ListRecords.Add(newRecord);
+
+            OutputListRecordsToDataGrid();
+        }
+
+        private Record CreateNewRecord()
+        {
+            return new Record
             {
                 Name = FirstNameTextBox.Text,
                 Surname = LastNameTextBox.Text,
                 Patronymic = PatronymicTextBox.Text,
                 Birthday = BirthdayDateTimePicker.Value.ToLongDateString(),
                 PhoneNumber = NumberTelephoneTextBox.Text
-            });
-
-            OutputListRecordsToDataGrid();
+            };
         }
 
         private void DeleteRecordButton_Click(object sender, EventArgs e)
         {
-            if (dataGridView.CurrentRow!=null)
+            if (dataGridView.CurrentRow != null)
             {
-                if (dataGridView.SelectedRows.Count==0)
+                if (dataGridView.SelectedRows.Count == 0)
                     MessageBox.Show("No records selected!");
                 else
                     foreach (DataGridViewRow row in dataGridView.SelectedRows)
@@ -123,29 +128,16 @@ namespace Note
                         ListRecords.RemoveAt(row.Index);
                     }
 
-                dataGridView.DataSource=ListRecords.ToList();
+                dataGridView.DataSource = ListRecords.ToList();
             }
             else { MessageBox.Show("Book is empty!"); }
         }
 
         private void SearchRecordButton_Click(object sender, EventArgs e)
         {
-            dataGridView.DataSource=SearchRecords().ToList();
-        }
-
-        // Поиск записи по всем параметрам
-        public List<Record> SearchRecords()
-        {
-            List<Record> list = new List<Record>();
-            foreach (Record rec in ListRecords)
-                if (rec.Name==FirstNameTextBox.Text||
-                    rec.Surname==LastNameTextBox.Text||
-                    rec.Patronymic==PatronymicTextBox.Text||
-                    rec.Birthday==BirthdayDateTimePicker.Value.ToLongDateString()||
-                    rec.PhoneNumber==NumberTelephoneTextBox.Text)
-                    list.Add(rec);
-
-            return list;
+            Record searchRecord = CreateNewRecord();
+            dataGridView.DataSource = SearchRecords.
+                SearchRecord(searchRecord, ListRecords);
         }
 
         private void ShowAllRecordsButton_Click(object sender, EventArgs e)
@@ -153,6 +145,7 @@ namespace Note
             OutputListRecordsToDataGrid();
         }
 
+        // Удаляет выделенную запись и вставляет новую
         private void ChangeRecordButton_Click(object sender, EventArgs e)
         {
             try
@@ -163,11 +156,12 @@ namespace Note
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
+        // Выводит в таблицу восстановленные записи
         private void UpdateRecordButton_Click(object sender, EventArgs e)
         {
             try
             {
-                if (f3.RecoverList!=null)
+                if (f3.RecoverList != null)
                 {
                     ListRecords.AddRange(f3.RecoverList);
                     f3.RecoverList.Clear();
@@ -178,112 +172,67 @@ namespace Note
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
+        // Поиск записи по имени
         private void firstNameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dataGridView.DataSource=SearchFName(FirstNameTextBox.Text).ToList();
+            dataGridView.DataSource = SearchRecords
+                .SearchFName(FirstNameTextBox.Text, ListRecords);
         }
 
-        // Поиск по имени
-        public List<Record> SearchFName(string FName)
-        {
-            List<Record> list = new List<Record>();
-            foreach (Record rec in ListRecords)
-                if (rec.Name==FName)
-                    list.Add(rec);
-
-            return list;
-        }
-
+        // Поиск записи по фамилии
         private void lastNameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dataGridView.DataSource=SearchLName(LastNameTextBox.Text).ToList();
+            dataGridView.DataSource = SearchRecords
+                .SearchLName(LastNameTextBox.Text, ListRecords);
         }
 
-        // Поиск по фамилии
-        public List<Record> SearchLName(string LName)
-        {
-            List<Record> list = new List<Record>();
-            foreach (Record rec in ListRecords)
-                if (rec.Surname==LName)
-                    list.Add(rec);
-
-            return list;
-        }
-
+        // Поиск записи по отчеству
         private void patronymicToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dataGridView.DataSource=SearchPatronymic(PatronymicTextBox.Text);
+            dataGridView.DataSource = SearchRecords
+                .SearchPatronymic(PatronymicTextBox.Text, ListRecords);
         }
 
-        // Поиск по отчеству
-        public List<Record> SearchPatronymic(string Patronymic)
-        {
-            List<Record> list = new List<Record>();
-            foreach (Record rec in ListRecords)
-                if (rec.Patronymic==Patronymic)
-                    list.Add(rec);
-
-            return list;
-        }
-
+        // Поиск записи по дате рождения
         private void birthdayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string data = BirthdayDateTimePicker.Value.ToLongDateString();
-            dataGridView.DataSource=SearchBirthday(data).ToList();
+            dataGridView.DataSource = SearchRecords
+                .SearchBirthday(data, ListRecords);
         }
 
-        // Поиск по дате рождения
-        public List<Record> SearchBirthday(string Birthday)
-        {
-            List<Record> list = new List<Record>();
-            foreach (Record rec in ListRecords)
-                if (rec.Birthday==Birthday)
-                    list.Add(rec);
-
-            return list;
-        }
-
+        // Поиск записи по номеру телефона
         private void numberTelephoneToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dataGridView.DataSource=SearchPhoneNumber(NumberTelephoneTextBox.Text).ToList();
-        }
-
-        // Поиск по номеру телефона
-        public List<Record> SearchPhoneNumber(string PhoneNumber)
-        {
-            List<Record> list = new List<Record>();
-            foreach (Record rec in ListRecords)
-                if (rec.PhoneNumber==PhoneNumber)
-                    list.Add(rec);
-
-            return list;
+            dataGridView.DataSource = SearchRecords
+                .SearchPhoneNumber(NumberTelephoneTextBox.Text, ListRecords);
         }
 
         // Обработка событий сортировки записей по параметрам
 
         private void firstNameToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            dataGridView.DataSource=ListRecords.OrderBy(x => x.Name).ToList();
+            dataGridView.DataSource = ListRecords.OrderBy(x => x.Name).ToList();
         }
 
         private void lastNameToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            dataGridView.DataSource=ListRecords.OrderBy(x => x.Surname).ToList();
+            dataGridView.DataSource = ListRecords.OrderBy(x => x.Surname).ToList();
         }
 
         private void patronymicToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            dataGridView.DataSource=ListRecords.OrderBy(x => x.Patronymic).ToList();
+            dataGridView.DataSource = ListRecords.OrderBy(x => x.Patronymic).ToList();
         }
 
         private void birthdayToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            dataGridView.DataSource=ListRecords.OrderBy(x => x.Birthday).ToList();
+            dataGridView.DataSource = ListRecords.OrderBy(x => x.Birthday).ToList();
         }
 
         private void phoneNumberToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dataGridView.DataSource=ListRecords.OrderBy(x => x.PhoneNumber).ToList();
+            dataGridView.DataSource = ListRecords.OrderBy(x => x.PhoneNumber).ToList();
         }
         // Конец обработки событий сортировки записей по параметрам
 
@@ -292,12 +241,16 @@ namespace Note
         {
             try
             {
-                FirstNameTextBox.Text=dataGridView[0, e.RowIndex].Value.ToString();
-                LastNameTextBox.Text=dataGridView[1, e.RowIndex].Value.ToString();
-                PatronymicTextBox.Text=dataGridView[2, e.RowIndex].Value.ToString();
-                NumberTelephoneTextBox.Text=dataGridView[4, e.RowIndex].Value.ToString();
-                BirthdayDateTimePicker.Value=DateTime.Parse(dataGridView[3, e.RowIndex].Value.ToString());
-
+                FirstNameTextBox.Text = dataGridView[0, e.RowIndex]
+                    .Value.ToString();
+                LastNameTextBox.Text = dataGridView[1, e.RowIndex]
+                    .Value.ToString();
+                PatronymicTextBox.Text = dataGridView[2, e.RowIndex]
+                    .Value.ToString();
+                NumberTelephoneTextBox.Text = dataGridView[4, e.RowIndex]
+                    .Value.ToString();
+                BirthdayDateTimePicker.Value = DateTime.Parse(dataGridView[3, e.RowIndex]
+                    .Value.ToString());
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -305,35 +258,21 @@ namespace Note
         // Сохранение данных из списка в файл
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                LoginForm f2 = new LoginForm();
-                int id = f2.id;
-
-                using (FileStream fs = new FileStream(id.ToString() + ".dat", FileMode.OpenOrCreate))
-                {
-                    BinaryFormatter formatter = new BinaryFormatter();
-                    formatter.Serialize(fs, ListRecords);
-
-                    MessageBox.Show("Save complete!");
-                    fs.Close();
-                }
-            }
-            catch { return; }
+            SaveRecords.SaveToFile(ListRecords);
         }
 
         // Сохранение записей в таблицу Excel
-        public void SaveRecordsToExcel()
-        {
-            SaveRecords.SaveToExcel(dataGridView);
-        }
-
         private async void exelFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => SaveRecordsToExcel());
+            await Task.Run(() => SaveRecords.SaveToExcel(dataGridView));
         }
 
         // Печать данных
+        private async void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            await Task.Run(() => PrintRecordsToTextFile());
+        }
+
         private void PrintRecordsToTextFile()
         {
             try
@@ -379,11 +318,6 @@ namespace Note
             e.Graphics.DrawString(printData, new Font("Arial", 14), Brushes.Black, 0, 0);
         }
 
-        private async void printToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            await Task.Run(() => PrintRecordsToTextFile());
-        }
-
         private void FirstNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             EnterOnlySimbols(e);
@@ -403,8 +337,7 @@ namespace Note
         public void EnterOnlySimbols(KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
-
-            if ((ch<'А'||ch>'я')&&(ch<'A'||ch>'z')&&ch!='\b')
+            if ( (ch<'А'||ch>'я') && (ch<'A'||ch>'z') && ch!='\b' )
                 e.Handled=true;
         }
 
@@ -417,61 +350,60 @@ namespace Note
         public void EnterOnlyDigits(KeyPressEventArgs e)
         {
             char number = e.KeyChar;
-
-            if (!Char.IsDigit(number)&&number!=8)
+            if ( !Char.IsDigit(number) && number!=8 )
                 e.Handled=true;
         }
 
         // Темная тема
         private void darkToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BackColor=dark;
-            ForeColor=whited;
+            BackColor = dark;
+            ForeColor = whited;
 
-            AddRecordButton.ForeColor=dark;
-            DeleteRecordButton.ForeColor=dark;
-            SearchRecordButton.ForeColor=dark;
-            ShowAllRecordsButton.ForeColor=dark;
-            UpdateRecordButton.ForeColor=dark;
+            AddRecordButton.ForeColor = dark;
+            DeleteRecordButton.ForeColor = dark;
+            SearchRecordButton.ForeColor = dark;
+            ShowAllRecordsButton.ForeColor = dark;
+            UpdateRecordButton.ForeColor = dark;
 
-            menuStrip.BackColor=whited;
+            menuStrip.BackColor = whited;
 
-            dataGridView.ForeColor=dark;
-            dataGridView.BackgroundColor=dark;
+            dataGridView.ForeColor = dark;
+            dataGridView.BackgroundColor = dark;
 
-            LoginUserDataLabel.BackColor=whited;
-            LoginUserDataLabel.ForeColor=dark;
+            LoginUserDataLabel.BackColor = whited;
+            LoginUserDataLabel.ForeColor = dark;
         }
 
         // Светлая тема
         private void lightToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BackColor=light;
-            ForeColor=dark;
+            BackColor = light;
+            ForeColor = dark;
 
-            dataGridView.BackgroundColor=Color.AntiqueWhite;
-            menuStrip.BackColor=Color.White;
-            LoginUserDataLabel.BackColor=Color.White;
+            dataGridView.BackgroundColor = Color.AntiqueWhite;
+            menuStrip.BackColor = Color.White;
+            LoginUserDataLabel.BackColor = Color.White;
         }
 
         // Тема по умолчанию
         private void defaultToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BackColor=Color.FromArgb(240, 240, 240);
-            ForeColor=Color.Black;
+            BackColor = Color.FromArgb(240, 240, 240);
+            ForeColor = Color.Black;
 
-            menuStrip.BackColor=Color.FromArgb(245, 245, 245);
-            LoginUserDataLabel.BackColor=Color.FromArgb(245, 245, 245);
-            dataGridView.BackgroundColor=Color.FromArgb(171, 171, 171);
+            menuStrip.BackColor = Color.FromArgb(245, 245, 245);
+            LoginUserDataLabel.BackColor = Color.FromArgb(245, 245, 245);
+            dataGridView.BackgroundColor = Color.FromArgb(171, 171, 171);
         }
 
         // Открытие корзины
         private void basketToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            f3=new CartForm();
-            f3.Owner=this;
-            f3.Cart=ListBasket;
-            f3.dataGridView.DataSource=ListBasket.ToList();
+            f3 = new CartForm();
+            f3.Owner = this;
+            f3.Cart = ListBasket;
+            f3.dataGridView.DataSource = ListBasket;
             f3.ShowDialog();
         }
 
@@ -486,18 +418,17 @@ namespace Note
         private void aboutProgramToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutBox1 about = new AboutBox1();
-            about.FormBorderStyle=FormBorderStyle.FixedToolWindow;
+            about.FormBorderStyle = FormBorderStyle.FixedToolWindow;
             about.ShowDialog();
         }
 
-        // Закрытие приложения
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
     }
 
-    [Serializable] // - для работы с файлами
+    [Serializable]
     public class Record
     {
         public string Name { get; set; }

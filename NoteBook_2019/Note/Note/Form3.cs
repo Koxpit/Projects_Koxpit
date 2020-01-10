@@ -14,7 +14,7 @@ namespace Note
         public List<Record> Cart
         {
             get { return cart; }
-            set { cart=value; }
+            set { cart = value; }
         }
 
         // Хранит восстановленные записи
@@ -22,7 +22,7 @@ namespace Note
         public List<Record> RecoverList
         {
             get { return recoverList; }
-            set { recoverList=value; }
+            set { recoverList = value; }
         }
 
         public CartForm()
@@ -37,15 +37,14 @@ namespace Note
         {
             try
             {
-                if (dataGridView.CurrentRow!=null)
+                if (dataGridView.CurrentRow != null)
                 {
-                    DialogResult result;
-                    result=MessageBox.Show("Are you sure you want to delete the selected entries?",
+                    DialogResult result = MessageBox.Show("Are you sure you want to delete the selected entries?",
                         "Removing", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                    if (result==DialogResult.Yes)
+                    if (result == DialogResult.Yes)
                     {
-                        if (dataGridView.SelectedRows.Count==0)
+                        if (dataGridView.SelectedRows.Count == 0)
                         {
                             MessageBox.Show("No records selected!");
                         }
@@ -66,7 +65,7 @@ namespace Note
 
         private void OutputCartListToDataGrid()
         {
-            dataGridView.DataSource=cart.ToList();
+            dataGridView.DataSource = cart.ToList();
         }
 
         // Удаление всех записей из корзины
@@ -74,17 +73,16 @@ namespace Note
         {
             try
             {
-                if (dataGridView.Rows.Count!=0)
+                if (dataGridView.Rows.Count != 0)
                 {
-                    DialogResult result;
-                    result=MessageBox.Show("Are you sure you want to delete all records?",
+                    DialogResult result = MessageBox.Show("Are you sure you want to delete all records?",
                         "Removing", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                    if (result==DialogResult.Yes)
+                    if (result == DialogResult.Yes)
                     {
                         cart.Clear();
-                        OutputCartListToDataGrid();
 
+                        OutputCartListToDataGrid();
                         MessageBox.Show("Cart cleared successfully!");
                     }
                 }
@@ -99,15 +97,14 @@ namespace Note
         {
             try
             {
-                if (dataGridView.CurrentRow!=null)
+                if (dataGridView.CurrentRow != null)
                 {
-                    DialogResult result;
-                    result=MessageBox.Show("Do you want to restore the selected records?",
+                    DialogResult result = MessageBox.Show("Do you want to restore the selected records?",
                         "Recovery", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                    if (result==DialogResult.Yes)
+                    if (result == DialogResult.Yes)
                     {
-                        if (dataGridView.SelectedRows.Count==0)
+                        if (dataGridView.SelectedRows.Count == 0)
                         {
                             MessageBox.Show("No records selected!");
                         }
@@ -130,7 +127,7 @@ namespace Note
         {
             try
             {
-                if (dataGridView.Rows.Count!=0)
+                if (dataGridView.Rows.Count != 0)
                 {
                     DialogResult result = MessageBox.Show("Do you want to restore all records?",
                         "Recovery", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -139,6 +136,7 @@ namespace Note
                     {
                         recoverList.AddRange(cart);
                         cart.Clear();
+
                         OutputCartListToDataGrid();
                         MessageBox.Show("Cart cleared successfully!");
                     }
@@ -152,10 +150,10 @@ namespace Note
         // Подсказки
         private void Form3_Load(object sender, EventArgs e)
         {
-            toolTip.SetToolTip(DeleteButton, "Delete one/few records");
-            toolTip.SetToolTip(DeleteAllButton, "Delete all records");
-            toolTip.SetToolTip(RecoverButton, "Recover one/few records");
-            toolTip.SetToolTip(RecoverAllButton, "Recover all records");
+            toolTip.SetToolTip( DeleteButton, "Delete one/few records");
+            toolTip.SetToolTip( DeleteAllButton, "Delete all records");
+            toolTip.SetToolTip( RecoverButton, "Recover one/few records");
+            toolTip.SetToolTip( RecoverAllButton, "Recover all records");
         }
     }
 }

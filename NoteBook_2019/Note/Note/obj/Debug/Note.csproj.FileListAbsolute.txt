@@ -44,7 +44,6 @@ C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\Note.Properti
 C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\Note.csproj.GenerateResource.cache
 C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\NoteBook.exe
 C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\NoteBook.pdb
-C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\Note.csprojResolveAssemblyReference.cache
 C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\Note.NoteBookForm.resources
 C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\Note.LoginForm.resources
 C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\Note.CartForm.resources

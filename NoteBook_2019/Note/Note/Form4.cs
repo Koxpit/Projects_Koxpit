@@ -17,14 +17,14 @@ namespace Note
         public List<Calendar> RecordList
         {
             get { return recordList; }
-            set { recordList=value; }
+            set { recordList = value; }
         }
 
         public CalendarForm()
         {
             InitializeComponent();
 
-            recordList=new List<Calendar>();
+            recordList = new List<Calendar>();
         }
 
         private void AddRecordButton_Click(object sender, EventArgs e)
@@ -36,7 +36,10 @@ namespace Note
         {
             try
             {
-                recordList.Add(new Calendar { Date =  monthCalendar.SelectionStart.ToLongDateString(), Note = textBox.Text });
+                recordList.Add(new Calendar {
+                    Date = monthCalendar.SelectionStart.ToLongDateString(),
+                    Note = textBox.Text
+                });
 
                 OutputListRecordToDataGrid();
             }
@@ -47,7 +50,7 @@ namespace Note
         {
             try
             {
-                dataGridView.DataSource=recordList.ToList();
+                dataGridView.DataSource = recordList.ToList();
             }
             catch { MessageBox.Show("Error adding/updating table!"); }
         }
@@ -58,7 +61,7 @@ namespace Note
             {
                 if (dataGridView.CurrentRow!=null)
                 {
-                    if (dataGridView.SelectedRows.Count==0)
+                    if (dataGridView.SelectedRows.Count == 0)
                         MessageBox.Show("No records selected!");
                     else
                         foreach (DataGridViewRow row in dataGridView.SelectedRows)
@@ -77,31 +80,40 @@ namespace Note
         {
             recordList.RemoveAt(dataGridView.CurrentRow.Index);
             AddRecord();
+
             OutputListRecordToDataGrid();
         }
 
         // Обработка двойного клика по ячейке для изменения записи
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBox.Text=dataGridView[1, e.RowIndex].Value.ToString();
-            monthCalendar.SelectionStart=DateTime.Parse(dataGridView[0, e.RowIndex].Value.ToString());
+            textBox.Text = dataGridView[1, e.RowIndex]
+                .Value.ToString();
+            monthCalendar.SelectionStart = DateTime.Parse(dataGridView[0, e.RowIndex]
+                .Value.ToString());
         }
 
         // Сортировка записей по дате
         private void sortToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dataGridView.DataSource=recordList.OrderBy(x => x.Date).ToList();
+            dataGridView.DataSource = recordList.OrderBy(x => x.Date).ToList();
         }
 
         // Сохранение записей из таблицы в Excel таблицу
+        private async void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            await Task.Run(() => SaveToExcel());
+        }
+
         public void SaveToExcel()
         {
             SaveRecords.SaveToExcel(dataGridView);
         }
 
-        private async void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        // Печать данных
+        private async void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => SaveToExcel());
+            await Task.Run(() => PrintRecordsToDocument());
         }
 
         private void PrintRecordsToDocument()
@@ -109,7 +121,8 @@ namespace Note
             try
             {
                 foreach (DataGridViewRow row in dataGridView.Rows)
-                    printData += row.Cells[0].Value.ToString() + ": " + row.Cells[1].Value.ToString() + "\n";
+                    printData += row.Cells[0].Value.ToString() + ": "
+                        + row.Cells[1].Value.ToString() + "\n";
 
                 PrintDocument printDocument = new PrintDocument();
                 printDocument.PrintPage += PrintPageHandler;
@@ -131,11 +144,6 @@ namespace Note
             e.Graphics.DrawString(printData, new Font("Arial", 14), Brushes.Black, 0, 0);
         }
 
-        private async void printToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            await Task.Run(() => PrintRecordsToDocument());
-        }
-
         private void aboutProgramToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutBox1 about = new AboutBox1();
@@ -149,7 +157,7 @@ namespace Note
         }
     }
 
-    [Serializable] // - для работы с файлами(загрузка, получение данных)
+    [Serializable]
     public class Calendar
     {
         public string Date { get; set; }

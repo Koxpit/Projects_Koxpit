@@ -16,7 +16,7 @@ namespace Note
         public LoginForm()
         {
             InitializeComponent();
-            
+
             LoadUsers();
         }
 
@@ -44,11 +44,11 @@ namespace Note
                 if (ValidationLogin())
                 {
                     NoteBookForm f1 = new NoteBookForm();
-                    f1.ID=id;
+                    f1.ID = id;
                     MessageBox.Show("You are logged in!");
 
                     Hide();
-                    f1.LoginUserDataLabel.Text=login+"/id: "+id.ToString();
+                    f1.LoginUserDataLabel.Text = login + "/id: " + id.ToString();
                     f1.ShowDialog();
 
                     Close();
@@ -64,17 +64,17 @@ namespace Note
 
             for (int i = 0; i < user.logins.Count; i++)
             {
-                if (user.logins[i]==LoginTextBox.Text && user.passwords[i]==PasswordTextBox.Text)
+                if (user.logins[i] == LoginTextBox.Text && user.passwords[i] == PasswordTextBox.Text)
                 {
-                    login=user.logins[i];
+                    login = user.logins[i];
                     password=user.passwords[i];
-                    id=i+1;
+                    id = i+1;
 
                     return true;
                 }
-                else if (user.logins[i]==LoginTextBox.Text && user.passwords[i]!=PasswordTextBox.Text)
+                else if (user.logins[i] == LoginTextBox.Text && user.passwords[i] != PasswordTextBox.Text)
                 {
-                    login=user.logins[i];
+                    login = user.logins[i];
                     MessageBox.Show("Invalid password!");
 
                     return false;
@@ -114,7 +114,7 @@ namespace Note
                     formatter.Serialize(fs, user);
 
                     MessageBox.Show("You have successfully registered!");
-                    login=LoginTextBox.Text;
+                    login = LoginTextBox.Text;
 
                     fs.Close();
                 }
@@ -128,7 +128,7 @@ namespace Note
                 return false;
 
             for (int i = 0; i < user.logins.Count; i++)
-                if (user.logins[i]==LoginTextBox.Text)
+                if (user.logins[i] == LoginTextBox.Text)
                 {
                     MessageBox.Show("This login already exists!");
 
@@ -140,21 +140,21 @@ namespace Note
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            if (ShowPasswordCheckBox.Checked==false)
-                PasswordTextBox.UseSystemPasswordChar=true;
+            if (ShowPasswordCheckBox.Checked == false)
+                PasswordTextBox.UseSystemPasswordChar = true;
         }
 
         // Проверка, виден ли пароль или нет
         private void ShowPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (ShowPasswordCheckBox.Checked==true)
-                PasswordTextBox.UseSystemPasswordChar=false;
+            if (ShowPasswordCheckBox.Checked == true)
+                PasswordTextBox.UseSystemPasswordChar = false;
             else
-                PasswordTextBox.UseSystemPasswordChar=true;
+                PasswordTextBox.UseSystemPasswordChar = true;
         }
     }
 
-    [Serializable] // -  для работы с файлами
+    [Serializable]
     public class Users
     {
         public List<string> logins = new List<string>();
