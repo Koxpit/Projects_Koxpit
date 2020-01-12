@@ -18,7 +18,6 @@ C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\bin\Debug\SlideShow.exe
 C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\bin\Debug\SlideShow.pdb
 C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\bin\Debug\Interop.WMPLib.dll
 C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\bin\Debug\AxInterop.WMPLib.dll
-C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\obj\Debug\SlideShow.csprojResolveAssemblyReference.cache
 C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\obj\Debug\Interop.WMPLib.dll
 C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\obj\Debug\AxInterop.WMPLib.dll
 C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\obj\Debug\SlideShow.csproj.ResolveComReference.cache
@@ -29,3 +28,4 @@ C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\obj\Debug\SlideShow.Пок�
 C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\obj\Debug\SlideShow.csproj.GenerateResource.Cache
 C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\obj\Debug\SlideShow.exe
 C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\obj\Debug\SlideShow.pdb
+C:\GitHub_Koxpit\Projects_Koxpit\SlideShow\SlideShow\obj\Debug\SlideShow.csprojResolveAssemblyReference.cache
