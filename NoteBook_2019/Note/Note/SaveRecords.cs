@@ -45,9 +45,8 @@ namespace Note
             try
             {
                 LoginForm f2 = new LoginForm();
-                int id = f2.id;
 
-                using (FileStream fs = new FileStream(id.ToString() + ".dat", FileMode.OpenOrCreate))
+                using (FileStream fs = new FileStream(f2.ID.ToString() + ".dat", FileMode.OpenOrCreate))
                 {
                     BinaryFormatter formatter = new BinaryFormatter();
                     formatter.Serialize(fs, ListRecords);

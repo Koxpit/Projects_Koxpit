@@ -48,3 +48,4 @@ C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\Note.NoteBook
 C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\Note.LoginForm.resources
 C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\Note.CartForm.resources
 C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\Note.CalendarForm.resources
+C:\GitHub_Koxpit\Projects_Koxpit\NoteBook_2019\Note\Note\obj\Debug\Note.csprojResolveAssemblyReference.cache

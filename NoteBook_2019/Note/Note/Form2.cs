@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Note
 {
     public partial class LoginForm : Form
     {
-        public string login = string.Empty;
-        private string password = string.Empty;
-        private Users user = new Users();
-        public int id = 0;
+        internal string login { get; set; }
+        private string password { get; set; }
+        private Users users = new Users();
+        internal int ID { get; set; }
 
         public LoginForm()
         {
             InitializeComponent();
 
             LoadUsers();
+            ID = users.id.Count;
         }
 
         // Загрузка логинов и паролей пользователей
@@ -28,7 +30,7 @@ namespace Note
                 using (FileStream fs = new FileStream("Users.dat", FileMode.Open))
                 {
                     BinaryFormatter formatter = new BinaryFormatter();
-                    user = (Users)formatter.Deserialize(fs);
+                    users = (Users)formatter.Deserialize(fs);
 
                     fs.Close();
                 }
@@ -43,18 +45,21 @@ namespace Note
             {
                 if (ValidationLogin())
                 {
-                    NoteBookForm f1 = new NoteBookForm();
-                    f1.ID = id;
+                    NoteBookForm form1 = new NoteBookForm();
+                    form1.ID = ID;
                     MessageBox.Show("You are logged in!");
 
                     Hide();
-                    f1.LoginUserDataLabel.Text = login + "/id: " + id.ToString();
-                    f1.ShowDialog();
+                    form1.LoginUserDataLabel.Text = login + "/id: " + ID.ToString();
+                    form1.ShowDialog();
 
                     Close();
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private bool ValidationLogin()
@@ -62,19 +67,19 @@ namespace Note
             if (CheckFieldsForVoid())
                 return false;
 
-            for (int i = 0; i < user.logins.Count; i++)
+            for (int i = 0; i < users.logins.Count; i++)
             {
-                if (user.logins[i] == LoginTextBox.Text && user.passwords[i] == PasswordTextBox.Text)
+                if (users.logins[i] == LoginTextBox.Text && users.passwords[i] == PasswordTextBox.Text)
                 {
-                    login = user.logins[i];
-                    password=user.passwords[i];
-                    id = i+1;
+                    login = users.logins[i];
+                    password = users.passwords[i];
+                    ID = i + 1;
 
                     return true;
                 }
-                else if (user.logins[i] == LoginTextBox.Text && user.passwords[i] != PasswordTextBox.Text)
+                else if (users.logins[i] == LoginTextBox.Text && users.passwords[i] != PasswordTextBox.Text)
                 {
-                    login = user.logins[i];
+                    login = users.logins[i];
                     MessageBox.Show("Invalid password!");
 
                     return false;
@@ -97,29 +102,25 @@ namespace Note
         }
 
         // Добавление нового пользователя (регистрция)
-        private void RegistrationButton_Click(object sender, EventArgs e)
+        private async void RegistrationButton_Click(object sender, EventArgs e)
         {
             try
             {
                 if (!ValidationRegistration())
                     return;
-
-                user.logins.Add(LoginTextBox.Text);
-                user.passwords.Add(PasswordTextBox.Text);
-                user.id.Add(id);
-
-                using (FileStream fs = new FileStream("Users.dat", FileMode.OpenOrCreate))
+                else
                 {
-                    BinaryFormatter formatter = new BinaryFormatter();
-                    formatter.Serialize(fs, user);
-
-                    MessageBox.Show("You have successfully registered!");
-                    login = LoginTextBox.Text;
-
-                    fs.Close();
+                    AddNewUser();
+                    await Task.Run(() => UpdateUsersData());
                 }
+
+                MessageBox.Show("You have successfully registered!");
+                login = LoginTextBox.Text;
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private bool ValidationRegistration()
@@ -127,15 +128,40 @@ namespace Note
             if (CheckFieldsForVoid())
                 return false;
 
-            for (int i = 0; i < user.logins.Count; i++)
-                if (user.logins[i] == LoginTextBox.Text)
+            for (int i = 0; i < users.logins.Count; i++)
+                if (users.logins[i] == LoginTextBox.Text)
                 {
                     MessageBox.Show("This login already exists!");
 
                     return false;
                 }
 
+            if (PasswordTextBox.Text.Length < 4)
+            {
+                MessageBox.Show("Password must be at least 4 characters!");
+
+                return false;
+            }
+
             return true;
+        }
+
+        private void AddNewUser()
+        {
+            users.logins.Add(LoginTextBox.Text);
+            users.passwords.Add(PasswordTextBox.Text);
+            users.id.Add(ID);
+        }
+
+        private void UpdateUsersData()
+        {
+            using (FileStream fs = new FileStream("Users.dat", FileMode.OpenOrCreate))
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(fs, users);
+
+                fs.Close();
+            }
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
@@ -155,10 +181,10 @@ namespace Note
     }
 
     [Serializable]
-    public class Users
+    class Users
     {
-        public List<string> logins = new List<string>();
-        public List<string> passwords = new List<string>();
-        public List<int> id = new List<int>();
+        internal List<string> logins = new List<string>();
+        internal List<string> passwords = new List<string>();
+        internal List<int> id = new List<int>();
     }
 }
