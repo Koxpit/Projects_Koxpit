@@ -30,25 +30,25 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Показ_слайдов));
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.pictureBoxAllScreen = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAllScreen)).BeginInit();
             this.SuspendLayout();
             // 
-            // timer1
+            // timer
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // pictureBox1
+            // pictureBoxAllScreen
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(584, 361);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxAllScreen.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.pictureBoxAllScreen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxAllScreen.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxAllScreen.Name = "pictureBoxAllScreen";
+            this.pictureBoxAllScreen.Size = new System.Drawing.Size(584, 361);
+            this.pictureBoxAllScreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxAllScreen.TabIndex = 0;
+            this.pictureBoxAllScreen.TabStop = false;
             // 
             // Показ_слайдов
             // 
@@ -56,19 +56,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.ClientSize = new System.Drawing.Size(584, 361);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBoxAllScreen);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Показ_слайдов";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Показ_слайдов";
             this.Load += new System.EventHandler(this.Показ_слайдов_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAllScreen)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Timer timer1;
-        protected internal System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timer;
+        protected internal System.Windows.Forms.PictureBox pictureBoxAllScreen;
     }
 }

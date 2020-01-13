@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace SlideShow
@@ -12,40 +11,50 @@ namespace SlideShow
             InitializeComponent();
         }
 
-        private string dirName;
         private int current = 0;
+        private string dirName;
         public string DirName { get { return dirName; } set { dirName=value; } }
 
         private List<string> imgs = new List<string>();
         public List<string> Imgs { get { return imgs; } set { imgs=value; } }
 
-        // Загружает выбранной картинки listbox в picturebox
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        // Загружает выбранную картинку listbox в picturebox
+        private void listBoxGallery_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                current=listBox1.SelectedIndex;
-                pictureBox1.ImageLocation = dirName+@"\"+listBox1.SelectedItem.ToString();
-            } catch(Exception ex) { MessageBox.Show(ex.Message); }
+                current = listBoxGallery.SelectedIndex;
+                pictureBoxGallery.ImageLocation = dirName + @"\" + listBoxGallery.SelectedItem.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         // Листает к предыдущему изображению
         private void PreviousImage_Click(object sender, EventArgs e)
         {
-            if (imgs.Count!=0)
+            try
             {
-                try
+                if (imgs.Count != 0)
                 {
-                    int current = listBox1.SelectedIndex;
-                    if (current-1 >= 0)
-                    {
-                        current--;
-                        listBox1.SelectedItem = listBox1.Items[current];
-                    }
-                    else { current = imgs.Count-1; listBox1.SelectedItem=listBox1.Items[current]; }
-                    pictureBox1.ImageLocation = dirName+@"\"+listBox1.SelectedItem.ToString();
-                } catch(Exception ex) { MessageBox.Show(ex.Message); }
+                    CurrentPrev();
+                    listBoxGallery.SelectedItem = listBoxGallery.Items[current];
+                    pictureBoxGallery.ImageLocation = dirName+@"\"+listBoxGallery.SelectedItem.ToString();
+                }
+            } catch(Exception ex) {
+                MessageBox.Show(ex.Message);
             }
+        }
+
+        private void CurrentPrev()
+        {
+            current = listBoxGallery.SelectedIndex;
+            if (current-1 >= 0)
+                current--;
+            else
+                current = imgs.Count - 1;
         }
 
         // Листает к следующему изображению
@@ -53,67 +62,36 @@ namespace SlideShow
         {
             try
             {
-                if (imgs.Count!=0)
+                if (imgs.Count != 0)
                 {
-                    int current = listBox1.SelectedIndex;
-                    if (current+1 < listBox1.Items.Count)
-                    {
-                        current++;
-                        listBox1.SelectedItem = listBox1.Items[current];
-                    }
-                    else { current=0; listBox1.SelectedItem=listBox1.Items[current]; }
-                    pictureBox1.ImageLocation = dirName+@"\"+listBox1.SelectedItem.ToString();
+                    CurrentNext();
+                    listBoxGallery.SelectedItem = listBoxGallery.Items[current];
+                    pictureBoxGallery.ImageLocation = dirName+@"\" + listBoxGallery.SelectedItem.ToString();
                 }
-            } catch(Exception ex) { MessageBox.Show(ex.Message); }
+            } catch(Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void CurrentNext()
+        {
+            current = listBoxGallery.SelectedIndex;
+            if (current + 1 < listBoxGallery.Items.Count)
+                current++;
+            else
+                current = 0;
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
-        }
-
-        private async void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            await System.Threading.Tasks.Task.Run(() => Print());
         }
 
         // Печать текущей картинки
-        public void Print()
+        private async void печатьToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            if (imgs.Count!=0)
-            {
-                try
-                {
-                    System.Drawing.Printing.PrintDocument Document = new System.Drawing.Printing.PrintDocument();
-                    Document.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(Document_PrintPage);
-                    DialogResult result = printDialog1.ShowDialog();
-                    if (result == DialogResult.OK)
-                    {
-                        Document.Print();
-                    }
-                }
-                catch (Exception ex) { MessageBox.Show(ex.Message); }
-            }
-            else MessageBox.Show("Добавьте изображение!");
-        }
-        void Document_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            e.Graphics.DrawImage(new Bitmap(imgs[current]), e.PageBounds); //Картинка на печать
-        }
-
-        private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            
-        }
-
-        private void Галерея_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void печатьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+            PrintWork printWork = new PrintWork(Imgs, current);
+            await System.Threading.Tasks.Task.Run(() => printWork.PrintImage(printDialogGallery));
         }
     }
 }

@@ -3,44 +3,42 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using Microsoft.Office.Core;
-using PowerPoint = Microsoft.Office.Interop.PowerPoint;
-using Microsoft.Office.Interop.PowerPoint;
 using System.Threading.Tasks;
 using System.Drawing.Printing;
 
 namespace SlideShow
 {
-    public partial class Form1 : Form
+    public partial class SlideShowForm : Form
     {
         private Галерея galleryForm;
         private WMPLib.WindowsMediaPlayer WMP = new WMPLib.WindowsMediaPlayer();
-        private string dirPath;
-        private string pptxPath;
-        private string musPath = null;
+        private string dirPath, pptxPath, musPath = null;
+        private string[] imgJpg = null, imgPng = null, imgJpeg = null;
         private int current;
         public int Current { get { return current; } }
-        private string[] imgJpg = null, imgPng = null, imgJpeg = null;
         private List<string> images;
         public List<string> Images { get { return images; } set { images = value; } }
 
-        public Form1()
+        public SlideShowForm()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void SlideShowForm_Load(object sender, EventArgs e)
         {
             labelNext.BackColor = Color.Transparent;
             LabelPrev.BackColor = Color.Transparent;
-            labelNext.Enabled = false;
-            LabelPrev.Enabled = false;
+            SetPrevNextLabelsEnable(false, false);
             PauseButton.Enabled = false;
-
             checkStartBegin.Checked = true;
             aroundShowCheckBox.Checked = false;
-
             SecIntervalComboBox.SelectedIndex = 0;
+        }
+
+        private void SetPrevNextLabelsEnable(bool nextIsEnabled, bool prevIsEnabled)
+        {
+            labelNext.Enabled = nextIsEnabled;
+            LabelPrev.Enabled = prevIsEnabled;
         }
 
         // Загрузка изображений
@@ -57,8 +55,7 @@ namespace SlideShow
                         current = 0;
                         pictureBox.ImageLocation = images[current];
 
-                        labelNext.Enabled = true;
-                        LabelPrev.Enabled = false;
+                        SetPrevNextLabelsEnable(true, false);
                         ShowSlideButton.Enabled = true;
                         ShowOnAllScreenButton.Enabled = true;
                         galleryButton.Enabled = true;
@@ -70,8 +67,8 @@ namespace SlideShow
                     }
                     else
                     {
-                        ShowSlideButton.Enabled = false;
                         galleryButton.Enabled = false;
+                        ShowSlideButton.Enabled = false;
                         ShowOnAllScreenButton.Enabled = false;
                         pictureBox.Image = null;
                         labelNext.Enabled = false;
@@ -79,7 +76,17 @@ namespace SlideShow
                         MessageBox.Show("Папка не содержала фотографий, выберите другую!");
                     }
                 }
-            } catch(Exception ex) { MessageBox.Show(ex.Message); }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        // Загрузка музыки
+        private void LoadMusic_Click(object sender, EventArgs e)
+        {
+            isOpenFile(FormatsFile.MP3);
         }
 
         private bool isOpenFolder()
@@ -96,12 +103,11 @@ namespace SlideShow
 
         private void SetImagesToImgList()
         {
-            images = new List<string>();
-
             imgJpg = Directory.GetFiles(dirPath, "*jpg", SearchOption.AllDirectories);
             imgJpeg = Directory.GetFiles(dirPath, "*jpeg", SearchOption.AllDirectories);
             imgPng = Directory.GetFiles(dirPath, "*png", SearchOption.AllDirectories);
 
+            images = new List<string>();
 
             if (imgJpg != null) { images.AddRange(imgJpg); }
             if (imgJpeg != null) { images.AddRange(imgJpeg); }
@@ -112,14 +118,14 @@ namespace SlideShow
         private async void сохранитьВJPGToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (isOpenFolder() && isOpenFile(FormatsFile.PPTX))
-                await Task.Run(() => SavePresentationAsIMGs(dirPath, pptxPath));
+                await Task.Run(() => PowerPointWork.SavePresentationAsIMGs(dirPath, pptxPath));
         }
 
         private bool isOpenFile(FormatsFile formatFile)
         {
             try
             {
-                OpenFileDialog dialog = new OpenFileDialog();
+                OpenFileDialog dialog;
 
                 switch (formatFile)
                 {
@@ -135,6 +141,7 @@ namespace SlideShow
                             return true;
                         }
                         break;
+
                     case FormatsFile.PPTX:
                         dialog = new OpenFileDialog()
                         {
@@ -147,24 +154,13 @@ namespace SlideShow
                         }
                         break;
                 }
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
             return false;
-        }
-
-        private void SavePresentationAsIMGs(string folderForImages, string pptxFile)
-        {
-            PowerPoint.Application pptxApplication = new PowerPoint.Application();
-            Presentation pptxPresentation = pptxApplication.Presentations.Open(pptxFile,
-                MsoTriState.msoFalse, MsoTriState.msoFalse, MsoTriState.msoFalse);
-            pptxPresentation.SaveAs(folderForImages,
-                PpSaveAsFileType.ppSaveAsJPG, MsoTriState.msoFalse);
-            pptxPresentation.Close();
-
-            MessageBox.Show("Сохранение завершено!");
         }
 
         // Запуск слайд шоу
@@ -175,14 +171,11 @@ namespace SlideShow
                 if (ShowSlideButton.Text == "Старт")
                 {
                     if (images == null)
-                    {
                         MessageBox.Show("Добавте изображения!");
-                    }
                     else
                     {
-                        labelNext.Enabled = false;
+                        SetPrevNextLabelsEnable(false, false); ;
                         labelNext.Visible = false;
-                        LabelPrev.Enabled = false;
                         LabelPrev.Visible = false;
                         SecIntervalComboBox.Enabled = false;
                         LoadImage.Enabled = false;
@@ -190,23 +183,21 @@ namespace SlideShow
                         checkStartBegin.Enabled = false;
                         aroundShowCheckBox.Enabled = false;
                         PauseButton.Enabled = true;
+                        trackBar.Enabled = false;
 
                         SetCurrentValue();
-
-                        trackBar.Enabled = false;
-                        ShowSlideButton.Text = "Стоп";
                         timer.Interval = int.Parse(SecIntervalComboBox.Text) * 1000;
                         WMP.settings.setMode("loop", true);
                         WMP.URL = musPath;
-                        timer.Start();
                         WMP.controls.play();
+                        timer.Start();
+                        ShowSlideButton.Text = "Стоп";
                     }
                 }
                 else
                 {
-                    labelNext.Enabled = true;
+                    SetPrevNextLabelsEnable(true, true);
                     labelNext.Visible = true;
-                    LabelPrev.Enabled = true;
                     LabelPrev.Visible = true;
                     SecIntervalComboBox.Enabled = true;
                     LoadImage.Enabled = true;
@@ -215,11 +206,16 @@ namespace SlideShow
                     aroundShowCheckBox.Enabled = true;
                     PauseButton.Enabled = false;
                     trackBar.Enabled = true;
-                    timer.Stop();
+
                     WMP.controls.stop();
+                    timer.Stop();
                     ShowSlideButton.Text = "Старт";
                 }
-            } catch(Exception ex) { MessageBox.Show(ex.Message); }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void SetCurrentValue()
@@ -227,6 +223,24 @@ namespace SlideShow
             if (checkStartBegin.Checked == true)
                 current = 0;
             else current = trackBar.Value;
+        }
+
+        private void trackBar_Scroll(object sender, EventArgs e)
+        {
+            try
+            {
+                current = trackBar.Value;
+                if (trackBar.Value == 0)
+                    LabelPrev.Enabled = false;
+                else
+                    LabelPrev.Enabled = true;
+
+                pictureBox.ImageLocation = images[trackBar.Value];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -243,9 +257,8 @@ namespace SlideShow
                 {
                     if (current + 1 < images.Count)
                     {
-                        labelNext.Enabled = true;
-                        LabelPrev.Enabled = true;
                         current++;
+                        SetPrevNextLabelsEnable(true, true);
                         trackBar.Value = current;
                         pictureBox.ImageLocation = images[current];
                     }
@@ -253,17 +266,15 @@ namespace SlideShow
                     {
                         if (aroundShowCheckBox.Checked == true)
                         {
-                            labelNext.Enabled = true;
-                            LabelPrev.Enabled = false;
                             current = 0;
+                            SetPrevNextLabelsEnable(true, false);
                             trackBar.Value = current;
                             pictureBox.ImageLocation = images[current];
                         }
                         else
                         {
-                            labelNext.Enabled = false;
+                            SetPrevNextLabelsEnable(false, true);
                             trackBar.Value = current;
-                            LabelPrev.Enabled = true;
                             WMP.controls.stop();
                             timer.Stop();
                             ShowSlideButton.Text = "Старт";
@@ -271,7 +282,10 @@ namespace SlideShow
                     }
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void labelNext_Click(object sender, EventArgs e)
@@ -289,13 +303,12 @@ namespace SlideShow
         {
             try
             {
-                if (images != null || images.Count != 0)
+                if (images != null && images.Count != 0)
                 {
                     if (current - 1 >= 0)
                     {
                         LabelPrev.Enabled = true;
-                        current--;
-                        trackBar.Value = current;
+                        trackBar.Value = --current;
                         if (current == 0)
                             LabelPrev.Enabled = false;
                         pictureBox.ImageLocation = images[current];
@@ -304,13 +317,71 @@ namespace SlideShow
                         LabelPrev.Enabled = false;
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        // Загрузка музыки
-        private void LoadMusic_Click(object sender, EventArgs e)
+        private void PauseButton_Click(object sender, EventArgs e)
         {
-            isOpenFile(FormatsFile.MP3);
+            try
+            {
+                if (PauseButton.Text == "Пауза")
+                {
+                    PauseButton.Text = "Продолжить";
+                    WMP.controls.pause();
+                    timer.Stop();
+                    ShowSlideButton.Enabled = false;
+                }
+                else
+                {
+                    PauseButton.Text = "Пауза";
+                    ShowSlideButton.Text = "Стоп";
+                    WMP.controls.play();
+                    timer.Start();
+                    ShowSlideButton.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        // Запускает слайд шоу на весь экран
+        private void ShowOnAllScreenButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (images != null)
+                {
+                    Показ_слайдов form = new Показ_слайдов();
+
+                    if (aroundShowCheckBox.Checked == true)
+                        form.around = true;
+                    else
+                        form.around = false;
+
+                    if (checkStartBegin.Checked == true)
+                        form.Current = 0;
+                    else
+                        form.Current = current;
+
+                    form.BackColor = Color.Black;
+                    form.Img = images;
+                    form.Current = current;
+                    form.pictureBoxAllScreen.ImageLocation = form.Img[current];
+                    form.Interval = int.Parse(SecIntervalComboBox.Text);
+                    form.Show();
+                }
+                else
+                    MessageBox.Show("Добавьте изображениия!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         // Открывает галерею
@@ -322,156 +393,53 @@ namespace SlideShow
 
                 if (images != null)
                 {
-                    galleryForm.DirName = dirPath;
-                    galleryForm.Imgs = images;
-
-                    for (int i = 0; i < images.Count; i++)
-                        galleryForm.listBox1.Items.Add(Path.GetFileName(images[i]));
-
-                    galleryForm.pictureBox1.ImageLocation = galleryForm.Imgs[0];
+                    SetGallerySettings(ref galleryForm);
+                    LoadGalleryImages(ref galleryForm);
                 }
                 galleryForm.ShowDialog();
-            } catch(Exception ex) { MessageBox.Show(ex.Message); }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        // Загружает и выводит на экран выбранную презентацию
+        private void SetGallerySettings(ref Галерея galleryForm)
+        {
+            galleryForm.DirName = dirPath;
+            galleryForm.Imgs = images;
+        }
+
+        private void LoadGalleryImages(ref Галерея galleryForm)
+        {
+            for (int i = 0; i < images.Count; i++)
+                galleryForm.listBoxGallery.Items.Add(Path.GetFileName(images[i]));
+
+            galleryForm.pictureBoxGallery.ImageLocation = galleryForm.Imgs[0];
+        }
+
+        // Загружает и выводит на экран презентацию
         private async void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
                 if (isOpenFile(FormatsFile.PPTX))
-                    await Task.Run(() => OpenPPTXPresentation());
+                    await Task.Run(() => PowerPointWork.OpenPPTXPresentation(pptxPath));
                 else
                     return;
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-        }
-
-        private void OpenPPTXPresentation()
-        {
-            PowerPoint.Application pptxApplicatoin = new PowerPoint.Application();
-            pptxApplicatoin.Visible = MsoTriState.msoTrue;
-            Presentations pptxPresentations = pptxApplicatoin.Presentations;
-            Presentation presentation = pptxPresentations.Open(pptxPath,
-                MsoTriState.msoFalse, MsoTriState.msoTrue, MsoTriState.msoTrue);
-            Slides objSlides = presentation.Slides;
-            SlideShowWindows SSWindows;
-            SlideShowSettings objSSS;
-            objSSS = presentation.SlideShowSettings;
-            objSSS.Run();
-            SSWindows = pptxApplicatoin.SlideShowWindows;
-            pptxApplicatoin.Quit();
-        }
-
-        private void animationButton_Click(object sender, EventArgs e)
-        {
-            try
+            catch (Exception ex)
             {
-                if (PauseButton.Text == "Пауза")
-                {
-                    PauseButton.Text = "Продолжить";
-                    WMP.controls.pause();
-                    ShowSlideButton.Enabled = false;
-                    timer.Stop();
-                }
-                else
-                {
-                    timer.Start();
-                    ShowSlideButton.Enabled = true;
-                    ShowSlideButton.Text = "Стоп";
-                    PauseButton.Text = "Пауза";
-                    WMP.controls.play();
-                }
+                MessageBox.Show(ex.Message);
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-        }
-
-        // Запускает слайд шоу на весь экран
-        private void ShowOnAllScreenButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (images!=null)
-                {
-                    Показ_слайдов form = new Показ_слайдов();
-                    form.BackColor = Color.Black;
-                    form.Img = images;
-                    form.Current = current;
-
-                    if (aroundShowCheckBox.Checked == true)
-                        form.around = true;
-                    else
-                        form.around = false;
-
-                    if (checkStartBegin.Checked == true)
-                    {
-                        form.Current = 0;
-                        form.pictureBox1.ImageLocation = form.Img[current];
-                    }
-                    else
-                    {
-                        form.Current = current;
-                        form.pictureBox1.ImageLocation = form.Img[current];
-                    }
-
-                    form.Interval = int.Parse(SecIntervalComboBox.Text);
-                    form.Show();
-                }
-                else { MessageBox.Show("Добавьте изображениия!"); }
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-        }
-
-        private void trackBar_Scroll(object sender, EventArgs e)
-        {
-            try
-            {
-                current = trackBar.Value;
-                if (trackBar.Value == 0)
-                    LabelPrev.Enabled = false;
-                else
-                    LabelPrev.Enabled = true;
-
-                pictureBox.ImageLocation = images[trackBar.Value];
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         // Печать текущего изображения
         private async void печатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => Print());
+            PrintWork printWork = new PrintWork(Images, Current);
+            await Task.Run(() => printWork.PrintImage(printDialog));
         }
-
-        public void Print()
-        {
-            if (images != null)
-            {
-                if (images.Count != 0)
-                {
-                    try
-                    {
-                        PrintDocument Document = new PrintDocument();
-                        Document.PrintPage += new PrintPageEventHandler(Document_PrintPage);
-
-                        DialogResult result = printDialog.ShowDialog();
-                        if (result == DialogResult.OK)
-                        {
-                            Document.Print();
-                        }
-                    }
-                    catch (Exception ex) { MessageBox.Show(ex.Message); }
-                }
-                else { MessageBox.Show("Добавьте изображение!"); }
-            }
-            else { MessageBox.Show("Добавьте изображение!"); }
-        }
-
-        void Document_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            e.Graphics.DrawImage(new Bitmap(images[current]), e.PageBounds);
-        }
-
 
         private void labelNext_MouseMove(object sender, MouseEventArgs e)
         {
@@ -495,7 +463,7 @@ namespace SlideShow
 
         private void закрытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            Application.Exit();
         }
     }
 
