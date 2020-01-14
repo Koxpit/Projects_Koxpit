@@ -9,16 +9,16 @@ namespace Note
     {
         NoteBookForm f1;
 
-        // Хранит записи корзины
         private List<Record> cart = new List<Record>();
+        private List<Record> recoverList = new List<Record>();
+
+        // Хранит записи корзины
         public List<Record> Cart
         {
             get { return cart; }
             set { cart = value; }
         }
-
         // Хранит восстановленные записи
-        private List<Record> recoverList = new List<Record>();
         public List<Record> RecoverList
         {
             get { return recoverList; }
@@ -60,7 +60,10 @@ namespace Note
                     }
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void OutputCartListToDataGrid()
@@ -89,7 +92,9 @@ namespace Note
                 else { MessageBox.Show("Cart is empty!"); }
 
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         // Восстановление выбранных записей
@@ -119,7 +124,11 @@ namespace Note
                         OutputCartListToDataGrid();
                     }
                 }
-            } catch(Exception ex) { MessageBox.Show(ex.Message); }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         // Восстановить все записи
@@ -144,7 +153,10 @@ namespace Note
                 else { MessageBox.Show("Cart is empty!"); }
 
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         // Подсказки

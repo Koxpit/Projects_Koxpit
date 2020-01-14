@@ -12,8 +12,8 @@ namespace Note
     public partial class CalendarForm : Form
     {
         private string printData = "";
-
         private List<Calendar> recordList { get; set; }
+
         public List<Calendar> RecordList
         {
             get { return recordList; }
@@ -72,7 +72,10 @@ namespace Note
                 else { MessageBox.Show("Book is empty!"); }
 
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         // Удаление выделенной записи и загрузка измененной в таблицу

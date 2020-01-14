@@ -20,26 +20,24 @@ namespace Note
         Color light = Color.AliceBlue;
 
         private string printData = "";
-
         private List<Record> ListRecords { get; set; }
+        private List<Record> ListBasket { get; set; }
+        private int id;
+
+        public List<Record> Basket
+        {
+            get { return ListBasket; }
+            set { ListBasket = value; }
+        }
         public List<Record> List
         {
             get { return ListRecords; }
             set { ListRecords = value; }
         }
-
-        private int id;
         public int ID
         {
             get { return id; }
             set { id = value; }
-        }
-
-        private List<Record> ListBasket { get; set; }
-        public List<Record> Basket
-        {
-            get { return ListBasket; }
-            set { ListBasket = value; }
         }
 
         public NoteBookForm()
@@ -68,7 +66,7 @@ namespace Note
                 {
                     BinaryFormatter formatter = new BinaryFormatter();
 
-                    if (fs.Length == 0)
+                    if (FileIsEmpty(fs))
                         ListRecords = new List<Record>();
                     else
                         ListRecords = (List<Record>)formatter.Deserialize(fs);
@@ -78,16 +76,27 @@ namespace Note
                     fs.Close();
                 }
 
-            } catch(Exception ex) { MessageBox.Show(ex.Message); }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private bool FileIsEmpty(FileStream fs)
+        {
+            return fs.Length == 0;
         }
 
         public void OutputListRecordsToDataGrid()
         {
             try
             {
-                dataGridView.DataSource=ListRecords.ToList();
+                dataGridView.DataSource = ListRecords.ToList();
             }
-            catch { MessageBox.Show("Error adding/updating table!"); }
+            catch {
+                MessageBox.Show("Error adding/updating table!");
+            }
         }
 
         private void AddRecordButton_Click(object sender, EventArgs e)
@@ -153,7 +162,9 @@ namespace Note
                 ListRecords.RemoveAt(dataGridView.CurrentRow.Index);
                 AddRecord();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         // Выводит в таблицу восстановленные записи
@@ -169,7 +180,9 @@ namespace Note
 
                 OutputListRecordsToDataGrid();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         // Поиск записи по имени
@@ -252,7 +265,10 @@ namespace Note
                 BirthdayDateTimePicker.Value = DateTime.Parse(dataGridView[3, e.RowIndex]
                     .Value.ToString());
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         // Сохранение данных из списка в файл

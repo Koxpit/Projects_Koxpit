@@ -43,7 +43,7 @@ namespace Note
         {
             try
             {
-                if (ValidationLogin())
+                if (ValidLoginSuccessful())
                 {
                     NoteBookForm form1 = new NoteBookForm();
                     form1.ID = ID;
@@ -62,9 +62,9 @@ namespace Note
             }
         }
 
-        private bool ValidationLogin()
+        private bool ValidLoginSuccessful()
         {
-            if (CheckFieldsForVoid())
+            if (FieldsAreVoid())
                 return false;
 
             for (int i = 0; i < users.logins.Count; i++)
@@ -89,7 +89,7 @@ namespace Note
             return false;
         }
 
-        private bool CheckFieldsForVoid()
+        private bool FieldsAreVoid()
         {
             if (LoginTextBox.Text == string.Empty || PasswordTextBox.Text == string.Empty)
             {
@@ -106,16 +106,13 @@ namespace Note
         {
             try
             {
-                if (!ValidationRegistration())
-                    return;
-                else
+                if (ValidRegistrationSuccessful())
                 {
                     AddNewUser();
                     await Task.Run(() => UpdateUsersData());
+                    MessageBox.Show("You have successfully registered!");
+                    login = LoginTextBox.Text;
                 }
-
-                MessageBox.Show("You have successfully registered!");
-                login = LoginTextBox.Text;
             }
             catch (Exception ex)
             {
@@ -123,9 +120,9 @@ namespace Note
             }
         }
 
-        private bool ValidationRegistration()
+        private bool ValidRegistrationSuccessful()
         {
-            if (CheckFieldsForVoid())
+            if (FieldsAreVoid())
                 return false;
 
             for (int i = 0; i < users.logins.Count; i++)
