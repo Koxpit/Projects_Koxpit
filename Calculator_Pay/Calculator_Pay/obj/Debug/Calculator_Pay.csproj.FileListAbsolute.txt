@@ -1,0 +1,47 @@
+c:\users\lenovo\documents\visual studio 2017\Projects\Calculator_Pay\Calculator_Pay\bin\Debug\Calculator_Pay.exe.config
+c:\users\lenovo\documents\visual studio 2017\Projects\Calculator_Pay\Calculator_Pay\bin\Debug\Calculator_Pay.exe
+c:\users\lenovo\documents\visual studio 2017\Projects\Calculator_Pay\Calculator_Pay\bin\Debug\Calculator_Pay.pdb
+c:\users\lenovo\documents\visual studio 2017\Projects\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.csprojResolveAssemblyReference.cache
+c:\users\lenovo\documents\visual studio 2017\Projects\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.Properties.Resources.resources
+c:\users\lenovo\documents\visual studio 2017\Projects\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.csproj.GenerateResource.Cache
+c:\users\lenovo\documents\visual studio 2017\Projects\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.exe
+c:\users\lenovo\documents\visual studio 2017\Projects\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.pdb
+C:\Users\lenovo\documents\visual studio 2017\Projects\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.AboutBox1.resources
+C:\Users\1\Desktop\Calculator_Pay\Calculator_Pay\bin\Debug\Calculator_Pay.exe.config
+C:\Users\1\Desktop\Calculator_Pay\Calculator_Pay\bin\Debug\Calculator_Pay.exe
+C:\Users\1\Desktop\Calculator_Pay\Calculator_Pay\bin\Debug\Calculator_Pay.pdb
+C:\Users\1\Desktop\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.csprojAssemblyReference.cache
+C:\Users\1\Desktop\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.AboutBox1.resources
+C:\Users\1\Desktop\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.Form1.resources
+C:\Users\1\Desktop\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.Form2.resources
+C:\Users\1\Desktop\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.Properties.Resources.resources
+C:\Users\1\Desktop\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.csproj.GenerateResource.cache
+C:\Users\1\Desktop\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.csproj.CoreCompileInputs.cache
+C:\Users\1\Desktop\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.exe
+C:\Users\1\Desktop\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.pdb
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.Form2.resources
+C:\Users\lenovo\documents\visual studio 2017\Projects\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.Form3.resources
+C:\Users\lenovo\documents\visual studio 2017\Projects\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.Form4.resources
+C:\Users\lenovo\Desktop\Calculator_Pay\Calculator_Pay\bin\Debug\Calculator_Pay.exe.config
+C:\Users\lenovo\Desktop\Calculator_Pay\Calculator_Pay\bin\Debug\Calculator_Pay.exe
+C:\Users\lenovo\Desktop\Calculator_Pay\Calculator_Pay\bin\Debug\Calculator_Pay.pdb
+C:\Users\lenovo\Desktop\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.AboutBox1.resources
+C:\Users\lenovo\Desktop\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.Form2.resources
+C:\Users\lenovo\Desktop\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.Form3.resources
+C:\Users\lenovo\Desktop\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.Form4.resources
+C:\Users\lenovo\Desktop\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.Properties.Resources.resources
+C:\Users\lenovo\Desktop\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.csproj.GenerateResource.Cache
+C:\Users\lenovo\Desktop\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.exe
+C:\Users\lenovo\Desktop\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.pdb
+C:\Users\lenovo\Desktop\Курсовая_Алиев\Calculator_Pay\Calculator_Pay\bin\Debug\Calculator_Pay.exe.config
+C:\Users\lenovo\Desktop\Курсовая_Алиев\Calculator_Pay\Calculator_Pay\bin\Debug\Calculator_Pay.exe
+C:\Users\lenovo\Desktop\Курсовая_Алиев\Calculator_Pay\Calculator_Pay\bin\Debug\Calculator_Pay.pdb
+C:\Users\lenovo\Desktop\Курсовая_Алиев\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.AboutBox1.resources
+C:\Users\lenovo\Desktop\Курсовая_Алиев\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.Form4.resources
+C:\Users\lenovo\Desktop\Курсовая_Алиев\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.Properties.Resources.resources
+C:\Users\lenovo\Desktop\Курсовая_Алиев\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.csproj.GenerateResource.Cache
+C:\Users\lenovo\Desktop\Курсовая_Алиев\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.exe
+C:\Users\lenovo\Desktop\Курсовая_Алиев\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.pdb
+C:\Users\lenovo\Desktop\Курсовая_Алиев\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.ChargedForm.resources
+C:\Users\lenovo\Desktop\Курсовая_Алиев\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.csprojResolveAssemblyReference.cache
+C:\Users\lenovo\Desktop\Курсовая_Алиев\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.PieceRateForm.resources

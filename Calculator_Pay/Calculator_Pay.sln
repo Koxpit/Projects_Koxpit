@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator_Pay", "Calculator_Pay\Calculator_Pay.csproj", "{F6481904-6EA0-4BC1-A2B4-7D78CDA7BF58}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CalculatorPay", "CalculatorPay\CalculatorPay.vdproj", "{117092E9-F6F4-437E-B492-CA519B52C51D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestCalculatorPay", "UnitTestCalculatorPay\UnitTestCalculatorPay.csproj", "{DC98798D-022A-4B0E-BD5D-0F166F7E2615}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6481904-6EA0-4BC1-A2B4-7D78CDA7BF58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6481904-6EA0-4BC1-A2B4-7D78CDA7BF58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6481904-6EA0-4BC1-A2B4-7D78CDA7BF58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6481904-6EA0-4BC1-A2B4-7D78CDA7BF58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{117092E9-F6F4-437E-B492-CA519B52C51D}.Debug|Any CPU.ActiveCfg = Debug
+		{117092E9-F6F4-437E-B492-CA519B52C51D}.Release|Any CPU.ActiveCfg = Release
+		{DC98798D-022A-4B0E-BD5D-0F166F7E2615}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC98798D-022A-4B0E-BD5D-0F166F7E2615}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC98798D-022A-4B0E-BD5D-0F166F7E2615}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC98798D-022A-4B0E-BD5D-0F166F7E2615}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
