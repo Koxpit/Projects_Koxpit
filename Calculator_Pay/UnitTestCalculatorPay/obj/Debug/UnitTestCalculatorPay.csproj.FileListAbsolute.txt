@@ -16,3 +16,10 @@ C:\Users\lenovo\Desktop\Курсовая_Алиев\Calculator_Pay\UnitTestCalcu
 C:\Users\lenovo\Desktop\Курсовая_Алиев\Calculator_Pay\UnitTestCalculatorPay\bin\Debug\Calculator_Pay.exe
 C:\Users\lenovo\Desktop\Курсовая_Алиев\Calculator_Pay\UnitTestCalculatorPay\bin\Debug\Calculator_Pay.pdb
 C:\Users\lenovo\Desktop\Курсовая_Алиев\Calculator_Pay\UnitTestCalculatorPay\bin\Debug\Calculator_Pay.exe.config
+C:\GitHub_Koxpit\Projects_Koxpit\Calculator_Pay\UnitTestCalculatorPay\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\GitHub_Koxpit\Projects_Koxpit\Calculator_Pay\UnitTestCalculatorPay\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\GitHub_Koxpit\Projects_Koxpit\Calculator_Pay\UnitTestCalculatorPay\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\GitHub_Koxpit\Projects_Koxpit\Calculator_Pay\UnitTestCalculatorPay\bin\Debug\UnitTestCalculatorPay.dll
+C:\GitHub_Koxpit\Projects_Koxpit\Calculator_Pay\UnitTestCalculatorPay\bin\Debug\Calculator_Pay.exe
+C:\GitHub_Koxpit\Projects_Koxpit\Calculator_Pay\UnitTestCalculatorPay\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\GitHub_Koxpit\Projects_Koxpit\Calculator_Pay\UnitTestCalculatorPay\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll

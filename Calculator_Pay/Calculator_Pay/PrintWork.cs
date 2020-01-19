@@ -15,14 +15,12 @@ namespace Calculator_Pay
 
         public void PrintToDocument()
         {
-            PrintDocument pD = new PrintDocument();
-            pD.PrintPage += PrintPageHandler;
-
-            PrintDialog pDg = new PrintDialog();
-            pDg.Document = pD;
-
-            if (pDg.ShowDialog() == DialogResult.OK)
-                pDg.Document.Print();
+            PrintDocument printDoc = new PrintDocument();
+            printDoc.PrintPage += PrintPageHandler;
+            PrintDialog printDialog = new PrintDialog();
+            printDialog.Document = printDoc;
+            if (printDialog.ShowDialog() == DialogResult.OK)
+                printDialog.Document.Print();
         }
 
         private void PrintPageHandler(object sender, PrintPageEventArgs e)

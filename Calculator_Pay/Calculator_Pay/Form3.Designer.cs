@@ -94,7 +94,7 @@
             this.CalculateButton.TabIndex = 2;
             this.CalculateButton.Text = "Расчет";
             this.CalculateButton.UseVisualStyleBackColor = true;
-            this.CalculateButton.Click += new System.EventHandler(this.button1_Click);
+            this.CalculateButton.Click += new System.EventHandler(this.CalculateButton_Click);
             // 
             // textBox1
             // 
@@ -303,7 +303,7 @@
             this.PrintButton.TabIndex = 20;
             this.PrintButton.Text = "Печать";
             this.PrintButton.UseVisualStyleBackColor = true;
-            this.PrintButton.Click += new System.EventHandler(this.button2_Click);
+            this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
             // 
             // ExportToExcelButton
             // 
@@ -313,7 +313,7 @@
             this.ExportToExcelButton.TabIndex = 21;
             this.ExportToExcelButton.Text = "В Excel";
             this.ExportToExcelButton.UseVisualStyleBackColor = true;
-            this.ExportToExcelButton.Click += new System.EventHandler(this.button3_Click_1);
+            this.ExportToExcelButton.Click += new System.EventHandler(this.ExportToExcelButton_Click);
             // 
             // CertificateButton
             // 
@@ -323,7 +323,7 @@
             this.CertificateButton.TabIndex = 22;
             this.CertificateButton.Text = "Справка";
             this.CertificateButton.UseVisualStyleBackColor = true;
-            this.CertificateButton.Click += new System.EventHandler(this.button4_Click);
+            this.CertificateButton.Click += new System.EventHandler(this.CertificateButton_Click);
             // 
             // PieceRateForm
             // 

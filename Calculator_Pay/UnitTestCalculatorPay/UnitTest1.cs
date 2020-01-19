@@ -170,7 +170,7 @@ namespace UnitTestCalculatorPay
             f2.WorkedTimeTextBox.Text = workDays.ToString();
             f2.IsDaysPayRadioButton.Checked = true;
             f2.NorthSuppleRateNumericUpDown.Value = 1.25M;
-            f2.premia = 200;
+            f2.Premia = 200;
 
             double result = f2.CalcNorthSupple();
 
@@ -186,7 +186,7 @@ namespace UnitTestCalculatorPay
             f2.WorkedTimeTextBox.Text = workDays.ToString();
             f2.IsDaysPayRadioButton.Checked = true;
             f2.NorthSuppleRateNumericUpDown.Value = 1.25M;
-            f2.premia = 200;
+            f2.Premia = 200;
 
             double result = f2.CalcNorthSupple();
 

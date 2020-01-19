@@ -19,6 +19,12 @@ namespace Calculator_Pay
         Font font_p_gp = new Font("Arial Narrow", 12, FontStyle.Underline);
         Font font_button = new Font("Arial Black", 11, FontStyle.Regular);
 
+        public double Premia
+        {
+            get { return Convert.ToDouble(BonuseTextBox.Text); }
+            set { Premia = value; }
+        }
+
         public ChargedForm()
         {
             InitializeComponent();
@@ -30,12 +36,6 @@ namespace Calculator_Pay
             SetSettingsButton(ExportToExcelButton);
             SetSettingsButton(CertificateButton);
         }
-
-        private double allDays = 0, workHours = 0, workDays = 0;
-        private double allPay = 0, hPay = 0, dPay = 0;
-        private double deducs = 0, ndfl = 0;
-        private string print = "";
-        public double premia = 0;
 
         private void SetFontComponents()
         {
@@ -120,25 +120,15 @@ namespace Calculator_Pay
         {
             try
             {
-                if (WorkTimeTextBox.Text == "")
-                    WorkTimeTextBox.Text = 0.ToString();
-                if (WorkedTimeTextBox.Text == "")
-                    WorkedTimeTextBox.Text = 0.ToString();
-                if (SalaryTextBox.Text == "")
-                    SalaryTextBox.Text = 0.ToString();
-                if (BonuseTextBox.Text == "")
-                    BonuseTextBox.Text = 0.ToString();
-
-                CalcNDFL();
+                SetZeroToTextBoxIfItsEmpty(WorkTimeTextBox);
+                SetZeroToTextBoxIfItsEmpty(WorkedTimeTextBox);
+                SetZeroToTextBoxIfItsEmpty(SalaryTextBox);
+                SetZeroToTextBoxIfItsEmpty(BonuseTextBox);
 
                 double result = CalcPayOnHand();
-
                 if (result < 0)
                     result = 0;
-
                 PayOnHandTextBox.Text = result.ToString("N2");
-
-                ResetVarialbes();
             }
             catch (Exception ex)
             {
@@ -146,79 +136,73 @@ namespace Calculator_Pay
             }
         }
 
-        // Расчет НДФЛ 13%
-        private double CalcNDFL()
+        private void SetZeroToTextBoxIfItsEmpty(TextBox textBox)
         {
-            ndfl = (CalcDefaultPay() - CalcDeductions() + CalcBonuses()) * 0.13;
-
-            if (ndfl <= 0)
-                ndfl = 0;
-
-            return ndfl;
+            if (textBox.Text == "")
+                textBox.Text = 0.ToString();
         }
 
         // Зарплата на руки
         private double CalcPayOnHand()
         {
-            return CalcDefaultPay() + CalcBonuses() - ndfl;
+            return CalcDefaultPay() + CalcBonuses() - CalcNDFL();
+        }
+
+        // Расчет НДФЛ 13%
+        private double CalcNDFL()
+        {
+            double ndfl = (CalcDefaultPay() - CalcDeductions() + CalcBonuses()) * 0.13;
+            if (ndfl <= 0)
+                return 0;
+            return ndfl;
         }
 
         // Полная зарплата без вычетов и надбавок
         public double CalcDefaultPay()
         {
             double defPay = 0;
-
-            if (IsHoursPayRadioButton.Checked == true)
-            {
-                hPay = Convert.ToDouble(WorkTimeTextBox.Text);
-                workHours = Convert.ToInt32(WorkedTimeTextBox.Text);
-                defPay = hPay * workHours;
-            }
-
-            if (IsDaysPayRadioButton.Checked == true)
-            {
-                dPay = Convert.ToDouble(WorkTimeTextBox.Text);
-                workDays = Convert.ToInt32(WorkedTimeTextBox.Text);
-                defPay = dPay * workDays;
-            }
-
+            if (IsHoursPayRadioButton.Checked == true 
+                || IsDaysPayRadioButton.Checked == true)
+                defPay = CalcDefaultHoursOrDaysPay();
             if (IsSalaryRadioButton.Checked == true)
-            {
-                allPay = Convert.ToDouble(SalaryTextBox.Text);
-                allDays = Convert.ToInt32(WorkTimeTextBox.Text);
-                workDays = Convert.ToInt32(WorkedTimeTextBox.Text);
-
-                if (workDays == 0)
-                    defPay = 0;
-                else
-                    defPay = allDays / workDays * allPay;
-            }
-
+                defPay = CalcDefaultSalaryPay();
             if (ExistBonuseCheckBox.Checked == true)
-            {
-                premia = Convert.ToDouble(BonuseTextBox.Text);
-                defPay += Convert.ToDouble(BonuseTextBox.Text);
-            }
-
+                defPay += Premia;
             return defPay;
+        }
+
+        private double CalcDefaultHoursOrDaysPay()
+        {
+            double workPay = Convert.ToDouble(WorkTimeTextBox.Text);
+            double workedTime = Convert.ToInt32(WorkedTimeTextBox.Text);
+            return workPay * workedTime;
+        }
+
+        private double CalcDefaultSalaryPay()
+        {
+            double allPay = Convert.ToDouble(SalaryTextBox.Text);
+            double allDays = Convert.ToInt32(WorkTimeTextBox.Text);
+            double workDays = Convert.ToInt32(WorkedTimeTextBox.Text);
+            if (workDays == 0)
+                 return 0;
+            else
+                return allDays / workDays * allPay;
         }
 
         // Расчет вычетов
         public double CalcDeductions()
         {
             int healthyChilds = 0, disabledChilds = 0;
-
+            double deducs = 0;
             if (DeducExistRadioButton.Checked == true)
             {
-                healthyChilds = GetNumOfHealthyChilds();
-
+                healthyChilds = Convert.ToInt32(ChildsNumericUpDown.Value);
                 if (IsDisabledChildsCheckBox.Checked == true)
                 {
-                    disabledChilds = GetNumOfDisabledChilds();
+                    disabledChilds = Convert.ToInt32(DisabledChildsNumericUpDown.Value);
                     healthyChilds -= disabledChilds;
                     deducs += disabledChilds * 3000;
                 }
-
                 if (healthyChilds >= 3)
                 {
                     deducs += 1400 * 2;
@@ -228,18 +212,7 @@ namespace Calculator_Pay
                 else
                     deducs += healthyChilds * 1400;
             }
-
             return deducs;
-        }
-
-        private int GetNumOfHealthyChilds()
-        {
-            return Convert.ToInt32(ChildsNumericUpDown.Value);
-        }
-
-        private int GetNumOfDisabledChilds()
-        {
-            return Convert.ToInt32(DisabledChildsNumericUpDown.Value);
         }
 
         // Расчет всех надбавок(бонусов)
@@ -254,15 +227,13 @@ namespace Calculator_Pay
         // Северные надбавки
         public double CalcNorthSupple()
         {
-            double northSupple = 0;
-            double rateNSupple = Convert.ToDouble(NorthSuppleRateNumericUpDown.Value);
-
-            if (rateNSupple != 0)
+            double northSupple;
+            double rateNsupple = Convert.ToDouble(NorthSuppleRateNumericUpDown.Value);
+            if (rateNsupple != 0)
             {
-                northSupple = (CalcDefaultPay() - premia) * rateNSupple;
-                return northSupple - (CalcDefaultPay() + premia);
+                northSupple = (CalcDefaultPay() - Premia) * rateNsupple;
+                return northSupple - (CalcDefaultPay() + Premia);
             }
-
             return 0;
         }
 
@@ -270,38 +241,27 @@ namespace Calculator_Pay
         public double CalcRegionSupple()
         {
             double regionSupple = 0;
-            double rateRSupple = Convert.ToDouble(RegionalSuppleRateNumericUpDown.Value);
-
-            if (rateRSupple != 0)
-                return regionSupple = CalcDefaultPay() * (rateRSupple / 100);
-
+            double rateRsupple = Convert.ToDouble(RegionalSuppleRateNumericUpDown.Value);
+            if (rateRsupple != 0)
+                return regionSupple = CalcDefaultPay() * (rateRsupple / 100);
             return 0;
-        }
-
-        private void ResetVarialbes()
-        {
-            allDays = 0; workDays = 0; workHours = 0;
-            dPay = 0; hPay = 0; allPay = 0;
-            premia = 0; deducs = 0; ndfl = 0;
         }
 
         private void PrintButton_Click(object sender, EventArgs e)
         {
             try
             {
-                CreatePrintString();
-                PrintWork printToDoc = new PrintWork(print);
+                PrintWork printToDoc = new PrintWork(CreatePrintString());
                 printToDoc.PrintToDocument();
-                deducs = 0;
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
-        private void CreatePrintString()
+        private string CreatePrintString()
         {
-            print ="\n\n\t\t\t\tВаша заработная плата\n\n" +
+            string print = "\n\n\t\t\t\tВаша заработная плата\n\n" +
                     "В соответствии с проведенными расчетами," +
                     "ваша заработная плата равна: " +
                     PayOnHandTextBox.Text
@@ -313,6 +273,7 @@ namespace Calculator_Pay
                     CalcDeductions().ToString("N2")
                     + "руб.\n\tПремия: "+
                     BonuseTextBox.Text+"руб.";
+            return print;
         }
 
         // Сохранение данных в Excel
@@ -324,7 +285,6 @@ namespace Calculator_Pay
                 {
                     Filter = "Файлы Excel |*.xlsx"
                 };
-
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     Excel.Application app = new Excel.Application();
@@ -344,12 +304,8 @@ namespace Calculator_Pay
                         sheet.Cells[5, 1] = "Премия";
                         sheet.Cells[5, 2] = BonuseTextBox.Text;
                     }
-
-                    deducs = 0;
-
                     book.Save();
                     app.Quit();
-
                     MessageBox.Show("Сохранение завершено!");
                 }
             }
@@ -364,12 +320,11 @@ namespace Calculator_Pay
         {
             try
             {
-                string path =
-                    System.IO
-                    .Directory.GetParent(System.IO.Directory.GetCurrentDirectory())
+                string path = System.IO.Directory
+                    .GetParent(System.IO.Directory.GetCurrentDirectory())
                     .Parent.FullName;
-                System.Diagnostics
-                    .Process.Start(path + @"\Calculator_Pay_Help\CalculatorPay_Help.chm");
+                System.Diagnostics.Process
+                    .Start(path + @"\Calculator_Pay_Help\CalculatorPay_Help.chm");
             }
             catch (Exception ex)
             {

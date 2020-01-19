@@ -10,66 +10,74 @@ namespace Calculator_Pay
         Font font_button = new Font("Arial Black", 11, FontStyle.Regular);
         Color color = Color.FromArgb(248, 212, 136);
         Color bound_element = Color.FromArgb(179, 113, 34);
+        ChargedForm f2 = null;
+        PieceRateForm f3 = null;
 
         public Form4()
         {
             InitializeComponent();
 
-            button1.Font=font_button;
-            button2.Font=font_button;
-            button3.Font=font_button;
-
-            button1.BackColor=color;
-            button2.BackColor=color;
-            button3.BackColor=color;
-
-            button2.ForeColor=btnc;
-            button1.ForeColor=btnc;
-            button3.ForeColor=btnc;
-
-            button1.FlatAppearance.BorderSize=2;
-            button1.FlatStyle=FlatStyle.Flat;
-            button1.FlatAppearance.BorderColor=bound_element;
-
-            button2.FlatAppearance.BorderSize=2;
-            button2.FlatStyle=FlatStyle.Flat;
-            button2.FlatAppearance.BorderColor=bound_element;
-
-            button3.FlatAppearance.BorderSize=2;
-            button3.FlatStyle=FlatStyle.Flat;
-            button3.FlatAppearance.BorderColor=bound_element;
+            SetFontButtons();
+            SetColorButtons();
+            SetSettingsButton(ChargedFormPayButton);
+            SetSettingsButton(PieceRateFormPayButton);
+            SetSettingsButton(AboutProgramButton);
         }
 
-        ChargedForm f2 = null;
-        PieceRateForm f3 = null;
-
-        private void button1_Click(object sender, EventArgs e)
+        private void SetFontButtons()
         {
-            if (f2==null||f2.IsDisposed)
+            ChargedFormPayButton.Font = font_button;
+            PieceRateFormPayButton.Font = font_button;
+            AboutProgramButton.Font = font_button;
+        }
+
+        private void SetColorButtons()
+        {
+            ChargedFormPayButton.BackColor = color;
+            PieceRateFormPayButton.BackColor = color;
+            AboutProgramButton.BackColor = color;
+
+            PieceRateFormPayButton.ForeColor = btnc;
+            ChargedFormPayButton.ForeColor = btnc;
+            AboutProgramButton.ForeColor = btnc;
+        }
+
+        private void SetSettingsButton(Button button)
+        {
+            button.FlatAppearance.BorderSize = 2;
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderColor = bound_element;
+        }
+
+        private void ChargedFormPayButton_Click(object sender, EventArgs e)
+        {
+            if (FormIsNotOpened(f2))
             {
-                f2=new ChargedForm();
+                f2 = new ChargedForm();
                 f2.Show();
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void PieceRateFormPayButton_Click(object sender, EventArgs e)
         {
-            if (f3==null||f3.IsDisposed)
+            if (FormIsNotOpened(f3))
             {
-                f3=new PieceRateForm();
+                f3 = new PieceRateForm();
                 f3.Show();
             }
         }
 
-        private void Form4_Load(object sender, EventArgs e)
+        private bool FormIsNotOpened(Form form)
         {
-            
+            if (form == null || form.IsDisposed)
+                return true;
+            return false;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void AboutProgramButton_Click(object sender, EventArgs e)
         {
             AboutBox1 about = new AboutBox1();
-            about.FormBorderStyle=FormBorderStyle.FixedToolWindow;
+            about.FormBorderStyle = FormBorderStyle.FixedToolWindow;
             about.ShowDialog();
         }
     }

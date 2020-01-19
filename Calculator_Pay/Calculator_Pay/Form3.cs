@@ -20,6 +20,11 @@ namespace Calculator_Pay
         Font font_p_gp = new Font("Arial Narrow", 12, FontStyle.Underline);
         Font font_button = new Font("Arial Black", 11, FontStyle.Regular);
 
+        private double ops = 0;
+        private double norma = 0;
+        private double procent = 0;
+        private double tarif = 0;
+
         public PieceRateForm()
         {
             InitializeComponent();
@@ -31,13 +36,6 @@ namespace Calculator_Pay
             SetSettingsButton(ExportToExcelButton);
             SetSettingsButton(CertificateButton);
         }
-        
-        private double allTime = 0, workTime = 0;
-        private double ops = 0;
-        private double norma = 0;
-        private double procent = 0;
-        private double tarif = 0;
-        private string print = "";
 
         private void SetFontComponents()
         {
@@ -102,13 +100,12 @@ namespace Calculator_Pay
         }
 
         // Расчет полной оплаты труда
-        private void button1_Click(object sender, EventArgs e)
+        private void CalculateButton_Click(object sender, EventArgs e)
         {
             try
             {
                 double result = 0;
                 SetToNullTextBoxesIfEmpty();
-
                 if (IsIndirectFormRadioButton.Checked == true
                     || IsDirectFormRadioButton.Checked == true
                     || ProgressFormRadioButton.Checked == true)
@@ -116,28 +113,21 @@ namespace Calculator_Pay
                     tarif = Convert.ToDouble(textBox2.Text);
                     ops = Convert.ToDouble(textBox3.Text);
                     norma = Convert.ToDouble(textBox1.Text);
-
                     if (IsIndirectFormRadioButton.Checked == true)
                         result = CalcIndirectForm();
-
                     if (IsDirectFormRadioButton.Checked == true)
                         result = CalcTarif() * ops;
-
                     if (ProgressFormRadioButton.Checked == true)
                         result = CalcTarif() * ops +
-                            + Convert.ToInt32(textBox6.Text) * Convert.ToDouble(textBox7.Text);
+                            +Convert.ToInt32(textBox6.Text) * Convert.ToDouble(textBox7.Text);
                 }
-
                 if (IsAccordFormRadioButton.Checked == true)
                     result = CalcAccordForm();
-
                 if (ExistBonuseCheckBox.Checked == true)
                     result += Convert.ToDouble(BonuseTextBox.Text);
-
                 result -= result * 0.13;
                 if (result < 0)
                     result = 0;
-
                 PayOnHandTextBox.Text = result.ToString("N2");
             }
             catch (Exception ex)
@@ -148,25 +138,24 @@ namespace Calculator_Pay
 
         private void SetToNullTextBoxesIfEmpty()
         {
-            if (textBox1.Text == "")
-                textBox1.Text = 0.ToString();
-            if (textBox2.Text == "")
-                textBox2.Text = 0.ToString();
-            if (textBox3.Text == "")
-                textBox3.Text = 0.ToString();
-            if (BonuseTextBox.Text == "")
-                BonuseTextBox.Text = 0.ToString();
-            if (textBox6.Text == "")
-                textBox6.Text = 0.ToString();
-            if (textBox7.Text == "")
-                textBox7.Text = 0.ToString();
+            SetZeroToTextBoxIfItsEmpty(textBox1);
+            SetZeroToTextBoxIfItsEmpty(textBox2);
+            SetZeroToTextBoxIfItsEmpty(textBox3);
+            SetZeroToTextBoxIfItsEmpty(textBox6);
+            SetZeroToTextBoxIfItsEmpty(textBox7);
+        }
+
+        private void SetZeroToTextBoxIfItsEmpty(TextBox textBox)
+        {
+            if (textBox.Text == "")
+                textBox.Text = 0.ToString();
         }
 
         private double CalcAccordForm()
         {
             tarif = Convert.ToDouble(textBox1.Text);
-            allTime = Convert.ToDouble(textBox2.Text);
-            workTime = Convert.ToDouble(textBox3.Text);
+            double allTime = Convert.ToDouble(textBox2.Text);
+            double workTime = Convert.ToDouble(textBox3.Text);
             if (allTime * workTime == 0)
                 return 0;
             return tarif / allTime * workTime;
@@ -175,10 +164,8 @@ namespace Calculator_Pay
         private double CalcIndirectForm()
         {
             procent = Convert.ToDouble(textBox6.Text);
-
             if (procent < 0 || procent > 100)
                 procent = 0.00;
-
             return CalcTarif() * ops * (procent / 100);
         }
 
@@ -207,7 +194,7 @@ namespace Calculator_Pay
         }
 
         // Печать
-        private async void button2_Click(object sender, EventArgs e)
+        private async void PrintButton_Click(object sender, EventArgs e)
         {
             await Task.Run(() => Print());
         }
@@ -216,8 +203,7 @@ namespace Calculator_Pay
         {
             try
             {
-                CreatePrintString();
-                PrintWork printToDoc = new PrintWork(print);
+                PrintWork printToDoc = new PrintWork(CreatePrintString());
                 printToDoc.PrintToDocument();
             }
             catch (Exception ex)
@@ -226,41 +212,32 @@ namespace Calculator_Pay
             }
         }
 
-        private void CreatePrintString()
+        private string CreatePrintString()
         {
-            double ndfl = Convert.ToDouble(PayOnHandTextBox.Text) * 0.13;
-            print = "\n\n\t\t\tВаша заработная плата\n\n" +
+            string print = "\n\n\t\t\tВаша заработная плата\n\n" +
                 "В соответствии с проведенными расчетами, ваша заработная плата равна "
                 +PayOnHandTextBox.Text + "руб.\n"
-                +"НДФЛ: " + ndfl.ToString("N2") + "руб.\n"
+                +"НДФЛ: " + GetNDFL().ToString("N2") + "руб.\n"
                 +"Надбавки: нет.\n"
                 +"Вычеты: нет.\n"
                 +"Премия: " + BonuseTextBox.Text + "руб.";
+            return print;
         }
 
-        // Вывод окна "О программе"
-        private void button3_Click(object sender, EventArgs e)
+        private double GetNDFL()
         {
-            AboutBox1 about = new AboutBox1();
-            about.FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            about.ShowDialog();
+            return Convert.ToDouble(PayOnHandTextBox.Text) * 0.13;
         }
 
         // Сохранение данных в Excel
-        private void button3_Click_1(object sender, EventArgs e)
+        private void ExportToExcelButton_Click(object sender, EventArgs e)
         {
             try
             {
-                double ndfl = Convert.ToDouble(PayOnHandTextBox.Text)*0.13;
-
                 OpenFileDialog dialog = new OpenFileDialog
                 {
                     Filter="Файлы Excel |*.xlsx"
                 };
-
-                if (dialog.ShowDialog() == DialogResult.Cancel)
-                    return;
-
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     Excel.Application app = new Excel.Application();
@@ -272,7 +249,7 @@ namespace Calculator_Pay
                         sheet.Cells[1, 1] = "Зарплата";
                         sheet.Cells[1, 2] = PayOnHandTextBox.Text;
                         sheet.Cells[2, 1] = "НДФЛ";
-                        sheet.Cells[2, 2] = ndfl.ToString("N2");
+                        sheet.Cells[2, 2] = GetNDFL().ToString("N2");
                         sheet.Cells[3, 1] = "Надбавки";
                         sheet.Cells[3, 2] = 0.ToString("N2");
                         sheet.Cells[4, 1] = "Вычеты";
@@ -282,7 +259,6 @@ namespace Calculator_Pay
                     }
                     book.Save();
                     app.Quit();
-
                     MessageBox.Show("Сохранение завершено!");
                 }
             }
@@ -292,7 +268,7 @@ namespace Calculator_Pay
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void CertificateButton_Click(object sender, EventArgs e)
         {
             try
             {

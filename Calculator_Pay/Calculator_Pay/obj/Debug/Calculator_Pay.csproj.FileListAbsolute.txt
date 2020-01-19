@@ -45,3 +45,15 @@ C:\Users\lenovo\Desktop\Курсовая_Алиев\Calculator_Pay\Calculator_Pa
 C:\Users\lenovo\Desktop\Курсовая_Алиев\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.ChargedForm.resources
 C:\Users\lenovo\Desktop\Курсовая_Алиев\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.csprojResolveAssemblyReference.cache
 C:\Users\lenovo\Desktop\Курсовая_Алиев\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.PieceRateForm.resources
+C:\GitHub_Koxpit\Projects_Koxpit\Calculator_Pay\Calculator_Pay\bin\Debug\Calculator_Pay.exe.config
+C:\GitHub_Koxpit\Projects_Koxpit\Calculator_Pay\Calculator_Pay\bin\Debug\Calculator_Pay.exe
+C:\GitHub_Koxpit\Projects_Koxpit\Calculator_Pay\Calculator_Pay\bin\Debug\Calculator_Pay.pdb
+C:\GitHub_Koxpit\Projects_Koxpit\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.csprojResolveAssemblyReference.cache
+C:\GitHub_Koxpit\Projects_Koxpit\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.AboutBox1.resources
+C:\GitHub_Koxpit\Projects_Koxpit\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.ChargedForm.resources
+C:\GitHub_Koxpit\Projects_Koxpit\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.PieceRateForm.resources
+C:\GitHub_Koxpit\Projects_Koxpit\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.Form4.resources
+C:\GitHub_Koxpit\Projects_Koxpit\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.Properties.Resources.resources
+C:\GitHub_Koxpit\Projects_Koxpit\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.csproj.GenerateResource.Cache
+C:\GitHub_Koxpit\Projects_Koxpit\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.exe
+C:\GitHub_Koxpit\Projects_Koxpit\Calculator_Pay\Calculator_Pay\obj\Debug\Calculator_Pay.pdb

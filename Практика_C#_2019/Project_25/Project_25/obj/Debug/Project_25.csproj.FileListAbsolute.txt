@@ -45,3 +45,12 @@ C:\F\src\Project_25\Project_25\obj\Debug\Project_25.Properties.Resources.resourc
 C:\F\src\Project_25\Project_25\obj\Debug\Project_25.csproj.GenerateResource.Cache
 C:\F\src\Project_25\Project_25\obj\Debug\Project_25.exe
 C:\F\src\Project_25\Project_25\obj\Debug\Project_25.pdb
+C:\GitHub_Koxpit\Projects_Koxpit\Практика_C#_2019\Project_25\Project_25\bin\Debug\Project_25.exe.config
+C:\GitHub_Koxpit\Projects_Koxpit\Практика_C#_2019\Project_25\Project_25\bin\Debug\Project_25.exe
+C:\GitHub_Koxpit\Projects_Koxpit\Практика_C#_2019\Project_25\Project_25\bin\Debug\Project_25.pdb
+C:\GitHub_Koxpit\Projects_Koxpit\Практика_C#_2019\Project_25\Project_25\obj\Debug\Project_25.csprojResolveAssemblyReference.cache
+C:\GitHub_Koxpit\Projects_Koxpit\Практика_C#_2019\Project_25\Project_25\obj\Debug\Project_25.Form1.resources
+C:\GitHub_Koxpit\Projects_Koxpit\Практика_C#_2019\Project_25\Project_25\obj\Debug\Project_25.Properties.Resources.resources
+C:\GitHub_Koxpit\Projects_Koxpit\Практика_C#_2019\Project_25\Project_25\obj\Debug\Project_25.csproj.GenerateResource.Cache
+C:\GitHub_Koxpit\Projects_Koxpit\Практика_C#_2019\Project_25\Project_25\obj\Debug\Project_25.exe
+C:\GitHub_Koxpit\Projects_Koxpit\Практика_C#_2019\Project_25\Project_25\obj\Debug\Project_25.pdb

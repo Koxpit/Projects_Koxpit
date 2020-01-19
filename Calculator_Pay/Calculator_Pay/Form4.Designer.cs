@@ -29,40 +29,40 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.PieceRateFormPayButton = new System.Windows.Forms.Button();
+            this.ChargedFormPayButton = new System.Windows.Forms.Button();
+            this.AboutProgramButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button2
+            // PieceRateFormPayButton
             // 
-            this.button2.Location = new System.Drawing.Point(193, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(139, 50);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Сдельная";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.PieceRateFormPayButton.Location = new System.Drawing.Point(193, 12);
+            this.PieceRateFormPayButton.Name = "PieceRateFormPayButton";
+            this.PieceRateFormPayButton.Size = new System.Drawing.Size(139, 50);
+            this.PieceRateFormPayButton.TabIndex = 1;
+            this.PieceRateFormPayButton.Text = "Сдельная";
+            this.PieceRateFormPayButton.UseVisualStyleBackColor = true;
+            this.PieceRateFormPayButton.Click += new System.EventHandler(this.PieceRateFormPayButton_Click);
             // 
-            // button1
+            // ChargedFormPayButton
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 50);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Повременная";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ChargedFormPayButton.Location = new System.Drawing.Point(12, 12);
+            this.ChargedFormPayButton.Name = "ChargedFormPayButton";
+            this.ChargedFormPayButton.Size = new System.Drawing.Size(139, 50);
+            this.ChargedFormPayButton.TabIndex = 0;
+            this.ChargedFormPayButton.Text = "Повременная";
+            this.ChargedFormPayButton.UseVisualStyleBackColor = true;
+            this.ChargedFormPayButton.Click += new System.EventHandler(this.ChargedFormPayButton_Click);
             // 
-            // button3
+            // AboutProgramButton
             // 
-            this.button3.Location = new System.Drawing.Point(101, 68);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(139, 50);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "О программе";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.AboutProgramButton.Location = new System.Drawing.Point(101, 68);
+            this.AboutProgramButton.Name = "AboutProgramButton";
+            this.AboutProgramButton.Size = new System.Drawing.Size(139, 50);
+            this.AboutProgramButton.TabIndex = 2;
+            this.AboutProgramButton.Text = "О программе";
+            this.AboutProgramButton.UseVisualStyleBackColor = true;
+            this.AboutProgramButton.Click += new System.EventHandler(this.AboutProgramButton_Click);
             // 
             // Form4
             // 
@@ -70,9 +70,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(191)))), ((int)(((byte)(104)))));
             this.ClientSize = new System.Drawing.Size(344, 126);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AboutProgramButton);
+            this.Controls.Add(this.PieceRateFormPayButton);
+            this.Controls.Add(this.ChargedFormPayButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(360, 165);
@@ -80,15 +80,14 @@
             this.Name = "Form4";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Форма оплаты труда";
-            this.Load += new System.EventHandler(this.Form4_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button PieceRateFormPayButton;
+        private System.Windows.Forms.Button ChargedFormPayButton;
+        private System.Windows.Forms.Button AboutProgramButton;
     }
 }
