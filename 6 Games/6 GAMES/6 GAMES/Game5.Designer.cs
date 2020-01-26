@@ -30,36 +30,36 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game5));
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.eat = new System.Windows.Forms.Button();
             this.slep = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxHero = new System.Windows.Forms.PictureBox();
             this.game = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.progressBar2 = new System.Windows.Forms.ProgressBar();
-            this.progressBar3 = new System.Windows.Forms.ProgressBar();
+            this.progressBarHungry = new System.Windows.Forms.ProgressBar();
+            this.progressBarFatigue = new System.Windows.Forms.ProgressBar();
+            this.progressBarHappy = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.new_game = new System.Windows.Forms.Button();
             this.no_slep = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHero)).BeginInit();
             this.SuspendLayout();
             // 
-            // imageList1
+            // imageList
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "1.png");
-            this.imageList1.Images.SetKeyName(1, "2.png");
-            this.imageList1.Images.SetKeyName(2, "3.png");
-            this.imageList1.Images.SetKeyName(3, "4.png");
-            this.imageList1.Images.SetKeyName(4, "5.png");
-            this.imageList1.Images.SetKeyName(5, "6.png");
-            this.imageList1.Images.SetKeyName(6, "7.png");
-            this.imageList1.Images.SetKeyName(7, "8.png");
-            this.imageList1.Images.SetKeyName(8, "9.png");
+            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList.Images.SetKeyName(0, "1.png");
+            this.imageList.Images.SetKeyName(1, "2.png");
+            this.imageList.Images.SetKeyName(2, "3.png");
+            this.imageList.Images.SetKeyName(3, "4.png");
+            this.imageList.Images.SetKeyName(4, "5.png");
+            this.imageList.Images.SetKeyName(5, "6.png");
+            this.imageList.Images.SetKeyName(6, "7.png");
+            this.imageList.Images.SetKeyName(7, "8.png");
+            this.imageList.Images.SetKeyName(8, "9.png");
             // 
             // eat
             // 
@@ -85,14 +85,14 @@
             this.slep.UseVisualStyleBackColor = false;
             this.slep.Click += new System.EventHandler(this.slep_Click);
             // 
-            // pictureBox1
+            // pictureBoxHero
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(237, 222);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxHero.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxHero.Location = new System.Drawing.Point(12, 12);
+            this.pictureBoxHero.Name = "pictureBoxHero";
+            this.pictureBoxHero.Size = new System.Drawing.Size(237, 222);
+            this.pictureBoxHero.TabIndex = 2;
+            this.pictureBoxHero.TabStop = false;
             // 
             // game
             // 
@@ -111,30 +111,30 @@
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // progressBar1
+            // progressBarHungry
             // 
-            this.progressBar1.Location = new System.Drawing.Point(255, 27);
-            this.progressBar1.Maximum = 1000;
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(179, 23);
-            this.progressBar1.TabIndex = 4;
+            this.progressBarHungry.Location = new System.Drawing.Point(255, 27);
+            this.progressBarHungry.Maximum = 1000;
+            this.progressBarHungry.Name = "progressBarHungry";
+            this.progressBarHungry.Size = new System.Drawing.Size(179, 23);
+            this.progressBarHungry.TabIndex = 4;
             // 
-            // progressBar2
+            // progressBarFatigue
             // 
-            this.progressBar2.Location = new System.Drawing.Point(255, 73);
-            this.progressBar2.Maximum = 1000;
-            this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Size = new System.Drawing.Size(179, 23);
-            this.progressBar2.TabIndex = 5;
+            this.progressBarFatigue.Location = new System.Drawing.Point(255, 73);
+            this.progressBarFatigue.Maximum = 1000;
+            this.progressBarFatigue.Name = "progressBarFatigue";
+            this.progressBarFatigue.Size = new System.Drawing.Size(179, 23);
+            this.progressBarFatigue.TabIndex = 5;
             // 
-            // progressBar3
+            // progressBarHappy
             // 
-            this.progressBar3.Location = new System.Drawing.Point(255, 127);
-            this.progressBar3.Maximum = 1000;
-            this.progressBar3.Name = "progressBar3";
-            this.progressBar3.Size = new System.Drawing.Size(179, 23);
-            this.progressBar3.TabIndex = 6;
-            this.progressBar3.Value = 1000;
+            this.progressBarHappy.Location = new System.Drawing.Point(255, 127);
+            this.progressBarHappy.Maximum = 1000;
+            this.progressBarHappy.Name = "progressBarHappy";
+            this.progressBarHappy.Size = new System.Drawing.Size(179, 23);
+            this.progressBarHappy.TabIndex = 6;
+            this.progressBarHappy.Value = 1000;
             // 
             // label1
             // 
@@ -198,11 +198,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.progressBar3);
-            this.Controls.Add(this.progressBar2);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.progressBarHappy);
+            this.Controls.Add(this.progressBarFatigue);
+            this.Controls.Add(this.progressBarHungry);
             this.Controls.Add(this.game);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBoxHero);
             this.Controls.Add(this.slep);
             this.Controls.Add(this.eat);
             this.DoubleBuffered = true;
@@ -211,7 +211,7 @@
             this.Name = "Game5";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Тамагочи";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHero)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,15 +219,15 @@
 
         #endregion
 
-        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.Button eat;
         private System.Windows.Forms.Button slep;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxHero;
         private System.Windows.Forms.Button game;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.ProgressBar progressBar2;
-        private System.Windows.Forms.ProgressBar progressBar3;
+        private System.Windows.Forms.ProgressBar progressBarHungry;
+        private System.Windows.Forms.ProgressBar progressBarFatigue;
+        private System.Windows.Forms.ProgressBar progressBarHappy;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

@@ -5,71 +5,63 @@ namespace _6_GAMES
 {
     public partial class Game5 : Form
     {
-        int sleep = 0; //переменная сна 
+        int sleep = 0;
+
         public Game5()
         {
             InitializeComponent();
-            pictureBox1.Image = imageList1.Images[0];
-            
+            pictureBoxHero.Image = imageList.Images[0];
         }
 
         private void eat_Click(object sender, EventArgs e)
         {
-            try
+            if(progressBarHungry.Value > progressBarHungry.Maximum-50)
             {
-                pictureBox1.Image = imageList1.Images[3];
-                progressBar1.Value -= 50;
+                pictureBoxHero.Image = imageList.Images[3];
+                progressBarHungry.Value -= 50;
             }
-            catch
+            else
             {
-                progressBar1.Value = 0;
+                progressBarHungry.Value = 0;
             }
         }
 
         private void slep_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = imageList1.Images[8];
+            pictureBoxHero.Image = imageList.Images[8];
             sleep = 1;
         }
 
         private void game_Click(object sender, EventArgs e)
         {
-            if (progressBar3.Value < progressBar3.Maximum-50)
+            if (progressBarHappy.Value < progressBarHappy.Maximum-50)
             {
-                pictureBox1.Image = imageList1.Images[1];
-                progressBar3.Value += 50;
+                pictureBoxHero.Image = imageList.Images[1];
+                progressBarHappy.Value += 50;
             }
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
-
-
-            progressBar1.Value++;
-
             try
             {
+                progressBarHungry.Value++;
                 if (sleep == 1)
-                    progressBar2.Value -= 10;
+                    progressBarFatigue.Value -= 10;
                 else
-                    progressBar2.Value++;
+                    progressBarFatigue.Value++;
+                progressBarHappy.Value--;
             }
             catch
             {
                 sleep = 0;
-                pictureBox1.Image = imageList1.Images[0];
+                pictureBoxHero.Image = imageList.Images[0];
             }
-            
-
-
-
-
-            progressBar3.Value--;
         }
 
         private void no_slep_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = imageList1.Images[0];
+            pictureBoxHero.Image = imageList.Images[0];
             sleep = 0;
         }
 

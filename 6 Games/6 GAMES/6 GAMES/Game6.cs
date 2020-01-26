@@ -11,11 +11,6 @@ namespace _6_GAMES
         double sx = 1, sy = 1, bx, by; 
         int countx, county; //переменные размера блока
 
-        private void Game6_Load(object sender, EventArgs e)
-        {
-
-        }
-
         public Game6()
         {
             InitializeComponent();
@@ -129,7 +124,6 @@ namespace _6_GAMES
                 Game6 newForm = new Game6();
                 newForm.Show();
             }
-
         }
 
         private void Game6_KeyDown(object sender, KeyEventArgs e)

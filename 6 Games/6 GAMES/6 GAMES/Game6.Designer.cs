@@ -89,7 +89,6 @@
             this.Name = "Game6";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Арканоид";
-            this.Load += new System.EventHandler(this.Game6_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Game6_KeyDown);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
