@@ -12,7 +12,7 @@ namespace Note
     public partial class CalendarForm : Form
     {
         private string printData = "";
-        private List<Calendar> recordList { get; set; }
+        private List<Calendar> recordList;
 
         public List<Calendar> RecordList
         {
@@ -23,7 +23,6 @@ namespace Note
         public CalendarForm()
         {
             InitializeComponent();
-
             recordList = new List<Calendar>();
         }
 
@@ -40,10 +39,11 @@ namespace Note
                     Date = monthCalendar.SelectionStart.ToLongDateString(),
                     Note = textBox.Text
                 });
-
                 OutputListRecordToDataGrid();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void OutputListRecordToDataGrid()
@@ -59,18 +59,19 @@ namespace Note
         {
             try
             {
-                if (dataGridView.CurrentRow!=null)
+                if (dataGridView.CurrentRow != null)
                 {
                     if (dataGridView.SelectedRows.Count == 0)
                         MessageBox.Show("No records selected!");
                     else
                         foreach (DataGridViewRow row in dataGridView.SelectedRows)
                             recordList.RemoveAt(row.Index);
-
                     OutputListRecordToDataGrid();
                 }
-                else { MessageBox.Show("Book is empty!"); }
-
+                else
+                {
+                    MessageBox.Show("Book is empty!");
+                }
             }
             catch (Exception ex)
             {
@@ -83,7 +84,6 @@ namespace Note
         {
             recordList.RemoveAt(dataGridView.CurrentRow.Index);
             AddRecord();
-
             OutputListRecordToDataGrid();
         }
 
@@ -150,7 +150,7 @@ namespace Note
         private void aboutProgramToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutBox1 about = new AboutBox1();
-            about.FormBorderStyle=FormBorderStyle.FixedToolWindow;
+            about.FormBorderStyle = FormBorderStyle.FixedToolWindow;
             about.ShowDialog();
         }
 
@@ -161,9 +161,9 @@ namespace Note
     }
 
     [Serializable]
-    public class Calendar
+    public struct Calendar
     {
-        public string Date { get; set; }
-        public string Note { get; set; }
+        internal string Date { get; set; }
+        internal string Note { get; set; }
     }
 }

@@ -17,7 +17,6 @@ namespace Note
         public LoginForm()
         {
             InitializeComponent();
-
             LoadUsers();
             ID = users.id.Count;
         }
@@ -31,7 +30,6 @@ namespace Note
                 {
                     BinaryFormatter formatter = new BinaryFormatter();
                     users = (Users)formatter.Deserialize(fs);
-
                     fs.Close();
                 }
             }
@@ -48,11 +46,9 @@ namespace Note
                     NoteBookForm form1 = new NoteBookForm();
                     form1.ID = ID;
                     MessageBox.Show("You are logged in!");
-
                     Hide();
                     form1.LoginUserDataLabel.Text = login + "/id: " + ID.ToString();
                     form1.ShowDialog();
-
                     Close();
                 }
             }
@@ -74,18 +70,15 @@ namespace Note
                     login = users.logins[i];
                     password = users.passwords[i];
                     ID = i + 1;
-
                     return true;
                 }
                 else if (users.logins[i] == LoginTextBox.Text && users.passwords[i] != PasswordTextBox.Text)
                 {
                     login = users.logins[i];
                     MessageBox.Show("Invalid password!");
-
                     return false;
                 }
             }
-
             return false;
         }
 
@@ -94,10 +87,8 @@ namespace Note
             if (LoginTextBox.Text == string.Empty || PasswordTextBox.Text == string.Empty)
             {
                 MessageBox.Show("No login or password entered!");
-
                 return true;
             }
-
             return false;
         }
 
@@ -108,7 +99,7 @@ namespace Note
             {
                 if (ValidRegistrationSuccessful())
                 {
-                    AddNewUser();
+                    AddUser();
                     await Task.Run(() => UpdateUsersData());
                     MessageBox.Show("You have successfully registered!");
                     login = LoginTextBox.Text;
@@ -129,21 +120,18 @@ namespace Note
                 if (users.logins[i] == LoginTextBox.Text)
                 {
                     MessageBox.Show("This login already exists!");
-
                     return false;
                 }
 
             if (PasswordTextBox.Text.Length < 4)
             {
                 MessageBox.Show("Password must be at least 4 characters!");
-
                 return false;
             }
-
             return true;
         }
 
-        private void AddNewUser()
+        private void AddUser()
         {
             users.logins.Add(LoginTextBox.Text);
             users.passwords.Add(PasswordTextBox.Text);
@@ -156,7 +144,6 @@ namespace Note
             {
                 BinaryFormatter formatter = new BinaryFormatter();
                 formatter.Serialize(fs, users);
-
                 fs.Close();
             }
         }

@@ -445,12 +445,12 @@ namespace Note
     }
 
     [Serializable]
-    public class Record
+    public struct Record
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Patronymic { get; set; }
-        public string Birthday { get; set; }
-        public string PhoneNumber { get; set; }
+        internal string Name { get; set; }
+        internal string Surname { get; set; }
+        internal string Patronymic { get; set; }
+        internal string Birthday { get; set; }
+        internal string PhoneNumber { get; set; }
     }
 }

@@ -171,6 +171,7 @@ namespace _6_GAMES
             int x1 = x + Width;
             int y1 = y + Height;
             bool cl = false;
+
             if (xb1 >= x && xb1 <= x1 && ((y > yb && y < yb1) || (y1 > yb && y1 < yb1))) //столкновение справа
             {
                 cl = true;

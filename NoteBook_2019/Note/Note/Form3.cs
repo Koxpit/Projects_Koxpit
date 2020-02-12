@@ -28,7 +28,6 @@ namespace Note
         public CartForm()
         {
             InitializeComponent();
-
             f1 = (NoteBookForm)Owner;
         }
 
@@ -55,7 +54,6 @@ namespace Note
 
                             MessageBox.Show("Delete complete!");
                         }
-
                         OutputCartListToDataGrid();
                     }
                 }
@@ -84,13 +82,14 @@ namespace Note
                     if (result == DialogResult.Yes)
                     {
                         cart.Clear();
-
                         OutputCartListToDataGrid();
                         MessageBox.Show("Cart cleared successfully!");
                     }
                 }
-                else { MessageBox.Show("Cart is empty!"); }
-
+                else
+                {
+                    MessageBox.Show("Cart is empty!");
+                }
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
@@ -141,16 +140,17 @@ namespace Note
                     DialogResult result = MessageBox.Show("Do you want to restore all records?",
                         "Recovery", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                    if (result==DialogResult.Yes)
+                    if (result == DialogResult.Yes)
                     {
                         recoverList.AddRange(cart);
                         cart.Clear();
-
                         OutputCartListToDataGrid();
                         MessageBox.Show("Cart cleared successfully!");
                     }
                 }
-                else { MessageBox.Show("Cart is empty!"); }
+                else {
+                    MessageBox.Show("Cart is empty!");
+                }
 
             }
             catch (Exception ex)

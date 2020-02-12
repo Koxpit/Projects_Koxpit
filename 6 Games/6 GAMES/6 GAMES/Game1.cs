@@ -9,7 +9,9 @@ namespace _6_GAMES
         private int lenWorm = 5; // длина червя
         Point[] worm = new Point[200];
         Point apple; //точка яблока (создание "Яблока")
-        DIRECTOIN direct = DIRECTOIN.UP; //движется вверх сначала
+        Direction direction = new UpDirection();
+        SolidBrush colorWorm = new SolidBrush(Color.Green);
+        SolidBrush colorApple = new SolidBrush(Color.Red);
 
         public Game1()
         {
@@ -40,9 +42,7 @@ namespace _6_GAMES
                 worm[i + 1].X = worm[i].X;
                 worm[i + 1].Y = worm[i].Y;
             }
-            HandlePressKey();
-            SolidBrush colorWorm = new SolidBrush(Color.Green);
-            SolidBrush colorApple = new SolidBrush(Color.Red);
+            direction.Move(ref worm);
             for (int i = 0; i < lenWorm; i++) // отрисовка червя
             {
                 try
@@ -56,34 +56,6 @@ namespace _6_GAMES
                 {
                     Close();
                 }
-            }
-        }
-
-        private void HandlePressKey()
-        {
-            if (direct == DIRECTOIN.LEFT)
-            {
-                worm[0].X = worm[1].X - 10;
-                CloseIfWormOutsideForm(direct);
-                worm[0].Y = worm[1].Y;
-            }
-            if (direct == DIRECTOIN.RIGTH)
-            {
-                worm[0].X = worm[1].X + 10;
-                CloseIfWormOutsideForm(direct);
-                worm[0].Y = worm[1].Y;
-            }
-            if (direct == DIRECTOIN.UP)
-            {
-                worm[0].X = worm[1].X;
-                worm[0].Y = worm[1].Y - 10;
-                CloseIfWormOutsideForm(direct);
-            }
-            if (direct == DIRECTOIN.DOWN)
-            {
-                worm[0].X = worm[1].X;
-                worm[0].Y = worm[1].Y + 10;
-                CloseIfWormOutsideForm(direct);
             }
         }
 
@@ -115,28 +87,6 @@ namespace _6_GAMES
             lenWorm++;
         }
 
-        private void CloseIfWormOutsideForm(DIRECTOIN direct)
-        {
-            if (WormIsOutsideForm(direct))
-                CloseGame();
-        }
-
-        private bool WormIsOutsideForm(DIRECTOIN direct)
-        {
-            switch(direct)
-            {
-                case DIRECTOIN.LEFT:
-                    return worm[0].X < 0;
-                case DIRECTOIN.RIGTH:
-                    return worm[0].X > 490;
-                case DIRECTOIN.UP:
-                    return worm[0].Y < 0;
-                case DIRECTOIN.DOWN:
-                    return worm[0].Y > 490;
-            }
-            return true;
-        }
-
         private void CloseGame()
         {
             timer1.Stop();
@@ -157,13 +107,25 @@ namespace _6_GAMES
         private void SetCurrentDirect(KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left)
-                direct = DIRECTOIN.LEFT;
+            {
+                direction = new LeftDirection();
+                direction.Move(ref worm);
+            }
             if (e.KeyCode == Keys.Right)
-                direct = DIRECTOIN.RIGTH;
+            {
+                direction = new RightDirection();
+                direction.Move(ref worm);
+            }
             if (e.KeyCode == Keys.Up)
-                direct = DIRECTOIN.UP;
+            {
+                direction = new UpDirection();
+                direction.Move(ref worm);
+            }
             if (e.KeyCode == Keys.Down)
-                direct = DIRECTOIN.DOWN;
+            {
+                direction = new DownDirection();
+                direction.Move(ref worm);
+            }
         }
 
         private void начатьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -217,8 +179,72 @@ namespace _6_GAMES
         }
     }
 
-    public enum DIRECTOIN
+    abstract class Direction
     {
-        UP, DOWN, LEFT, RIGTH
+        public abstract void Move(ref Point[] obj);
+    }
+
+    class UpDirection : Direction
+    {
+        private void CheckOutside(Point[] obj)
+        {
+            if (obj[0].Y < 0)
+                Application.Exit();
+        }
+
+        public override void Move(ref Point[] obj)
+        {
+            CheckOutside(obj);
+            obj[0].X = obj[1].X;
+            obj[0].Y = obj[1].Y - 10;
+        }
+    }
+
+    class DownDirection : Direction
+    {
+        private void CheckOutside(Point[] obj)
+        {
+            if (obj[0].Y > 490)
+                Application.Exit();
+        }
+
+        public override void Move(ref Point[] obj)
+        {
+            CheckOutside(obj);
+            obj[0].X = obj[1].X;
+            obj[0].Y = obj[1].Y + 10;
+        }
+    }
+
+    class LeftDirection : Direction
+    {
+        private void CheckOutside(Point[] obj)
+        {
+            if (obj[0].X < 0)
+                Application.Exit();
+        }
+
+        public override void Move(ref Point[] obj)
+        {
+            CheckOutside(obj);
+            obj[0].X = obj[1].X - 10;
+            obj[0].Y = obj[1].Y;
+        }
+    }
+
+    class RightDirection : Direction
+    {
+        private void CheckOutside(Point[] obj)
+        {
+            if (obj[0].X > 490)
+                Application.Exit();
+        }
+
+        public override void Move(ref Point[] obj)
+        {
+            CheckOutside(obj);
+            obj[0].X = obj[1].X + 10;
+            obj[0].Y = obj[1].Y;
+        }
     }
 }

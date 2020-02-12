@@ -8,7 +8,7 @@ namespace Note
         {
             List<Record> list = new List<Record>();
             foreach (Record rec in ListRecords)
-                if (rec.Name==FName)
+                if (rec.Name == FName)
                     list.Add(rec);
 
             return list;
@@ -18,7 +18,7 @@ namespace Note
         {
             List<Record> list = new List<Record>();
             foreach (Record rec in ListRecords)
-                if (rec.Surname==LName)
+                if (rec.Surname == LName)
                     list.Add(rec);
 
             return list;
@@ -28,7 +28,7 @@ namespace Note
         {
             List<Record> list = new List<Record>();
             foreach (Record rec in ListRecords)
-                if (rec.Patronymic==Patronymic)
+                if (rec.Patronymic == Patronymic)
                     list.Add(rec);
 
             return list;
@@ -38,7 +38,7 @@ namespace Note
         {
             List<Record> list = new List<Record>();
             foreach (Record rec in ListRecords)
-                if (rec.Birthday==Birthday)
+                if (rec.Birthday == Birthday)
                     list.Add(rec);
 
             return list;
@@ -48,7 +48,7 @@ namespace Note
         {
             List<Record> list = new List<Record>();
             foreach (Record rec in ListRecords)
-                if (rec.PhoneNumber==PhoneNumber)
+                if (rec.PhoneNumber == PhoneNumber)
                     list.Add(rec);
 
             return list;
@@ -58,11 +58,11 @@ namespace Note
         {
             List<Record> list = new List<Record>();
             foreach (Record rec in ListRecords)
-                if (rec.Name==search.Name
-                    && rec.Surname==search.Surname
-                    && rec.Patronymic==search.Patronymic
-                    && rec.Birthday==search.Birthday
-                    && rec.PhoneNumber==search.PhoneNumber)
+                if (rec.Name == search.Name
+                    && rec.Surname == search.Surname
+                    && rec.Patronymic == search.Patronymic
+                    && rec.Birthday == search.Birthday
+                    && rec.PhoneNumber == search.PhoneNumber)
                     list.Add(rec);
 
             return list;
