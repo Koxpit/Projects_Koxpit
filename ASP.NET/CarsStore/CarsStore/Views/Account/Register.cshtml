@@ -1,8 +1,8 @@
-﻿@model UserInfo
+﻿@model CarsStore.ViewModels.RegisterModel
 
 <h3>Форма регистрации</h3>
 <div class="row">
-    <form asp-action="Registration" method="post" class="form-horizontal">
+    <form asp-action="Register" method="post" class="form-horizontal">
         <div class="form-group">
             <label asp-for="Name"></label>
             <div class="col-md-12">
@@ -38,6 +38,8 @@
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
         </div>
-        <input class="btn-success" type="submit" value="Подтвердить" />
+        <div class="form-group">
+            <input class="btn-success" type="submit" value="Подтвердить" />
+        </div>
     </form>
 </div>

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lenovo\\source\\repos\\ASPNETCore\\CarsStore\\CarsStore\\CarsStore.csproj": {}
+    "C:\\GitHub_Koxpit\\Projects_Koxpit\\ASP.NET\\CarsStore\\CarsStore\\CarsStore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lenovo\\source\\repos\\ASPNETCore\\CarsStore\\CarsStore\\CarsStore.csproj": {
+    "C:\\GitHub_Koxpit\\Projects_Koxpit\\ASP.NET\\CarsStore\\CarsStore\\CarsStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lenovo\\source\\repos\\ASPNETCore\\CarsStore\\CarsStore\\CarsStore.csproj",
+        "projectUniqueName": "C:\\GitHub_Koxpit\\Projects_Koxpit\\ASP.NET\\CarsStore\\CarsStore\\CarsStore.csproj",
         "projectName": "CarsStore",
-        "projectPath": "C:\\Users\\lenovo\\source\\repos\\ASPNETCore\\CarsStore\\CarsStore\\CarsStore.csproj",
+        "projectPath": "C:\\GitHub_Koxpit\\Projects_Koxpit\\ASP.NET\\CarsStore\\CarsStore\\CarsStore.csproj",
         "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lenovo\\source\\repos\\ASPNETCore\\CarsStore\\CarsStore\\obj\\",
+        "outputPath": "C:\\GitHub_Koxpit\\Projects_Koxpit\\ASP.NET\\CarsStore\\CarsStore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

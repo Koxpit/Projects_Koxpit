@@ -1,6 +1,7 @@
 ﻿using CarsStore.Interfaces;
 using CarsStore.Models;
 using CarsStore.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace CarsStore.Controllers
 
         [Route("Cars/List")]
         [Route("Cars/List/{category}")]
+        [Authorize]
         public IActionResult List(string category)
         {
             string _category = category;

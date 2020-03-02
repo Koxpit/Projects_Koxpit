@@ -7,6 +7,7 @@ using CarsStore.Data.Repository;
 using CarsStore.Interfaces;
 using CarsStore.Mocks;
 using CarsStore.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -32,10 +33,16 @@ namespace CarsStore
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<CarsStoreContext>(options => options.UseSqlServer(Configuration["ConnectionString:DefaultConnection"]));
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = new PathString("/Account/Login");
+                });
+
             services.AddTransient<IAllCars, CarRepository>();
             services.AddTransient<IAllCategories, CategoryRepository>();
             services.AddTransient<IAllOrders, OrderRepository>();
-            services.AddTransient<IAllUsers, UserRepository>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => ShopCart.GetCart(sp));
@@ -62,13 +69,15 @@ namespace CarsStore
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSession();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseAuthorization();
 
             app.UseMvc(routes => {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Login}/{action=Authorization}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
 
             using (var scope = app.ApplicationServices.CreateScope())

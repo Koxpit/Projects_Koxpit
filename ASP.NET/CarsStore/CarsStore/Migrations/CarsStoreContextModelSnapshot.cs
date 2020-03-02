@@ -163,7 +163,7 @@ namespace CarsStore.Migrations
                     b.ToTable("ShopCartItem");
                 });
 
-            modelBuilder.Entity("CarsStore.Models.UserInfo", b =>
+            modelBuilder.Entity("CarsStore.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -172,9 +172,6 @@ namespace CarsStore.Migrations
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsLogin")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Login")
                         .HasColumnType("nvarchar(max)");

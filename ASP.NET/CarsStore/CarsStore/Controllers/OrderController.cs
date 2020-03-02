@@ -1,6 +1,7 @@
 ﻿using CarsStore.Data;
 using CarsStore.Interfaces;
 using CarsStore.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -19,12 +20,14 @@ namespace CarsStore.Controllers
             this.shopCart = shopCart;
         }
 
+        [Authorize]
         public IActionResult Checkout()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Checkout(Order order)
         {
             shopCart.ListShopItems = shopCart.GetShopItems();

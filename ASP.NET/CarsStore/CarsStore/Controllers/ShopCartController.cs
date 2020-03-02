@@ -1,6 +1,7 @@
 ﻿using CarsStore.Interfaces;
 using CarsStore.Models;
 using CarsStore.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace CarsStore.Controllers
             this.shopCart = shopCart;
         }
 
+        [Authorize]
         public ViewResult Index()
         {
             var items = shopCart.GetShopItems();
@@ -33,6 +35,7 @@ namespace CarsStore.Controllers
             return View(obj);
         }
 
+        [Authorize]
         public RedirectToActionResult AddToCart(int id)
         {
             var item = carRep.Cars.FirstOrDefault(i => i.Id == id);

@@ -8,18 +8,21 @@ using Microsoft.Extensions.Logging;
 using CarsStore.Models;
 using CarsStore.Interfaces;
 using CarsStore.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CarsStore.Controllers
 {
     public class HomeController : Controller
     {
         private readonly IAllCars carRep;
+        
         public HomeController(IAllCars carRep)
         {
             this.carRep = carRep;
         }
 
-        public ViewResult Index()
+        [Authorize]
+        public IActionResult Index()
         {
             var homeCars = new HomeViewModel
             {
